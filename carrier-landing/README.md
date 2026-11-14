@@ -5,7 +5,7 @@ film-look sequence with ElevenLabs (image, video, music and sound effects).
 
 | File | What it is |
 |---|---|
-| `final/carrier_landing_cinematic.mp4` | **The finished clip.** 1080p24, 14 s, stereo mix |
+| `final/carrier_landing_cinematic.mp4` | **The finished clip.** 1080p24, 16 s, stereo mix |
 | `previz/carrier_landing_previz.mp4` | The rough Blender animation (3 shots, 12 s, no audio) |
 | `previz/reference_frames/*.jpg` | 1080p screenshots from the previz, used as references in ElevenLabs |
 | `elevenlabs/film_frame_*.jpg` | The restyled film frames used as video start/end frames |
@@ -30,23 +30,24 @@ https://elevenlabs.io/app/flows/1X1eIUi99FMNSI2tdbne
 3. **Film frames (Nano Banana Pro, 2K).** The shot C end frame was restyled first and became the
    look reference. Each start frame was then restyled from two references: its previz screenshot,
    for composition, and that look frame, for aircraft design and grade.
-4. **Video (Veo 3.1, 1080p, audio off).**
-   - Shot A: helicopter chase, 6 s, start frame.
-   - Shot B: spine cam, 4 s, start frame.
-   - Shot C: the trap, 8 s, start and end frames.
+4. **Video (Seedance 2.5, 1080p, audio off).** Each shot starts from its approved film frame.
+   All three frames came from the same hero look reference, which keeps the jet, carrier and
+   grade consistent across shots.
+   - Shot A: helicopter chase, 5 s.
+   - Shot B: spine cam, 4 s.
+   - Shot C: the trap, 8 s, as one continuous take.
+
+   A first pass with Veo 3.1 used start and end frames for shot C. Veo made the jet pitch up and
+   roll off the deck to reach the end pose, so the shots were redone in Seedance without end frames.
 5. **Sound (ElevenLabs).** The score is from Music v2.5: a ticking pulse, an organ drone and
    rising strings that build to one huge hit. Six SFX layers come from Sound Effects v2: ocean wind
    bed, jet approach, airframe buffeting, touchdown slam, arresting cable and engine spool-down.
 6. **Edit and finish (ffmpeg).**
-   - The cut is A 0–2.6 s, B 2.6–6.6 s, C 6.6–8.9 s and C 8.9–12.7 s, then the last frame is held.
-   - The score's hit is synced to the touchdown at 8.10 s, and the cable screech bridges the cut.
-   - The finish adds a 65 mm-style grade, halation, grain, gate weave and vignette.
+   - The cut is A 0–3.8 s, B 3.8–7.8 s and C 7.8–15.0 s, then the last frame is held to 16 s.
+   - The score's hit is synced to the touchdown at 9.32 s.
+   - The finish adds visible film grain, a light grade, halation, gate weave and vignette.
    - The aspect ratio opens from 2.39:1 to 1.90:1 on the deck shot, like an IMAX cut.
    - The master is about −13 LUFS with a −1 dBTP peak.
-
-Shot C is used in two pieces. Between 2.4 s and 4.1 s Veo made the jet pitch up and roll off the
-deck on its way to the end frame. Real arrested landings don't do that, so that stretch is cut
-out and the trap plays as two camera angles.
 
 ## Re-rendering the previz
 
