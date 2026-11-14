@@ -36,6 +36,8 @@ def get_args():
     p.add_argument("--save_blend", default="")
     p.add_argument("--no_render", action="store_true")
     p.add_argument("--static_ocean", action="store_true", help="skip wave animation (faster)")
+    p.add_argument("--persistent", action="store_true",
+                   help="keep Cycles render data between frames (faster, but on Blender 5.3 the sea can render black after ~8 frames)")
     return p.parse_known_args(argv)[0]
 
 
@@ -967,6 +969,11 @@ for f in range(SHOTS[3][0] - 12, N_FRAMES + 2):
         CAM3.keyframe_insert("rotation_quaternion", frame=f)
 
 SHOT_CAMS = {1: CAM1, 2: CAM2, 3: CAM3}
+# timeline markers switch cameras, so Ctrl+F12 in the saved .blend renders the whole three-shot edit
+for _k, (_a, _b) in SHOTS.items():
+    _m = SC.timeline_markers.new(f"Shot{_k}", frame=_a)
+    _m.camera = SHOT_CAMS[_k]
+SC.camera = CAM1
 
 # ------------------------------------------------------------------ render settings
 rx, ry = (int(v) for v in ARGS.res.lower().split("x"))
@@ -992,7 +999,7 @@ cy.transparent_max_bounces = 4
 cy.caustics_reflective = False
 cy.caustics_refractive = False
 cy.sample_clamp_indirect = 4.0
-SC.render.use_persistent_data = True
+SC.render.use_persistent_data = ARGS.persistent
 SC.render.film_transparent = False
 vs = SC.view_settings
 vs.view_transform = 'AgX'

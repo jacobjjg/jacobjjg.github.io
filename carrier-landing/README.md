@@ -55,3 +55,8 @@ pip install bpy==5.3.0        # or run inside Blender 5.x with: blender -b -P ca
 python blender/carrier_landing.py --shot all --res 960x540 --samples 16 --out renders
 python blender/carrier_landing.py --frames 1,100,170,288 --res 1920x1080 --samples 64 --out stills
 ```
+
+In `carrier_landing.blend`, timeline markers switch between the three cameras, so Ctrl+F12
+renders the whole edit. Leave Cycles' *Persistent Data* off. On Blender 5.3 with the animated
+ocean, it made the sea render black after about 8 frames, so the script only enables it with
+`--persistent`.
