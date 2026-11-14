@@ -1,6 +1,6 @@
 # Carrier landing: Blender previz → ElevenLabs cinematic
 
-A rough 3D previz of a navy jet trapping aboard an aircraft carrier, turned into a 14-second
+A rough 3D previz of a navy jet trapping aboard an aircraft carrier, turned into a 16-second
 film-look sequence with ElevenLabs (image, video, music and sound effects).
 
 | File | What it is |
