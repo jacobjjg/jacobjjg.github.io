@@ -11,7 +11,7 @@ V = os.environ.get("VIDEO", "media/video")
 OUT = sys.argv[1] if len(sys.argv) > 1 else "ice_wall_cinematic.mp4"
 
 SEG = [  # (file, in, out, letterbox ratio)
-    ("wide.mp4", 0.0, 5.0, 2.39),   # crew on the bridge staring out
+    ("wide.mp4", 0.0, 5.5, 2.39),   # crew on the bridge staring out (Veo 3.1 retry)
     ("ots.mp4", 0.0, 5.0, 2.39),    # over the officer's shoulder toward the entrance
     ("ext.mp4", 0.0, 6.0, 1.90),    # the reveal: the ship dwarfed by the wall (frame opens up, IMAX style)
 ]
