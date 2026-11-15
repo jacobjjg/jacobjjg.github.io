@@ -3,7 +3,8 @@
 Blender 5.x (tested 5.3.0, Cycles CPU). Run with bpy as a module or inside Blender:
     python ice_wall_bridge.py --shot wide --res 1920x1080 --samples 96 --out ./renders
     blender -b -P ice_wall_bridge.py -- --shot ots
-Shots: wide = from the back of the bridge (32 mm), ots = over an officer's shoulder (50 mm).
+Shots: wide = from the back of the bridge (28 mm), ots = over an officer's shoulder (35 mm),
+       ext = exterior from 2 km behind the ship on a 200 mm lens, showing the wall's scale.
 Scale is 1 unit = 1 m. The ship points along +Y; the bridge floor is at z = 0, the sea at z = -18.
 """
 import argparse
@@ -24,7 +25,7 @@ def get_args():
     p.add_argument("--out", default=os.path.join(os.getcwd(), "renders"))
     p.add_argument("--res", default="1920x1080")
     p.add_argument("--samples", type=int, default=96)
-    p.add_argument("--shot", default="wide", help="wide, ots or all")
+    p.add_argument("--shot", default="wide", help="wide, ots, ext or all")
     p.add_argument("--save_blend", default="")
     return p.parse_known_args(argv)[0]
 
@@ -382,6 +383,104 @@ def ice_wall():
 
 ice_wall()
 
+
+# ------------------------------------------------------------------ the ship seen from outside (for the exterior shot)
+M_HULL_DARK = material("HullDark", (0.05, 0.055, 0.06), 0.6, haze=True, var=0.15, var_scale=0.3)
+M_ORANGE = material("LifeboatOrange", (0.8, 0.22, 0.03), 0.5, haze=True)
+M_NAVLIGHT = material("MastLight", (0, 0, 0), 0.5, emit=(1.0, 0.95, 0.85), strength=40.0)
+M_REDLIGHT = material("PortLight", (0, 0, 0), 0.5, emit=(1.0, 0.1, 0.05), strength=30.0)
+M_GREENLIGHT = material("StbdLight", (0, 0, 0), 0.5, emit=(0.1, 1.0, 0.2), strength=30.0)
+
+
+def deck_z(y):
+    """Main-deck height, matching the foredeck seen from the bridge."""
+    if y >= 60:
+        return -6.5 + 0.5 * (y - 60) / 18
+    if y >= 3:
+        return -2.5 - 4.0 * (y - 3) / 57
+    return -2.5
+
+
+def hull():
+    stations = [(-112, 7.0), (-100, 8.8), (-60, 9.4), (0, 9.4), (30, 9.0), (50, 7.6), (60, 6.2), (70, 3.6), (78, 0.4)]
+    v, f = [], []
+    for (y, w) in stations:
+        t = deck_z(y)
+        v += [(-w, y, t), (-w * 0.97, y, SEA_Z - 1), (w * 0.97, y, SEA_Z - 1), (w, y, t)]
+    for k in range(len(stations) - 1):
+        a, b = 4 * k, 4 * (k + 1)
+        f += [(a, b, b + 1, a + 1), (a + 1, b + 1, b + 2, a + 2), (a + 2, b + 2, b + 3, a + 3), (a + 3, b + 3, b, a)]
+    f.append((0, 1, 2, 3))
+    mesh_obj("Hull", v, f, M_HULL_DARK)
+    # boot-topping is irrelevant at this range; a pale band at the deck edge helps the silhouette
+    for side in (-1, 1):
+        box(f"DeckEdge{side}", (side * 9.3, -40, -2.7), (0.3, 140, 0.4), M_SHIP)
+
+
+hull()
+box("SuperBelowBridge", (0, -14, -1.25), (16, 33, 2.5), M_SHIP)
+box("DeckHouseAft", (0, -45, -0.8), (14, 30, 3.4), M_SHIP)
+box("BridgeRoof", (0, -2.5, 3.3), (16.4, 10.4, 0.3), M_SHIP)
+for side in (-1, 1):
+    box(f"BridgeWing{side}", (side * 9.6, -0.5, 0.6), (4.0, 2.6, 1.2), M_SHIP)
+    box(f"Lifeboat{side}", (side * 8.6, -40, 1.6), (2.4, 8.0, 2.4), M_ORANGE)
+    box(f"SideLight{side}", (side * 11.5, 0.6, 1.3), (0.3, 0.3, 0.3), M_REDLIGHT if side < 0 else M_GREENLIGHT)
+cyl("MastPole", (0, -10, 3.4), (0, -10, 26), 0.55, M_SHIP)
+box("Yardarm", (0, -10, 20), (9, 0.4, 0.4), M_SHIP)
+box("RadarArray", (0, -10, 23), (4.5, 0.6, 1.4), M_SHIP)
+box("MastLightBox", (0, -10, 26.3), (0.5, 0.5, 0.5), M_NAVLIGHT)
+box("Funnel", (0, -48, 5.5), (6, 9, 9), M_SHIP)
+box("FunnelTop", (0, -48, 10.2), (6.2, 9.2, 0.6), M_HULL_DARK)
+box("Helideck", (0, -88, -2.2), (17, 40, 0.4), M_SHIP)
+
+
+def wake():
+    """A churned V of foam behind the stern."""
+    m = bpy.data.materials.new("Foam")
+    nt = m.node_tree
+    for n in list(nt.nodes):
+        nt.nodes.remove(n)
+    out = node(nt, 'ShaderNodeOutputMaterial')
+    tc = node(nt, 'ShaderNodeTexCoord')
+    nz = node(nt, 'ShaderNodeTexNoise')
+    nz.inputs['Scale'].default_value = 0.06
+    nz.inputs['Detail'].default_value = 8.0
+    link(nt, tc.outputs['Object'], nz.inputs['Vector'])
+    ramp = node(nt, 'ShaderNodeValToRGB')
+    ramp.color_ramp.elements[0].position = 0.45
+    ramp.color_ramp.elements[1].position = 0.62
+    link(nt, nz.outputs['Fac'], ramp.inputs['Fac'])
+    tr = node(nt, 'ShaderNodeBsdfTransparent')
+    wh = node(nt, 'ShaderNodeBsdfPrincipled')
+    wh.inputs['Base Color'].default_value = (0.75, 0.8, 0.83, 1)
+    wh.inputs['Roughness'].default_value = 0.7
+    mix = node(nt, 'ShaderNodeMixShader')
+    link(nt, ramp.outputs['Color'], mix.inputs[0])
+    link(nt, tr.outputs[0], mix.inputs[1])
+    link(nt, wh.outputs[0], mix.inputs[2])
+    g = node(nt, 'ShaderNodeGroup')
+    g.node_tree = HAZE
+    link(nt, mix.outputs[0], g.inputs[0])
+    link(nt, g.outputs[0], out.inputs['Surface'])
+    z = SEA_Z + 0.15
+    # centre wash and two diverging arms
+    mesh_obj("WakeWash", [(-8, -112, z), (8, -112, z), (22, -520, z), (-22, -520, z)], [(0, 1, 2, 3)], m)
+    for side in (-1, 1):
+        x0, x1 = side * 7, side * 7 + side * 380 * math.tan(math.radians(19.5))
+        mesh_obj(f"WakeArm{side}", [(x0, -100, z), (x0 + side * 3, -100, z), (x1 + side * 14, -480, z), (x1, -480, z)],
+                 [(0, 1, 2, 3)], m)
+
+
+wake()
+for k in range(110):                                  # floes in the foreground of the exterior shot
+    y = random.uniform(-2000, -150)
+    x = random.uniform(-700, 500)
+    if abs(x) < 40 and y > -560:
+        continue
+    s = random.uniform(4, 22)
+    box(f"FloeNear{k}", (x, y, SEA_Z + 0.3), (s, s * random.uniform(0.5, 1.2), random.uniform(0.6, 1.8)),
+        M_FLOE, rot=(0, 0, random.uniform(0, 3.14)))
+
 # ------------------------------------------------------------------ world and light: overcast polar day
 w = bpy.data.worlds.new("Overcast")
 SC.world = w
@@ -437,10 +536,13 @@ def camera(name, loc, target, lens):
 CAMS = {
     "wide": camera("CamWide", (1.6, BACK + 0.9, 1.75), (-0.6, 60.0, 3.5), 28),
     "ots": camera("CamOTS", (2.1, -1.6, 1.70), (-0.4, 300.0, 15.0), 35),
+    "ext": camera("CamExterior", (-40.0, -2100.0, SEA_Z + 9.0), (-12.0, 300.0, 50.0), 200),
 }
 CAMS["wide"].data.dof.focus_distance = 7.5
 CAMS["ots"].data.dof.focus_distance = 600.0
 CAMS["ots"].data.dof.aperture_fstop = 2.8
+CAMS["ext"].data.dof.use_dof = False
+FOG_PER_SHOT = {"wide": FOG_DIST, "ots": FOG_DIST, "ext": 15000.0}
 
 # ------------------------------------------------------------------ render
 rx, ry = (int(v) for v in ARGS.res.lower().split("x"))
@@ -476,6 +578,8 @@ if ARGS.save_blend:
 os.makedirs(ARGS.out, exist_ok=True)
 for name in (CAMS if ARGS.shot == "all" else [ARGS.shot]):
     SC.camera = CAMS[name]
+    _haze_mul = next(n for n in HAZE.nodes if n.bl_idname == 'ShaderNodeMath' and n.operation == 'MULTIPLY')
+    _haze_mul.inputs[1].default_value = -1.0 / FOG_PER_SHOT[name]
     SC.render.filepath = os.path.join(ARGS.out, f"bridge_{name}.png")
     bpy.ops.render.render(write_still=True)
     print("[icewall] rendered", name, flush=True)
