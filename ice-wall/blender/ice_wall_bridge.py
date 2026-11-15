@@ -36,7 +36,7 @@ WALL_Y = 700.0
 WALL_H = 160.0
 GATE_W, GATE_H = 70.0, 90.0          # the cut entrance
 FOG = (0.62, 0.68, 0.74)
-FOG_DIST = 5500.0
+FOG_DIST = 9000.0
 
 bpy.ops.wm.read_factory_settings(use_empty=True)
 SC = bpy.context.scene
@@ -189,10 +189,9 @@ M_STRIP = material("CeilingLight", (0, 0, 0), 0.5, emit=(0.85, 0.9, 1.0), streng
 M_UNIFORM = material("Uniform", (0.025, 0.03, 0.045), 0.8)
 M_SKIN = material("Hair", (0.04, 0.032, 0.028), 0.6)   # we only see the backs of heads
 M_CHAIR = material("Chair", (0.03, 0.03, 0.03), 0.6)
-M_SEA = material("Sea", (0.008, 0.014, 0.018), 0.07, haze=True)
+M_SEA = material("Sea", (0.010, 0.017, 0.022), 0.32, haze=True)
 M_ICE = material("IceWall", (0.62, 0.77, 0.87), 0.3, haze=True, var=0.25, var_scale=0.015)
 M_ICE_DARK = material("IceShadow", (0.18, 0.26, 0.32), 0.4, haze=True)
-M_TUNNEL = material("TunnelDark", (0.002, 0.003, 0.004), 1.0, haze=False)
 M_FLOE = material("IceFloe", (0.80, 0.86, 0.90), 0.5, haze=True)
 M_SHIP = material("ShipGrey", (0.13, 0.14, 0.15), 0.55, haze=True, var=0.1, var_scale=0.5)
 
@@ -321,7 +320,7 @@ _nz.inputs['Scale'].default_value = 0.08
 _nz.inputs['Detail'].default_value = 8.0
 link(_nt, _tc.outputs['Object'], _nz.inputs['Vector'])
 _bump = node(_nt, 'ShaderNodeBump')
-_bump.inputs['Strength'].default_value = 0.35
+_bump.inputs['Strength'].default_value = 0.6
 link(_nt, _nz.outputs['Fac'], _bump.inputs['Height'])
 link(_nt, _bump.outputs['Normal'], _b.inputs['Normal'])
 
@@ -367,21 +366,29 @@ def ice_wall():
                 continue
             faces.append((index[(i, j)], index[(i + 1, j)], index[(i + 1, j + 1)], index[(i, j + 1)]))
     ob = mesh_obj("IceWall", verts, faces, M_ICE, smooth=True)
-    # the tunnel behind the cut: dark, deep, straight-sided
-    gx, gz0, gz1 = GATE_W / 2 + 0.4, SEA_Z, SEA_Z + GATE_H
-    y0 = WALL_Y - 2
-    y1 = WALL_Y + 220
-    v = [(-gx, y0, gz0), (gx, y0, gz0), (gx, y1, gz0), (-gx, y1, gz0),
-         (-gx, y0, gz1), (gx, y0, gz1), (gx, y1, gz1), (-gx, y1, gz1)]
-    mesh_obj("Tunnel", v, [(0, 3, 7, 4), (1, 5, 6, 2), (4, 7, 6, 5), (3, 2, 6, 7), (0, 1, 2, 3)], M_TUNNEL)
-    # crisp frame of the cut so it reads as made, not natural
+    # the cut goes clean through the wall: 80 m of ice on each side and above, open ocean beyond
+    T = 80.0
+    gx, top = GATE_W / 2, SEA_Z + GATE_H
+    y0, y1 = WALL_Y - 1.0, WALL_Y + T
+    side_w = 14.0
     for side in (-1, 1):
-        box(f"GateJamb{side}", (side * (GATE_W / 2 + 0.8), WALL_Y - 0.5, SEA_Z + GATE_H / 2), (1.6, 3.0, GATE_H), M_ICE_DARK)
-    box("GateLintel", (0, WALL_Y - 0.5, SEA_Z + GATE_H + 0.8), (GATE_W + 3.2, 3.0, 1.6), M_ICE_DARK)
+        box(f"CutSide{side}", (side * (gx + side_w / 2), (y0 + y1) / 2, (SEA_Z - 2 + top + 30) / 2),
+            (side_w, y1 - y0, top + 30 - (SEA_Z - 2)), M_ICE)
+    box("CutTop", (0, (y0 + y1) / 2, top + 15), (GATE_W + 2 * side_w, y1 - y0, 30), M_ICE)
     return ob
 
 
 ice_wall()
+
+# open ocean beyond the wall, seen through the cut: floes and distant tabular bergs
+for k in range(160):
+    y = random.uniform(WALL_Y + 90, 6000)
+    x = random.uniform(-0.18, 0.18) * y
+    sz = random.uniform(8, 40)
+    box(f"FloeBeyond{k}", (x, y, SEA_Z + 0.3), (sz, sz * random.uniform(0.4, 1.1), random.uniform(0.8, 2.5)),
+        M_FLOE, rot=(0, 0, random.uniform(0, 3.14)))
+for k, (x, y, w, h) in enumerate([(-260, 6500, 420, 34), (380, 9000, 650, 48), (-900, 11000, 900, 40)]):
+    box(f"BergBeyond{k}", (x, y, SEA_Z + h / 2), (w, 160, h), M_FLOE)
 
 
 # ------------------------------------------------------------------ the ship seen from outside (for the exterior shot)
@@ -536,13 +543,13 @@ def camera(name, loc, target, lens):
 CAMS = {
     "wide": camera("CamWide", (1.6, BACK + 0.9, 1.75), (-0.6, 60.0, 3.5), 28),
     "ots": camera("CamOTS", (2.1, -1.6, 1.70), (-0.4, 300.0, 15.0), 35),
-    "ext": camera("CamExterior", (-40.0, -2100.0, SEA_Z + 9.0), (-12.0, 300.0, 50.0), 200),
+    "ext": camera("CamExterior", (-40.0, -2100.0, SEA_Z + 55.0), (-12.0, 300.0, 22.0), 200),
 }
 CAMS["wide"].data.dof.focus_distance = 7.5
 CAMS["ots"].data.dof.focus_distance = 600.0
 CAMS["ots"].data.dof.aperture_fstop = 2.8
 CAMS["ext"].data.dof.use_dof = False
-FOG_PER_SHOT = {"wide": FOG_DIST, "ots": FOG_DIST, "ext": 15000.0}
+FOG_PER_SHOT = {"wide": FOG_DIST, "ots": FOG_DIST, "ext": 26000.0}
 
 # ------------------------------------------------------------------ render
 rx, ry = (int(v) for v in ARGS.res.lower().split("x"))
