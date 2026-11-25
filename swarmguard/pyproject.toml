@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "swarmguard"
+version = "0.1.0"
+description = "Network monitor that detects coordinated bot / AI-agent swarms and applies time-limited firewall responses"
+requires-python = ">=3.11"
+dependencies = []
+
+[project.optional-dependencies]
+analyst = ["anthropic>=1.0"]
+dev = ["pytest"]
+
+[project.scripts]
+swarmguard = "swarmguard.cli:main"
+
+[tool.setuptools]
+packages = ["swarmguard"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

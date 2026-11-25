@@ -1,0 +1,18 @@
+# All keys are optional; see swarmguard/config.py for the full list and defaults.
+
+# Networks that must never be throttled or blocked: admins, offices, monitoring, partners.
+allowlist = ["127.0.0.0/8", "::1/128", "10.0.0.0/8"]
+
+# Requests that no legitimate client makes on this site.
+trap_paths = ["/.env", "/.git/config", "/wp-login.php", "/xmlrpc.php", "/phpmyadmin"]
+
+flood_rpm = 600.0          # sustained requests/min from one address
+swarm_min_sources = 6      # smallest group treated as a swarm
+
+throttle_score = 0.55      # act at or above these confidence scores
+block_score = 0.75
+base_ttl = 600.0           # seconds; doubles for repeat offenders
+max_block_fraction = 0.8   # circuit breaker
+
+audit_log = "/var/log/swarmguard.jsonl"
+# webhook_url = "https://example.internal/hooks/swarmguard"
