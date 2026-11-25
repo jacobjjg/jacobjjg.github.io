@@ -34,6 +34,14 @@ class Config:
     swarm_sync_span: float = 120.0  # arrival-synchrony window, seconds
     swarm_max_profiled: int = 800
 
+    # --- population-level detectors (catch rotation, low-and-slow and mimicry) ---
+    surge_min_sources: int = 20  # asset-less addresses on one target before it counts as a surge
+    surge_factor: float = 4.0  # ...and this many times the learned baseline
+    coverage_min_paths: int = 40  # pages only one address asked for, across a group
+    novel_share: float = 0.5  # share of an address's pages that nobody else requested
+    shield_ttl: float = 600.0  # heightened alert on a target after an attack on it
+    shield_requests: int = 2  # asset-less requests a new address gets on a shielded target
+
     # --- response policy ---
     throttle_score: float = 0.55
     block_score: float = 0.75

@@ -27,7 +27,7 @@ _ASSET_EXT = (
 
 @dataclass
 class Incident:
-    kind: str  # swarm | flood | portscan | trap | probing
+    kind: str  # swarm | surge | coverage | shield | flood | portscan | trap | probing
     score: float  # 0..1 confidence that this is hostile automation
     sources: list[str]
     reasons: list[str]
@@ -52,10 +52,14 @@ class Features:
     ua: str = ""
     paths: frozenset = frozenset()
     top_path: str = ""
+    top_target: str = ""
+    targets: frozenset = frozenset()
+    novel: float = 0.0  # share of its pages that no other address requested
+    age: float = 0.0  # seconds since its first request in the window
 
 
 class _Source:
-    __slots__ = ("first_seen", "last_seen", "events", "ua")
+    __slots__ = ("first_seen", "last_seen", "events", "ua", "has_asset", "shield_hits")
 
     def __init__(self, ts: float, maxlen: int):
         self.first_seen = ts
@@ -63,6 +67,15 @@ class _Source:
         # (ts, is_http, path, is_error, is_asset, is_post, is_trap, dport)
         self.events: deque = deque(maxlen=maxlen)
         self.ua = ""
+        self.has_asset = False
+        self.shield_hits = 0
+
+
+def _target(path: str, is_post: bool) -> str:
+    """What a request is aimed at: the exact endpoint for POSTs, the site section otherwise."""
+    if is_post:
+        return "POST " + path
+    return "/" + path.split("/", 2)[1] if path.startswith("/") else path
 
 
 def _clamp(x: float) -> float:
@@ -76,6 +89,12 @@ class Engine:
         self._traps = tuple(p.lower() for p in cfg.trap_paths)
         self._last_tick: float | None = None
         self._started: float | None = None
+        self._base: dict[str, float] = {}  # learned normal levels for population detectors
+        self._base_ready = False
+        self.shields: dict[str, tuple[float, float]] = {}  # target -> (since, until)
+        self.assets_visible = False  # until traffic shows the log carries asset requests
+        self._seen_pages = 0
+        self._seen_assets = 0
         self._rng = random.Random(0)
 
     # ------------------------------------------------------------------ ingest
@@ -87,13 +106,42 @@ class Engine:
                 self._evict()
             st = self.sources[ev.src] = _Source(ev.ts, self.cfg.max_events_per_source)
         st.last_seen = ev.ts
+        fast: list[Incident] = []
         if ev.kind == "http":
             path = ev.path or "/"
             low = path.lower()
+            is_asset = low.endswith(_ASSET_EXT)
+            is_post = ev.method == "POST"
             st.events.append((
-                ev.ts, True, path, 400 <= ev.status < 500, low.endswith(_ASSET_EXT),
-                ev.method == "POST", low.startswith(self._traps) if self._traps else False, 0,
+                ev.ts, True, path, 400 <= ev.status < 500, is_asset,
+                is_post, low.startswith(self._traps) if self._traps else False, 0,
             ))
+            if not self.shields:  # learn the normal mix only while not under attack
+                if is_asset:
+                    self._seen_assets += 1
+                else:
+                    self._seen_pages += 1
+                if self._seen_pages > 100_000:
+                    self._seen_pages //= 2
+                    self._seen_assets //= 2
+            if is_asset:
+                st.has_asset = True
+            elif self.shields and not st.has_asset:
+                # Heightened alert: a target is under distributed attack, so an address
+                # that turned up after the attack began and behaves like the attackers
+                # (no browser assets) is cut off after a couple of requests instead of
+                # being given time to build a full profile.
+                target = _target(path, is_post)
+                sh = self.shields.get(target)
+                if sh and sh[1] > ev.ts and st.first_seen >= sh[0]:
+                    st.shield_hits += 1
+                    if st.shield_hits == self.cfg.shield_requests:
+                        fast.append(Incident(
+                            "shield", 0.8, [ev.src],
+                            [f"new address joined the ongoing attack on {target} "
+                             f"({st.shield_hits} requests, no browser assets)"],
+                            ev.ts, {"target": target},
+                        ))
             if ev.ua:
                 st.ua = ev.ua
         else:
@@ -103,8 +151,8 @@ class Engine:
             self._last_tick = self._started = ev.ts
         if ev.ts - self._last_tick >= self.cfg.tick:
             self._last_tick = ev.ts
-            return self.evaluate(ev.ts)
-        return []
+            return fast + self.evaluate(ev.ts)
+        return fast
 
     def _evict(self) -> None:
         oldest = sorted(self.sources, key=lambda s: self.sources[s].last_seen)
@@ -120,11 +168,13 @@ class Engine:
         if not ev:
             return None
         f = Features(src=src, first_seen=st.first_seen, ua=st.ua, n=len(ev))
-        span = max(30.0, min(self.cfg.window, now - ev[0][0]))
+        f.age = now - ev[0][0]
+        span = max(30.0, min(self.cfg.window, f.age))
         f.rpm = f.n / span * 60.0
         http = errors = assets = posts = 0
         page_ts: list[float] = []
         page_paths: Counter = Counter()
+        targets: Counter = Counter()
         ports: set[int] = set()
         for ts, is_http, path, is_err, is_asset, is_post, is_trap, dport in ev:
             if not is_http:
@@ -139,6 +189,7 @@ class Engine:
             else:
                 page_ts.append(ts)
                 page_paths[path] += 1
+                targets[_target(path, is_post)] += 1
         f.ports = len(ports)
         if http:
             f.asset_ratio = assets / http
@@ -149,6 +200,8 @@ class Engine:
             f.breadth = len(page_paths) / f.pages
             f.paths = frozenset(page_paths)
             f.top_path = page_paths.most_common(1)[0][0]
+            f.targets = frozenset(targets)
+            f.top_target = targets.most_common(1)[0][0]
         if f.pages > 1:
             f.mean_gap = (page_ts[-1] - page_ts[0]) / (f.pages - 1)
         return f
@@ -191,7 +244,103 @@ class Engine:
                     {"err_ratio": round(f.err_ratio, 2)},
                 ))
         incidents.extend(self._swarms(feats, now))
+        incidents.extend(self._population(feats, now))
         return incidents
+
+    # -------------------------------------------------------------- population
+    def _shield(self, target: str, now: float) -> None:
+        since = self.shields.get(target, (now, 0.0))
+        if since[1] <= now:
+            since = (now, 0.0)
+        self.shields[target] = (since[0], now + self.cfg.shield_ttl)
+
+    def _population(self, feats: list[Features], now: float) -> list[Incident]:
+        """Detectors that look at the whole client population rather than at addresses.
+
+        Rotating through single-use addresses, going very slow, or imitating a browser
+        all keep each address unremarkable. What they cannot hide is the aggregate:
+        the target suddenly has far more asset-less clients than it normally does, or
+        a group of clients is working through pages nobody else ever asks for.
+        """
+        cfg = self.cfg
+        for t in [t for t, (_, until) in self.shields.items() if until <= now]:
+            del self.shields[t]
+        warm = self._started is not None and now - self._started >= cfg.window
+        # If the log carries hardly any asset requests (assets on a CDN), "loads no
+        # assets" says nothing about a client, so every signal built on it stays off.
+        # The mix is learned from traffic seen while no attack is in progress, so a
+        # flood of asset-less requests cannot switch these signals off.
+        self.assets_visible = (
+            self._seen_pages >= 200 and self._seen_assets >= 0.5 * self._seen_pages
+        )
+        out: list[Incident] = []
+        observed: dict[str, float] = {}
+        firing: set[str] = set()
+
+        # --- surge of asset-less clients on one target
+        thin: dict[str, list[str]] = {}
+        if self.assets_visible:
+            for f in feats:
+                # (a browser's assets trail its page request, so give new arrivals a moment)
+                if f.pages and f.asset_ratio == 0 and f.age >= 5.0:
+                    for t in f.targets:
+                        thin.setdefault(t, []).append(f.src)
+        for target, srcs in thin.items():
+            key = "thin:" + target
+            observed[key] = len(srcs)
+            base = self._base.get(key, 0.0)
+            if self._base_ready and len(srcs) >= max(cfg.surge_min_sources, cfg.surge_factor * base):
+                firing.add(key)
+                self._shield(target, now)
+                out.append(Incident(
+                    "surge", 0.8, sorted(srcs),
+                    [f"{len(srcs)} addresses that load no browser assets are working on {target} "
+                     f"(normal level: {base:.0f})",
+                     "each stays too quiet to stand out alone (rotation or low-and-slow)"],
+                    now, {"target": target, "sources": len(srcs), "baseline": round(base, 1)},
+                ))
+
+        # --- coverage: a group working through pages nobody else requests
+        owners: Counter = Counter()
+        for f in feats:
+            owners.update(f.paths)
+        group, novel_paths = [], 0
+        for f in feats:
+            if len(f.paths) < cfg.swarm_min_pages:
+                continue
+            mine = sum(1 for p in f.paths if owners[p] == 1)
+            f.novel = mine / len(f.paths)
+            if f.novel >= cfg.novel_share:
+                group.append(f)
+                novel_paths += mine
+        key = "novel"
+        observed[key] = novel_paths
+        base = self._base.get(key, 0.0)
+        if (self._base_ready and len(group) >= cfg.swarm_min_sources
+                and novel_paths >= max(cfg.coverage_min_paths, cfg.surge_factor * base)):
+            firing.add(key)
+            target = Counter(f.top_target for f in group).most_common(1)[0][0]
+            out.append(Incident(
+                "coverage", 0.8, sorted(f.src for f in group),
+                [f"{len(group)} addresses fetched {novel_paths} pages that no other client asked for "
+                 f"(normal level: {base:.0f})",
+                 "systematic harvesting of the long tail, whatever the clients look like"],
+                now, {"target": target, "sources": len(group), "novel_paths": novel_paths,
+                      "baseline": round(base, 1)},
+            ))
+
+        # --- learn what normal looks like (never from a level that is raising an alarm)
+        if warm and not self._base_ready:
+            self._base = dict(observed)  # first full window: take it as the starting normal
+            self._base_ready = True
+        elif self._base_ready:
+            alpha = min(1.0, cfg.tick / 1800.0)
+            for key in set(self._base) | set(observed):
+                if key in firing or key.removeprefix("thin:") in self.shields:
+                    continue
+                cur = self._base.get(key, 0.0)
+                self._base[key] = cur + alpha * (observed.get(key, 0.0) - cur)
+        return out
 
     # ------------------------------------------------------------------ swarms
     def _swarms(self, feats: list[Features], now: float) -> list[Incident]:
@@ -288,6 +437,8 @@ class Engine:
         if uas and uas.most_common(1)[0][1] / m >= 0.6:
             reasons.append("one user-agent string reused across addresses")
         rpm = sum(f.rpm for f in group)
+        if noasset >= 0.8 and self.assets_visible:
+            self._shield(Counter(f.top_target for f in group).most_common(1)[0][0], now)
         return Incident(
             "swarm", round(score, 3), sorted(f.src for f in group), reasons, now,
             {

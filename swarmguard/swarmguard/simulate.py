@@ -46,7 +46,8 @@ def _human_session(rng, src, start, events, landing=None):
 
 
 def scenario(seed: int = 7, duration: float = 900.0, humans: int = 300,
-             swarm: int = 60, stuffers: int = 40) -> tuple[list[Event], dict[str, str]]:
+             swarm: int = 60, stuffers: int = 40,
+             scanner: bool = True) -> tuple[list[Event], dict[str, str]]:
     """Return (events sorted by time, ground truth label per source address).
 
     Labels: human, office (many people behind one NAT), monitor (benign uptime bot),
@@ -113,9 +114,10 @@ def scenario(seed: int = 7, duration: float = 900.0, humans: int = 300,
 
     # Hostile: a lone scanner probing for secrets.
     src = _bot_ip(swarm + stuffers)
-    truth[src] = "scanner"
     t = duration * 0.5
-    for path in ["/.env", "/.git/config", "/backup.zip", "/wp-login.php", "/admin", "/config.php"]:
+    if scanner:
+        truth[src] = "scanner"
+    for path in [] if not scanner else ["/.env", "/.git/config", "/backup.zip", "/wp-login.php", "/admin", "/config.php"]:
         ev.append(Event(t, src, method="GET", path=path, status=404, ua="python-requests/2.32"))
         t += rng.uniform(0.2, 1.0)
 

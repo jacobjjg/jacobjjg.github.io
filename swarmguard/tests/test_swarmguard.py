@@ -244,3 +244,38 @@ def test_nft_actuator_roundtrip():
         act.teardown()
     assert subprocess.run(["nft", "list", "table", "inet", "swarmguard"],
                           capture_output=True).returncode != 0
+
+
+# ------------------------------------------------------------------ red team
+from swarmguard import redteam
+
+_DEFENDED = ["naive", "hetero-pacing", "small-cells", "low-and-slow", "human-mimic",
+             "stuff-naive", "stuff-low-slow"]
+# Address rotation still wins against per-address firewalling; these pin how much it costs.
+_KNOWN_EVASIONS = {"adaptive": 0.75, "rotate-3": 0.75, "stuff-rotate-3": 0.65, "mimic+adaptive": 0.95}
+
+
+@pytest.mark.parametrize("name", _DEFENDED + list(_KNOWN_EVASIONS))
+def test_redteam(name):
+    st = next(s for s in redteam.STRATEGIES if s.name == name)
+    r = redteam.run(st)
+    assert r["benign_actioned"] == 0
+    if name in _DEFENDED:
+        assert r["yield"] < 0.25
+    else:
+        assert r["yield"] < _KNOWN_EVASIONS[name]  # no regression on the known gaps
+
+
+def test_no_false_positives_without_an_attack():
+    events, _ = simulate.scenario(seed=5, duration=1800, humans=700, swarm=0, stuffers=0, scanner=False)
+    assert _run(events).decisions == []
+
+
+def test_asset_signals_disabled_when_log_has_no_assets():
+    # Assets served from a CDN never appear in the origin log; "loads no assets" must
+    # then stop counting against clients.
+    events, _ = simulate.scenario(seed=5, duration=900, humans=500, swarm=0, stuffers=0, scanner=False)
+    pages_only = [e for e in events if not e.path.startswith(("/static/", "/favicon"))]
+    mon = _run(pages_only)
+    assert mon.engine.assets_visible is False
+    assert not [d for d in mon.decisions if d.incident.kind in ("surge", "shield")]

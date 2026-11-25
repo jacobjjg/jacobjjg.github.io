@@ -225,6 +225,20 @@ def print_report(rows: dict) -> None:
         print(f"  {label:10} {kind:8} {r['sources']:>9} {r['throttled']:>9} {r['blocked']:>8} {r['served']:>12} {r['dropped']:>13}")
 
 
+# ------------------------------------------------------------------------- redteam
+def cmd_redteam(args) -> int:
+    from . import redteam
+
+    cfg = Config.load(args.config)
+    wanted = [s for s in redteam.STRATEGIES if not args.only or s.name in args.only]
+    print("Adaptive simulated attacker vs SwarmGuard (in-memory simulation, nothing is sent)\n")
+    for s in wanted:
+        print(f"  {s.name:16} {s.idea}")
+    print()
+    redteam.print_results([redteam.run(s, cfg, seed=args.seed) for s in wanted])
+    return 0
+
+
 # --------------------------------------------------------------------------- flush
 def cmd_flush(args) -> int:
     NftActuator().teardown()
@@ -256,6 +270,12 @@ def main(argv: list[str] | None = None) -> int:
     r.add_argument("--write", metavar="FILE", help="write the scenario as a JSON-lines log instead")
     r.add_argument("--config")
     r.set_defaults(fn=cmd_simulate)
+
+    r = sub.add_parser("redteam", help="pit simulated evasive attackers against the detector")
+    r.add_argument("--seed", type=int, default=11)
+    r.add_argument("--only", nargs="*", help="strategy names to run")
+    r.add_argument("--config")
+    r.set_defaults(fn=cmd_redteam)
 
     r = sub.add_parser("flush", help="remove every SwarmGuard firewall rule")
     r.set_defaults(fn=cmd_flush)
