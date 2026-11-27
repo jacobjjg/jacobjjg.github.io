@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<title>Walk Tracker</title>
+<meta name="description" content="Track walks with GPS, steps, time, distance and pace.">
+<meta name="theme-color" content="#0e1512">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Walks">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icons/icon-180.png">
+<link rel="stylesheet" href="vendor/leaflet.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<main id="view-track" class="view active">
+  <div class="map-wrap">
+    <div id="map"></div>
+    <div id="gps" class="pill" data-q="none">GPS off</div>
+    <button id="recenter" class="map-btn" hidden aria-label="Re-centre map">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg>
+    </button>
+    <div id="banner" class="banner" hidden></div>
+  </div>
+
+  <section class="panel">
+    <div class="hero">
+      <div class="stat big"><div class="num"><span id="dist">0.00</span></div><div class="lbl" id="distLbl">km</div></div>
+      <div class="stat big"><div class="num" id="time">00:00</div><div class="lbl">time</div></div>
+      <div class="stat big"><div class="num" id="steps">0</div><div class="lbl" id="stepsLbl">steps</div></div>
+    </div>
+    <div class="grid">
+      <div class="stat"><div class="num" id="pace">–:––</div><div class="lbl" id="paceLbl">pace /km</div></div>
+      <div class="stat"><div class="num" id="avgPace">–:––</div><div class="lbl" id="avgPaceLbl">avg pace</div></div>
+      <div class="stat"><div class="num" id="speed">0.0</div><div class="lbl" id="speedLbl">km/h</div></div>
+      <div class="stat"><div class="num" id="kcal">0</div><div class="lbl">kcal</div></div>
+      <div class="stat"><div class="num" id="cadence">0</div><div class="lbl">steps/min</div></div>
+      <div class="stat"><div class="num" id="gain">0</div><div class="lbl" id="gainLbl">climb m</div></div>
+    </div>
+    <div class="controls">
+      <button id="btnStart" class="btn primary wide">Start walk</button>
+      <button id="btnPause" class="btn" hidden>Pause</button>
+      <button id="btnFinish" class="btn danger" hidden>Finish</button>
+    </div>
+  </section>
+</main>
+
+<main id="view-history" class="view scroll">
+  <header class="page-head"><h1>History</h1></header>
+  <div id="totals" class="totals"></div>
+  <div id="walkList" class="list"></div>
+</main>
+
+<main id="view-settings" class="view scroll">
+  <header class="page-head"><h1>Settings</h1></header>
+  <div class="card form">
+    <label>Units
+      <select id="setUnits"><option value="km">Kilometres</option><option value="mi">Miles</option></select>
+    </label>
+    <label><span id="heightLbl">Height (cm)</span>
+      <input id="setHeight" type="number" inputmode="decimal" min="1" step="any">
+    </label>
+    <label><span id="weightLbl">Weight (kg)</span>
+      <input id="setWeight" type="number" inputmode="decimal" min="1" step="any">
+    </label>
+    <label><span id="strideLbl">Stride length (cm)</span>
+      <input id="setStride" type="number" inputmode="decimal" min="1" step="any" placeholder="Auto from height">
+    </label>
+    <label class="row">Keep screen on while walking
+      <input id="setAwake" type="checkbox">
+    </label>
+  </div>
+  <p class="hint">Height and weight are used for calories, and for estimating steps when the motion sensor isn't available. Everything is stored only on this device.</p>
+  <div class="card form">
+    <button id="btnExportAll" class="btn">Export all walks (JSON)</button>
+    <button id="btnDeleteAll" class="btn danger-text">Delete all walks</button>
+  </div>
+  <div class="card tips">
+    <h2>Getting accurate tracking</h2>
+    <ul>
+      <li>Keep this app open with the screen on. Phones stop giving web apps GPS and motion data when the screen locks or you switch apps.</li>
+      <li>Wait for the GPS pill to turn green before you set off.</li>
+      <li>Carry the phone in your hand or a pocket so it can feel each step.</li>
+      <li>Add it to your home screen for a full-screen app that works offline.</li>
+    </ul>
+  </div>
+</main>
+
+<div id="detail" class="sheet" hidden>
+  <header class="sheet-head">
+    <button id="detailBack" class="icon-btn" aria-label="Back">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg>
+    </button>
+    <div><h1 id="detailTitle"></h1><div id="detailSub" class="sub"></div></div>
+  </header>
+  <div class="scroll">
+    <div id="detailMap"></div>
+    <div id="detailStats" class="grid detail-grid"></div>
+    <div id="detailSplits"></div>
+    <div class="card form">
+      <button id="btnGpx" class="btn">Export GPX</button>
+      <button id="btnDelete" class="btn danger-text">Delete walk</button>
+    </div>
+  </div>
+</div>
+
+<nav class="tabs">
+  <button data-view="track" class="active">
+    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13" cy="4" r="2"/><path d="M7 21l3-6-1-5 4-2 2 4 3 1M10 10l-3 1-1 4M13 13l2 3 1 5"/></svg>
+    <span>Walk</span>
+  </button>
+  <button data-view="history">
+    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8M3 3v5h5M12 7v5l3 2"/></svg>
+    <span>History</span>
+  </button>
+  <button data-view="settings">
+    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h10M18 6h2M4 12h2M10 12h10M4 18h10M18 18h2"/><circle cx="16" cy="6" r="2"/><circle cx="8" cy="12" r="2"/><circle cx="16" cy="18" r="2"/></svg>
+    <span>Settings</span>
+  </button>
+</nav>
+
+<dialog id="ask">
+  <h2 id="askTitle"></h2>
+  <p id="askBody"></p>
+  <div class="dialog-btns">
+    <button id="askCancel" class="btn">Cancel</button>
+    <button id="askOk" class="btn primary">OK</button>
+  </div>
+</dialog>
+<div id="toast" class="toast" hidden></div>
+
+<script src="vendor/leaflet.js"></script>
+<script src="core.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
