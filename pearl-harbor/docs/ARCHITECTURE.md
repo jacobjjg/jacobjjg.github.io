@@ -211,3 +211,17 @@ Useful: `--eval "return app.stats"`; URL params are listed at the top of `src/ma
 `research/*.md|json` are the factual basis (they carry confidence levels and source lists). Use them; do not contradict them from
 memory; where they are silent and you must interpolate, keep it plausible and mark it (`"basis": "interpolated"`) in your data file.
 Record anything you had to invent in your system README under "Reconstruction notes".
+
+## 11. Simulation logic is renderer-free and runs in node
+
+Everything that decides *where things are and what happens when* (ship positions and states, flight paths, ordnance,
+impacts, fires, vignette timelines, radar plots, shot timing) lives in modules that import only `three` (for maths),
+`src/core/geo.js|math.js|timeutil.js|noise.js|util.js` and JSON data — no DOM, no WebGL, no `window`. Rendering modules
+(`index.js` of each system) consume them. That keeps the history testable in milliseconds:
+```
+node --import ./tools/node-three.mjs tools/your-check.mjs      # 'three' resolves to the vendored build, as in the browser
+```
+`tools/node-env.mjs` exports `createNodeApp()` → an app-like object with `geo`, `height` (the real rasters decoded with
+zlib), `registry`, `events`, `loadJSON`, `time`, `env`, `getSystem`. Logic modules therefore take `app` and use only those
+fields. Write checks that print tables and assert invariants (counts match the research totals, ships float in water,
+flight speeds and turn rates are physical, nothing flies through a mountain, every documented hit has an attacker).
