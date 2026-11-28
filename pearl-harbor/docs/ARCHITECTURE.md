@@ -83,6 +83,9 @@ children of `app.world` (never `app.scene`). `app.world` is shifted by `-app.ori
 `origin`, `plan` (battle plan, set by the battle system), `stats`, `dev` (bool).
 Helpers: `asset(rel)`, `loadJSON(rel)`, `makeUniforms(extra)`, `getSystem(id)`, `setCamera`, `lookAtEntity`, `project`,
 `seekSim(t)`, `seekDoc(sec)`, `play()`, `pause()`, `setMode(mode)`.
+**`app.view = { scene, camera }`** is what gets rendered: normally `app.scene` + `app.camera`. The map system shows its own
+scene with `app.setView(scene, camera)` and returns with `app.resetView()`; `app.worldVisible` is false meanwhile (world systems
+may skip heavy updates). **The post system must render `app.view.scene` with `app.view.camera`**, never `app.scene` directly.
 Events emitted by core: `progress`, `ready`, `boot-complete`, `mode`, `play`, `pause`, `seek`. Systems may emit their own (document them).
 
 ### System interface

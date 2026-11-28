@@ -132,6 +132,10 @@ export class App {
       uDayFactor: { value: 1 },
     };
 
+    // The view that gets rendered.  Normally the 3D world; the map system swaps in its own scene + camera
+    // for strategic-map shots via setView() and restores it with resetView().  The post system renders app.view.
+    this.view = { scene: this.scene, camera: this.camera };
+
     this._fallback = null;
     this._raf = 0;
     this._lastNow = 0;
@@ -164,6 +168,12 @@ export class App {
   }
 
   getSystem(id) { return this._systemById.get(id) || null; }
+
+  /** Render a different scene/camera (e.g. the strategic map) through the normal pipeline until resetView(). */
+  setView(scene, camera) { this.view.scene = scene; this.view.camera = camera; }
+  resetView() { this.view.scene = this.scene; this.view.camera = this.camera; }
+  /** true while the 3D world is what is being shown (systems may skip heavy work when false). */
+  get worldVisible() { return this.view.scene === this.scene; }
 
   /** Register a system: { id, order?, init?(app), update?(app), resize?(app,w,h), dispose?(app) }. */
   use(system) {
@@ -296,7 +306,7 @@ export class App {
     this._syncUniforms();
     this.camera.updateMatrixWorld();
     this.renderer.info.reset();
-    if (this.renderFn) this.renderFn(this); else this.renderer.render(this.scene, this.camera);
+    if (this.renderFn) this.renderFn(this); else this.renderer.render(this.view.scene, this.view.camera);
 
     const s = this.stats;
     s.frameMs = performance.now() - t0;
