@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pearl Harbor — December 7, 1941 · A 3D documentary reconstruction</title>
+<meta name="description" content="A real-time 3D documentary reconstruction of the attack on Pearl Harbor, 7 December 1941: the Japanese carrier force, both attack waves, the ships in harbor, the airfields, the Opana radar plot, minute by minute.">
+<link rel="stylesheet" href="css/app.css">
+<link rel="stylesheet" href="css/hud.css">
+<script type="importmap">
+{ "imports": { "three": "./vendor/three/build/three.module.js", "three/addons/": "./vendor/three/addons/" } }
+</script>
+</head>
+<body>
+<canvas id="view"></canvas>
+<div id="hud"></div>
+<div id="loader">
+  <div class="loader-inner">
+    <div class="loader-date">7 · XII · 1941</div>
+    <div class="loader-title">PEARL HARBOR</div>
+    <div class="loader-track"><div id="loader-bar"></div></div>
+    <div id="loader-text">Loading…</div>
+  </div>
+</div>
+<noscript>This documentary needs JavaScript and WebGL 2.</noscript>
+<script type="module" src="src/main.js"></script>
+</body>
+</html>

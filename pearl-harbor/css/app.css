@@ -1,0 +1,16 @@
+/* Page shell + loader.  HUD styles live in css/hud.css (owned by the hud system). */
+:root { color-scheme: dark; }
+html, body { margin: 0; height: 100%; background: #000; overflow: hidden; }
+body { font: 15px/1.45 "Helvetica Neue", Helvetica, Arial, system-ui, sans-serif; color: #e9e4d8; -webkit-font-smoothing: antialiased; }
+#view { position: fixed; inset: 0; width: 100vw; height: 100vh; display: block; outline: none; touch-action: none; }
+#hud { position: fixed; inset: 0; pointer-events: none; overflow: hidden; }
+#hud > * { pointer-events: auto; }
+
+#loader { position: fixed; inset: 0; display: grid; place-items: center; background: #050607; z-index: 100; transition: opacity 1.2s ease, visibility 0s linear 1.2s; }
+#loader.done { opacity: 0; visibility: hidden; pointer-events: none; }
+.loader-inner { text-align: center; width: min(420px, 80vw); }
+.loader-date { letter-spacing: 0.5em; font-size: 12px; color: #9a927f; margin-bottom: 14px; text-indent: 0.5em; }
+.loader-title { font: 600 34px/1 Georgia, "Times New Roman", serif; letter-spacing: 0.32em; text-indent: 0.32em; color: #efe9da; margin-bottom: 28px; }
+.loader-track { height: 2px; background: #23262a; overflow: hidden; }
+#loader-bar { height: 100%; width: 0; background: #c9b27c; transition: width 0.3s ease; }
+#loader-text { margin-top: 12px; font-size: 12px; letter-spacing: 0.08em; color: #7d776a; text-transform: uppercase; }
