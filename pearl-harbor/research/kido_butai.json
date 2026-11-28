@@ -1,0 +1,806 @@
+{
+  "meta": {
+    "topic": "Kido Butai (Japanese carrier striking force), submarine Advance Force and the five Type A midget submarines, attack on Pearl Harbor, 7 December 1941",
+    "timeConvention": "Hawaii local time of 1941 (UTC-10:30) as HH:MM on 1941-12-07 unless a 'date' field is given. Tokyo time (JST, UTC+9) = Hawaii + 19h30m.",
+    "positionConvention": "Decimal degrees WGS84, west longitude negative. Bearings/courses in degrees true.",
+    "evidenceTags": {
+      "S": "seen in a search result during this research session (source listed in 'sources')",
+      "M": "from the researcher's knowledge of the cited literature, not re-verified in this session (direct page fetching was blocked and the shared web-search budget ran out)",
+      "E": "researcher's own estimate, dead reckoning or geometric reconstruction"
+    },
+    "caveat": "No surviving primary source that could be reached in this session gives the force's latitude/longitude on 7 December. Every Kido Butai position on 6-7 December is dead-reckoned (tag E) from the best-attested facts: launch about 220-230 nm due north of Oahu, 24 knots, due-south approach, turn to port into an ENE-E wind, and the Opana radar plot of the first wave. Treat positions as good to roughly +/-20 nm, and the screen/escort stations as schematic.",
+    "crossCheck": "The 06:20 force position (25.446, -157.862) matches the first-wave departure point used in research/wave1.json (25.45, -157.85) and back-projects the Opana 07:02 plot (132 statute miles, 003 deg) at about 157 kn ground speed."
+  },
+
+  "ships": [
+    {
+      "id": "akagi", "name": "Akagi", "kanji": "赤城", "type": "aircraft_carrier",
+      "class": "Akagi (converted Amagi-class battlecruiser, rebuilt 1935-38)",
+      "lengthM": 260.67, "beamM": 31.32, "displacementT": 36500, "displacementBasis": "standard; about 41,300 t full load",
+      "flightDeckM": {"length": 249.2, "width": 30.5},
+      "unit": "1st Air Fleet flagship / Carrier Division 1 (VAdm Nagumo Chuichi; chief of staff RAdm Kusaka Ryunosuke; air staff Cdr Genda Minoru)",
+      "commander": "Capt. Hasegawa Kiichi",
+      "islandSide": "port",
+      "funnels": "One large funnel on the starboard side amidships, angled outward and downward below flight-deck level (opposite the small port-side island).",
+      "tailCode": "AI", "fuselageBand": "one red band",
+      "wave1": {"A6M2": 9, "B5N2_level": 15, "B5N2_torpedo": 12}, "wave2": {"A6M2": 9, "D3A1": 18},
+      "note": "Nagumo's flagship and formation guide. Island on the PORT side amidships. Three elevators. No hinomaru on the flight deck in December 1941; white deck stripes, red-and-white striped round-down aft, katakana 'A' identification letter on the after flight deck. Flew the 'Z' signal flag and battle ensign at launch (Fuchida).",
+      "formation": {"rightM": 0, "aheadM": 0, "basis": "Guide ship. Head of the starboard (CarDiv 1) column in the reconstruction; see 'formation' object."},
+      "confidence": "high"
+    },
+    {
+      "id": "kaga", "name": "Kaga", "kanji": "加賀", "type": "aircraft_carrier",
+      "class": "Kaga (converted Tosa-class battleship, rebuilt 1934-35)",
+      "lengthM": 247.65, "beamM": 32.5, "displacementT": 38200, "displacementBasis": "standard; about 42,500 t full load",
+      "flightDeckM": {"length": 248.6, "width": 30.5},
+      "unit": "Carrier Division 1",
+      "commander": "Capt. Okada Jisaku",
+      "islandSide": "starboard",
+      "funnels": "One funnel on the starboard side amidships, curved outward and downward below flight-deck level; small island on the starboard side forward of it.",
+      "tailCode": "AII", "fuselageBand": "two red bands",
+      "wave1": {"A6M2": 9, "B5N2_level": 14, "B5N2_torpedo": 12}, "wave2": {"A6M2": 9, "D3A1": 26},
+      "note": "Slowest carrier of the force (28 kn). Heaviest aircraft losses of the raid (15). One level bomber of the planned 15 failed to launch in the first wave; one of the planned 27 dive bombers did not go in the second.",
+      "formation": {"rightM": 0, "aheadM": -7000, "basis": "E: second ship of the starboard column. A film frame taken from Akagi during the crossing shows Kaga astern of Akagi with Zuikaku beyond her (S: NHHC NH 75483 caption). Interval is a doctrinal estimate."},
+      "confidence": "high"
+    },
+    {
+      "id": "soryu", "name": "Soryu", "kanji": "蒼龍", "type": "aircraft_carrier",
+      "class": "Soryu",
+      "lengthM": 227.5, "beamM": 21.3, "displacementT": 15900, "displacementBasis": "standard; about 18,800 t full load",
+      "flightDeckM": {"length": 216.9, "width": 26.0},
+      "unit": "Carrier Division 2 (flagship of RAdm Yamaguchi Tamon)",
+      "commander": "Capt. Yanagimoto Ryusaku",
+      "islandSide": "starboard",
+      "funnels": "Two funnels on the starboard side amidships, both curved downward; small island on the starboard side forward.",
+      "tailCode": "BI", "fuselageBand": "one blue band",
+      "wave1": {"A6M2": 8, "B5N2_level": 10, "B5N2_torpedo": 8}, "wave2": {"A6M2": 9, "D3A1": 17},
+      "note": "One of nine planned first-wave fighters did not go; one second-wave dive bomber aborted with engine trouble (S: combinedfleet TROM).",
+      "formation": {"rightM": -7000, "aheadM": 0, "basis": "E: head of the port (CarDiv 2) column, abeam of Akagi. Side assignment is by analogy with the box formation the force used in 1942 (CarDiv 1 to starboard, CarDiv 2 to port)."},
+      "confidence": "high"
+    },
+    {
+      "id": "hiryu", "name": "Hiryu", "kanji": "飛龍", "type": "aircraft_carrier",
+      "class": "Hiryu (modified Soryu)",
+      "lengthM": 227.35, "beamM": 22.32, "displacementT": 17300, "displacementBasis": "standard; about 20,250 t full load",
+      "flightDeckM": {"length": 216.9, "width": 27.0},
+      "unit": "Carrier Division 2",
+      "commander": "Capt. Kaku Tomeo",
+      "islandSide": "port",
+      "funnels": "Two funnels on the starboard side amidships, both curved downward (opposite the port-side island).",
+      "tailCode": "BII", "fuselageBand": "two blue bands",
+      "wave1": {"A6M2": 6, "B5N2_level": 10, "B5N2_torpedo": 8}, "wave2": {"A6M2": 8, "D3A1": 17},
+      "note": "Island on the PORT side amidships, like Akagi. One fighter and one dive bomber of the planned second-wave launch did not go.",
+      "formation": {"rightM": -7000, "aheadM": -7000, "basis": "E: second ship of the port column, astern of Soryu."},
+      "confidence": "high"
+    },
+    {
+      "id": "shokaku", "name": "Shokaku", "kanji": "翔鶴", "type": "aircraft_carrier",
+      "class": "Shokaku",
+      "lengthM": 257.5, "beamM": 26.0, "displacementT": 25675, "displacementBasis": "standard; about 32,100 t full load",
+      "flightDeckM": {"length": 242.2, "width": 29.0},
+      "unit": "Carrier Division 5",
+      "commander": "Capt. Jojima Takatsugu",
+      "islandSide": "starboard",
+      "funnels": "Two funnels on the starboard side just abaft the island, both curved downward.",
+      "tailCode": "EI", "fuselageBand": "one white band",
+      "wave1": {"A6M2": 5, "D3A1": 26}, "wave2": {"B5N2_level": 27},
+      "note": "Planned first wave was 6 fighters and 27 dive bombers; one of each did not go. Fighters not used in the strikes flew combat air patrol.",
+      "formation": {"rightM": -7000, "aheadM": -14000, "basis": "E: rear of the port column. Which CarDiv 5 ship followed which column is inferred only from the Akagi film frame (Zuikaku behind Kaga)."},
+      "confidence": "high"
+    },
+    {
+      "id": "zuikaku", "name": "Zuikaku", "kanji": "瑞鶴", "type": "aircraft_carrier",
+      "class": "Shokaku",
+      "lengthM": 257.5, "beamM": 26.0, "displacementT": 25675, "displacementBasis": "standard; about 32,100 t full load",
+      "flightDeckM": {"length": 242.2, "width": 29.0},
+      "unit": "Carrier Division 5 (flagship of RAdm Hara Chuichi)",
+      "commander": "Capt. Yokokawa Ichihei",
+      "islandSide": "starboard",
+      "funnels": "Two funnels on the starboard side just abaft the island, both curved downward.",
+      "tailCode": "EII", "fuselageBand": "two white bands",
+      "wave1": {"A6M2": 6, "D3A1": 25}, "wave2": {"B5N2_level": 27},
+      "note": "Planned first wave was 27 dive bombers; two did not go. LtCdr Shimazaki Shigekazu of Zuikaku led the second wave. Lost no aircraft. Flagship assignment within CarDiv 5 is M (medium).",
+      "formation": {"rightM": 0, "aheadM": -14000, "basis": "E: rear of the starboard column, astern of Kaga (S: Akagi film frame shows Zuikaku beyond Kaga)."},
+      "confidence": "high"
+    },
+    {
+      "id": "hiei", "name": "Hiei", "kanji": "比叡", "type": "battleship",
+      "class": "Kongo (fast battleship, rebuilt 1937-40)",
+      "lengthM": 222.0, "beamM": 31.0, "displacementT": 32156, "displacementBasis": "standard; about 36,600 t full load",
+      "unit": "Support Force / Battleship Division 3, 1st Section (flagship of VAdm Mikawa Gunichi)",
+      "commander": "Capt. Nishida Masao",
+      "islandSide": null,
+      "funnels": "Two upright funnels; tall pagoda foremast of the prototype tower type later used for Yamato.",
+      "note": "Carried Type 95 (E8N) reconnaissance floatplanes used for local patrol.",
+      "formation": {"rightM": 8000, "aheadM": -12000, "basis": "E: schematic. Fuchida (S) puts the two battleships and two heavy cruisers on the outer flanks of the carrier columns; which flank and how far is not known to me."},
+      "confidence": "medium"
+    },
+    {
+      "id": "kirishima", "name": "Kirishima", "kanji": "霧島", "type": "battleship",
+      "class": "Kongo (fast battleship, rebuilt 1934-36)",
+      "lengthM": 222.65, "beamM": 31.0, "displacementT": 31980, "displacementBasis": "standard; about 36,700 t full load",
+      "unit": "Support Force / Battleship Division 3, 1st Section",
+      "commander": "Capt. Yamaguchi Jihei",
+      "islandSide": null,
+      "funnels": "Two upright funnels; pagoda foremast.",
+      "note": "",
+      "formation": {"rightM": -15000, "aheadM": -12000, "basis": "E: schematic outer port flank, mirror of Hiei."},
+      "confidence": "medium"
+    },
+    {
+      "id": "tone", "name": "Tone", "kanji": "利根", "type": "heavy_cruiser",
+      "class": "Tone",
+      "lengthM": 201.6, "beamM": 19.4, "displacementT": 11213, "displacementBasis": "standard; about 15,200 t full load",
+      "unit": "Support Force / Cruiser Division 8 (flagship of RAdm Abe Hiroaki)",
+      "commander": "Capt. Okada Tametsugu",
+      "islandSide": null,
+      "funnels": "One large raked funnel (two uptakes trunked together). All four twin 20-cm turrets forward; open aircraft deck and catapults aft.",
+      "note": "Catapulted the E13A1 that scouted Lahaina Roads at 05:30.",
+      "formation": {"rightM": 8000, "aheadM": 2000, "basis": "E: schematic outer starboard flank, forward. The CruDiv 8 cruisers served as flank pickets and scout-plane carriers."},
+      "confidence": "medium"
+    },
+    {
+      "id": "chikuma", "name": "Chikuma", "kanji": "筑摩", "type": "heavy_cruiser",
+      "class": "Tone",
+      "lengthM": 201.6, "beamM": 19.4, "displacementT": 11213, "displacementBasis": "standard; about 15,200 t full load",
+      "unit": "Support Force / Cruiser Division 8",
+      "commander": "Capt. Komura Keizo",
+      "islandSide": null,
+      "funnels": "One large raked funnel (two uptakes trunked together). All four twin 20-cm turrets forward; aircraft deck aft.",
+      "note": "Catapulted the E13A1 that scouted Pearl Harbor at 05:30.",
+      "formation": {"rightM": -15000, "aheadM": 2000, "basis": "E: schematic outer port flank, forward."},
+      "confidence": "medium"
+    },
+    {
+      "id": "abukuma", "name": "Abukuma", "kanji": "阿武隈", "type": "light_cruiser",
+      "class": "Nagara",
+      "lengthM": 162.15, "beamM": 14.17, "displacementT": 5570, "displacementBasis": "normal",
+      "unit": "Screening Force / flagship Destroyer Squadron 1 (RAdm Omori Sentaro)",
+      "commander": "Capt. Murayama Seiroku",
+      "islandSide": null,
+      "funnels": "Three upright funnels.",
+      "note": "Led the destroyer screen.",
+      "formation": {"rightM": -3500, "aheadM": 10000, "basis": "E: schematic, ahead on the formation centreline. Fuchida (S) says the light cruiser and destroyers formed a screen around the force."},
+      "confidence": "medium"
+    },
+    {
+      "id": "tanikaze", "name": "Tanikaze", "kanji": "谷風", "type": "destroyer", "class": "Kagero",
+      "lengthM": 118.5, "beamM": 10.8, "displacementT": 2033, "displacementBasis": "standard",
+      "unit": "Destroyer Division 17 (Capt. Sugiura Kaju), DesRon 1", "commander": "Cdr. Katsumi Motoi",
+      "islandSide": null, "funnels": "Two raked funnels.",
+      "note": "Commander's name M, unverified this session.",
+      "formation": {"rightM": 9000, "aheadM": -5000, "basis": "E: schematic ring station, starboard beam. Individual destroyer stations are not known to me."},
+      "confidence": "low"
+    },
+    {
+      "id": "urakaze", "name": "Urakaze", "kanji": "浦風", "type": "destroyer", "class": "Kagero",
+      "lengthM": 118.5, "beamM": 10.8, "displacementT": 2033, "displacementBasis": "standard",
+      "unit": "Destroyer Division 17, DesRon 1", "commander": "Cdr. Shiraishi Nagayoshi",
+      "islandSide": null, "funnels": "Two raked funnels.",
+      "note": "Commander's name M, unverified this session.",
+      "formation": {"rightM": -12000, "aheadM": 8000, "basis": "E: schematic ring station, port bow."},
+      "confidence": "low"
+    },
+    {
+      "id": "isokaze", "name": "Isokaze", "kanji": "磯風", "type": "destroyer", "class": "Kagero",
+      "lengthM": 118.5, "beamM": 10.8, "displacementT": 2033, "displacementBasis": "standard",
+      "unit": "Destroyer Division 17, DesRon 1", "commander": "Cdr. Toshima Shunichi",
+      "islandSide": null, "funnels": "Two raked funnels.",
+      "note": "Commander's name M, unverified this session.",
+      "formation": {"rightM": 5000, "aheadM": 8000, "basis": "E: schematic ring station, starboard bow."},
+      "confidence": "low"
+    },
+    {
+      "id": "hamakaze", "name": "Hamakaze", "kanji": "浜風", "type": "destroyer", "class": "Kagero",
+      "lengthM": 118.5, "beamM": 10.8, "displacementT": 2033, "displacementBasis": "standard",
+      "unit": "Destroyer Division 17, DesRon 1", "commander": "Cdr. Orita Tsuneo",
+      "islandSide": null, "funnels": "Two raked funnels.",
+      "note": "Commander's name M, unverified this session.",
+      "formation": {"rightM": -16000, "aheadM": -5000, "basis": "E: schematic ring station, port beam."},
+      "confidence": "low"
+    },
+    {
+      "id": "kagero", "name": "Kagero", "kanji": "陽炎", "type": "destroyer", "class": "Kagero",
+      "lengthM": 118.5, "beamM": 10.8, "displacementT": 2033, "displacementBasis": "standard",
+      "unit": "Destroyer Division 18 (Capt. Miyasaka Yoshito), DesRon 1", "commander": "Cdr. Yokoi Minoru",
+      "islandSide": null, "funnels": "Two raked funnels.",
+      "note": "Commander's name M, unverified this session.",
+      "formation": {"rightM": 4000, "aheadM": -21000, "basis": "E: schematic ring station, starboard quarter."},
+      "confidence": "low"
+    },
+    {
+      "id": "shiranuhi", "name": "Shiranuhi", "kanji": "不知火", "type": "destroyer", "class": "Kagero",
+      "lengthM": 118.5, "beamM": 10.8, "displacementT": 2033, "displacementBasis": "standard",
+      "unit": "Destroyer Division 18, DesRon 1", "commander": "Cdr. Akasawa Shizuo",
+      "islandSide": null, "funnels": "Two raked funnels.",
+      "note": "Commander's name M, unverified this session.",
+      "formation": {"rightM": -11000, "aheadM": -21000, "basis": "E: schematic ring station, port quarter."},
+      "confidence": "low"
+    },
+    {
+      "id": "arare", "name": "Arare", "kanji": "霰", "type": "destroyer", "class": "Asashio",
+      "lengthM": 118.3, "beamM": 10.35, "displacementT": 1961, "displacementBasis": "standard",
+      "unit": "Destroyer Division 18, DesRon 1; escort of the 2nd Supply Group", "commander": "Cdr. Ogata Tomoe",
+      "islandSide": null, "funnels": "Two raked funnels.",
+      "note": "S (combinedfleet TROMs): detached with the 2nd Supply Group's oilers about 11:30 on 5 December, so NOT in the screen on 7 December. Commander's name M.",
+      "formation": {"rightM": null, "aheadM": null, "basis": "Not in the launch formation: with the 2nd Supply Group at the post-strike rendezvous north of the launch area."},
+      "confidence": "medium"
+    },
+    {
+      "id": "kasumi", "name": "Kasumi", "kanji": "霞", "type": "destroyer", "class": "Asashio",
+      "lengthM": 118.3, "beamM": 10.35, "displacementT": 1961, "displacementBasis": "standard",
+      "unit": "Destroyer Division 18, DesRon 1; escort of the 1st Supply Group", "commander": "Cdr. Tomura Kiyoshi",
+      "islandSide": null, "funnels": "Two raked funnels.",
+      "note": "S (combinedfleet TROMs): detached with the 1st Supply Group's oilers on the morning of 6 December, so NOT in the screen on 7 December. Commander's name M.",
+      "formation": {"rightM": null, "aheadM": null, "basis": "Not in the launch formation: with the 1st Supply Group."},
+      "confidence": "medium"
+    },
+    {
+      "id": "akigumo", "name": "Akigumo", "kanji": "秋雲", "type": "destroyer", "class": "Kagero (long listed as Yugumo class)",
+      "lengthM": 118.5, "beamM": 10.8, "displacementT": 2033, "displacementBasis": "standard",
+      "unit": "Attached to Carrier Division 5 (plane guard / screen)", "commander": "Cdr. Arimoto Terumichi",
+      "islandSide": null, "funnels": "Two raked funnels.",
+      "note": "Commander's name M, unverified this session.",
+      "formation": {"rightM": -3500, "aheadM": -18000, "basis": "E: schematic, astern of the carrier box near CarDiv 5."},
+      "confidence": "low"
+    },
+    {
+      "id": "i19", "name": "I-19", "kanji": "伊19", "type": "submarine", "class": "Type B1 (I-15 class)",
+      "lengthM": 108.7, "beamM": 9.3, "displacementT": 2584, "displacementBasis": "surfaced; 3,654 t submerged",
+      "unit": "Patrol Unit of the Striking Force (Capt. Imaizumi Kijiro embarked; flagship SubDiv 2)", "commander": "Cdr. Narahara Shogo",
+      "islandSide": null, "funnels": "None.",
+      "note": "S (combinedfleet): the three boats sailed from Hitokappu with the force as a patrol line ahead of it (about 200 miles ahead according to Fuchida); I-19 was about 110 miles NE of Oahu during the air attack. The search result gave the unit commander's given name as Yoshijiro; other references read it Kijiro.",
+      "formation": {"rightM": null, "aheadM": null, "basis": "Not in the surface formation; far ahead. See submarines.cordon."},
+      "confidence": "medium"
+    },
+    {
+      "id": "i21", "name": "I-21", "kanji": "伊21", "type": "submarine", "class": "Type B1 (I-15 class)",
+      "lengthM": 108.7, "beamM": 9.3, "displacementT": 2584, "displacementBasis": "surfaced; 3,654 t submerged",
+      "unit": "Patrol Unit of the Striking Force", "commander": "Cdr. Matsumura Kanji",
+      "islandSide": null, "funnels": "None.",
+      "note": "S (combinedfleet): lookout ahead of the force, then assigned to patrol north of Oahu.",
+      "formation": {"rightM": null, "aheadM": null, "basis": "Not in the surface formation; far ahead."},
+      "confidence": "medium"
+    },
+    {
+      "id": "i23", "name": "I-23", "kanji": "伊23", "type": "submarine", "class": "Type B1 (I-15 class)",
+      "lengthM": 108.7, "beamM": 9.3, "displacementT": 2584, "displacementBasis": "surfaced; 3,654 t submerged",
+      "unit": "Patrol Unit of the Striking Force", "commander": "Cdr. Shibata Genichi",
+      "islandSide": null, "funnels": "None.",
+      "note": "S (combinedfleet): sailed with the force; reassigned to the Advance Force at 15:10 on the day of the attack and sent to an area north of Hawaii.",
+      "formation": {"rightM": null, "aheadM": null, "basis": "Not in the surface formation; far ahead."},
+      "confidence": "medium"
+    },
+    {
+      "id": "kyokuto_maru", "name": "Kyokuto Maru", "kanji": "極東丸", "type": "oiler", "class": "Kawasaki-type fast merchant tanker (requisitioned)",
+      "lengthM": 153, "beamM": 20, "displacementT": null, "grossTons": 10051,
+      "unit": "1st Supply Group (flagship; Capt. Ota Masanao)", "commander": null,
+      "islandSide": null, "funnels": "One funnel aft; bridge amidships.",
+      "note": "Dimensions approximate (about 153 m between perpendiculars, about 160 m overall); displacement not given because sources quote gross tonnage. Detached on the morning of 6 December.",
+      "formation": {"rightM": null, "aheadM": null, "basis": "Not in the launch formation (detached 6 December). During the crossing the tankers followed astern of the carrier columns (S: Fuchida)."},
+      "confidence": "medium"
+    },
+    {
+      "id": "kenyo_maru", "name": "Kenyo Maru", "kanji": "健洋丸", "type": "oiler", "class": "Kawasaki-type fast merchant tanker (requisitioned)",
+      "lengthM": 153, "beamM": 20, "displacementT": null, "grossTons": 10024,
+      "unit": "1st Supply Group", "commander": null,
+      "islandSide": null, "funnels": "One funnel aft; bridge amidships.",
+      "note": "Detached on the morning of 6 December.",
+      "formation": {"rightM": null, "aheadM": null, "basis": "Not in the launch formation."},
+      "confidence": "medium"
+    },
+    {
+      "id": "kokuyo_maru", "name": "Kokuyo Maru", "kanji": "国洋丸", "type": "oiler", "class": "Kawasaki-type fast merchant tanker (requisitioned)",
+      "lengthM": 153, "beamM": 20, "displacementT": null, "grossTons": 10027,
+      "unit": "1st Supply Group", "commander": null,
+      "islandSide": null, "funnels": "One funnel aft; bridge amidships.",
+      "note": "Detached on the morning of 6 December.",
+      "formation": {"rightM": null, "aheadM": null, "basis": "Not in the launch formation."},
+      "confidence": "medium"
+    },
+    {
+      "id": "shinkoku_maru", "name": "Shinkoku Maru", "kanji": "神国丸", "type": "oiler", "class": "Kawasaki-type fast merchant tanker (requisitioned)",
+      "lengthM": 153, "beamM": 20, "displacementT": null, "grossTons": 10020,
+      "unit": "1st Supply Group", "commander": null,
+      "islandSide": null, "funnels": "One funnel aft; bridge amidships.",
+      "note": "Detached on the morning of 6 December.",
+      "formation": {"rightM": null, "aheadM": null, "basis": "Not in the launch formation."},
+      "confidence": "medium"
+    },
+    {
+      "id": "toho_maru", "name": "Toho Maru", "kanji": "東邦丸", "type": "oiler", "class": "Kawasaki-type fast merchant tanker (requisitioned)",
+      "lengthM": 153, "beamM": 20, "displacementT": null, "grossTons": 9997,
+      "unit": "2nd Supply Group (flagship; Capt. Niimi Kazutaka)", "commander": null,
+      "islandSide": null, "funnels": "One funnel aft; bridge amidships.",
+      "note": "Detached with Toei Maru, Nippon Maru and destroyer Arare about 11:30 on 5 December.",
+      "formation": {"rightM": null, "aheadM": null, "basis": "Not in the launch formation."},
+      "confidence": "medium"
+    },
+    {
+      "id": "toei_maru", "name": "Toei Maru", "kanji": "東栄丸", "type": "oiler", "class": "Kawasaki-type fast merchant tanker (requisitioned)",
+      "lengthM": 153, "beamM": 20, "displacementT": null, "grossTons": 10020,
+      "unit": "2nd Supply Group", "commander": null,
+      "islandSide": null, "funnels": "One funnel aft; bridge amidships.",
+      "note": "Detached about 11:30 on 5 December.",
+      "formation": {"rightM": null, "aheadM": null, "basis": "Not in the launch formation."},
+      "confidence": "medium"
+    },
+    {
+      "id": "nippon_maru", "name": "Nippon Maru", "kanji": "日本丸", "type": "oiler", "class": "Kawasaki-type fast merchant tanker (requisitioned)",
+      "lengthM": 153, "beamM": 20, "displacementT": null, "grossTons": 9971,
+      "unit": "2nd Supply Group", "commander": null,
+      "islandSide": null, "funnels": "One funnel aft; bridge amidships.",
+      "note": "Detached about 11:30 on 5 December.",
+      "formation": {"rightM": null, "aheadM": null, "basis": "Not in the launch formation."},
+      "confidence": "medium"
+    },
+    {
+      "id": "ushio", "name": "Ushio", "kanji": "潮", "type": "destroyer", "class": "Fubuki (Type II / Ayanami group)",
+      "lengthM": 118.4, "beamM": 10.4, "displacementT": 1750, "displacementBasis": "standard",
+      "unit": "SEPARATE: Midway Neutralization Unit (Capt. Konishi Kaname, Destroyer Division 7)", "commander": "Cdr. Uesugi Yoshitake",
+      "islandSide": null, "funnels": "Two raked funnels.",
+      "note": "Never part of the carrier formation. With Sazanami and the oiler Shiriya sailed separately from Japan and shelled Midway on the night of 7 December. M, unverified this session.",
+      "formation": {"rightM": null, "aheadM": null, "basis": "Separate unit, about 1,100 nm west-north-west of Oahu on 7 December."},
+      "confidence": "medium"
+    },
+    {
+      "id": "sazanami", "name": "Sazanami", "kanji": "漣", "type": "destroyer", "class": "Fubuki (Type II / Ayanami group)",
+      "lengthM": 118.4, "beamM": 10.4, "displacementT": 1750, "displacementBasis": "standard",
+      "unit": "SEPARATE: Midway Neutralization Unit", "commander": "LtCdr. Uwai Hiroshi",
+      "islandSide": null, "funnels": "Two raked funnels.",
+      "note": "See Ushio. M, unverified this session.",
+      "formation": {"rightM": null, "aheadM": null, "basis": "Separate unit."},
+      "confidence": "medium"
+    },
+    {
+      "id": "shiriya", "name": "Shiriya", "kanji": "尻矢", "type": "oiler", "class": "Shiretoko-class fleet oiler (IJN)",
+      "lengthM": 138.7, "beamM": 17.7, "displacementT": 14050, "displacementBasis": "normal",
+      "unit": "SEPARATE: Midway Neutralization Unit", "commander": null,
+      "islandSide": null, "funnels": "One funnel amidships-aft.",
+      "note": "Navy oiler supporting Ushio and Sazanami; this is the 'eighth tanker' of some orders of battle. M, unverified this session.",
+      "formation": {"rightM": null, "aheadM": null, "basis": "Separate unit."},
+      "confidence": "low"
+    }
+  ],
+
+  "formation": {
+    "description": "Launch disposition ('No. 6 alert cruising disposition', assumed at 00:30 JST = 05:00 HST per Genda). Attested: six carriers in two parallel columns of three; two battleships and two heavy cruisers on the outer flanks; light cruiser and destroyers as a screen around the force; three submarines far ahead; tankers astern during the crossing (Fuchida 1952). Reconstructed here: starboard column Akagi-Kaga-Zuikaku, port column Soryu-Hiryu-Shokaku, 7,000 m between columns and between ships in column; Abukuma 10 km ahead on the centreline; Tone/Chikuma on the forward flanks and Hiei/Kirishima on the after flanks about 8 km outside the columns; seven destroyers on a loose ring (Arare and Kasumi were away with the tankers).",
+    "guide": "akagi",
+    "courseDegAtLaunch": 70,
+    "speedKnAtLaunch": 24,
+    "baseCourseDeg": 180,
+    "columnSpacingM": 7000,
+    "shipIntervalM": 7000,
+    "offsetConvention": "ships[].formation.rightM / aheadM are metres from Akagi measured in the frame of the BASE course 180 deg (aheadM positive = south, rightM positive = starboard = west). The turns into the wind were made by all ships together, so while launching each ship heads about 070 deg but keeps the same earth-frame offsets: rotate headings, not the pattern.",
+    "transitFormation": "During the crossing (No. 1 cruising disposition) the same two columns of three were kept much closer together, on the order of 1,000-1,500 m between ships (the film frame from Akagi shows Kaga and Zuikaku close astern), with the seven tankers astern, the battleships and heavy cruisers outboard and the three submarines scouting ahead.",
+    "planeGuard": "IJN practice was to station a destroyer 700-1,000 m astern of each carrier during flight operations to pick up ditched crews (a Zero pilot who crashed on take-off in the first wave was rescued by a destroyer). Which destroyer followed which carrier is not known to me; an animation may move the ring destroyers astern of the carriers during the two launches.",
+    "basis": "S: Fuchida, 'I Led the Air Attack on Pearl Harbor' (two columns of three, flank and screen description, tankers astern, submarines about 200 miles ahead); S: Genda memoir excerpt (disposition No. 6 at 00:30 JST); S: NHHC caption of the film frame from Akagi; S: Japanese forum pointer that the No. 5 and No. 6 dispositions are drawn in Senshi Sosho vol. 10 (not accessible). E: column sides, the 7,000 m spacing (the First Air Fleet's 1941-42 box-formation doctrine as described in Evans & Peattie and Parshall & Tully, recalled, not re-verified) and every escort station.",
+    "plausibleRangeM": {"columnSpacing": [3000, 8000], "shipInterval": [1500, 8000]},
+    "confidence": "low"
+  },
+
+  "plan": {
+    "source": "Carrier Striking Task Force Operations Orders No. 1 and No. 3 of 23 November 1941 as reconstructed after the war in Japanese Monograph No. 97 (S). The originals were destroyed; the text was rebuilt from notes and memory.",
+    "standbyPoint": {"lat": 42.0, "lon": -170.0, "note": "JM-97 prints 42 N 165 W; the 1946 Joint Committee narrative prints '42 north, 170 east' (an obvious slip for west); Wallin has 'longitude about 170 W, then course about 135'. 170 W adopted."},
+    "approachPoint": {"lat": 32.0, "lon": -157.0, "note": "JM-97. Turn south at about 24 knots from its vicinity around 07:00 JST on X-1 day (11:30 HST 6 December)."},
+    "order3": "700 nm due north of point Z at 06:00 JST X-1; course 180 at 24 kn from 07:00; first wave launched 230 nm due north of point Z at 01:30 JST (06:00 HST); second wave 200 nm due north at 02:45 JST (07:15 HST); then withdraw northward at about 24 kn; first wave due back 05:30-06:00 JST (10:00-10:30 HST), second 06:45-07:15 JST (11:15-11:45 HST).",
+    "pointZ": {"lat": 20.92, "lon": -157.06, "note": "JM-97 defines point Z as the western extremity of Lanai. Taken literally the first launch would be at 24.75 N 157.06 W, only about 190 nm from Kahuku Point bearing 016 deg. That does not fit the Opana radar track (first wave came in from 3 deg east of north), so the actual launch is placed near 158 W."},
+    "order1Variant": "Order No. 1 version: take-off point 200 nm north of the enemy anchorage at 01:00 JST X-day (05:30 HST)."
+  },
+
+  "voyage": [
+    {"date": "1941-11-21", "timeHST": null, "dateJST": "1941-11-22", "lat": 44.95, "lon": 147.68, "event": "Striking force assembled in Hitokappu (Tankan) Bay, Etorofu, Kuril Islands (Akagi arrived 22 November JST).", "courseDeg": null, "speedKn": 0, "basis": "S: combinedfleet Akagi TROM. Bay position approximate.", "confidence": "medium"},
+    {"date": "1941-11-25", "timeHST": "10:30", "dateJST": "1941-11-26 06:00", "lat": 44.95, "lon": 147.68, "event": "Sortie from Hitokappu Bay begins (06:00 JST 26 November; the Joint Committee narrative gives 09:00 JST). Radio silence; course east across the empty North Pacific between the Aleutian and Midway shipping lanes.", "courseDeg": 95, "speedKn": 13, "basis": "S: USSBS, Joint Committee report, combinedfleet.", "confidence": "high"},
+    {"date": "1941-11-26", "timeHST": "12:00", "lat": 44.527, "lon": 153.743, "event": "Noon position (interpolated).", "courseDeg": 95, "speedKn": 13, "basis": "E: straight-line interpolation Hitokappu to 42 N 170 W at the 10.4 kn average speed made good.", "confidence": "low"},
+    {"date": "1941-11-27", "timeHST": "12:00", "lat": 44.13, "lon": 159.449, "event": "Noon position (interpolated). Refuelling at sea whenever weather allowed; fog and heavy seas.", "courseDeg": 95, "speedKn": 13, "basis": "E", "confidence": "low"},
+    {"date": "1941-11-28", "timeHST": "12:00", "lat": 43.732, "lon": 165.155, "event": "Noon position (interpolated).", "courseDeg": 95, "speedKn": 13, "basis": "E", "confidence": "low"},
+    {"date": "1941-11-29", "timeHST": "12:00", "lat": 43.334, "lon": 170.861, "event": "Noon position (interpolated).", "courseDeg": 95, "speedKn": 13, "basis": "E", "confidence": "low"},
+    {"date": "1941-11-30", "timeHST": "12:00", "lat": 42.936, "lon": 176.567, "event": "Noon position (interpolated).", "courseDeg": 95, "speedKn": 13, "basis": "E", "confidence": "low"},
+    {"date": "1941-12-01", "timeHST": "02:30", "lat": 42.697, "lon": -180.0, "event": "Crosses the 180th meridian (about 22:00 JST 1 December; estimated).", "courseDeg": 95, "speedKn": 13, "basis": "E", "confidence": "low"},
+    {"date": "1941-12-01", "timeHST": "12:00", "lat": 42.539, "lon": -177.727, "event": "Noon position (interpolated).", "courseDeg": 95, "speedKn": 13, "basis": "E", "confidence": "low"},
+    {"date": "1941-12-02", "timeHST": "00:30", "dateJST": "1941-12-02 20:00", "lat": 42.331, "lon": -174.755, "event": "Receipt of Combined Fleet signal 'Niitakayama nobore 1208' (Climb Mount Niitaka 1208): hostilities to open 8 December Japan time. Transmitted 17:30 JST 2 December (22:00 HST 1 December); received that evening. TROMs put the force about 940 miles north of Midway.", "courseDeg": 95, "speedKn": 13, "basis": "S: combinedfleet TROMs for the signal and the Midway distance; receipt time M; position E.", "confidence": "medium"},
+    {"date": "1941-12-02", "timeHST": "12:00", "lat": 42.141, "lon": -172.021, "event": "Noon position (interpolated).", "courseDeg": 95, "speedKn": 13, "basis": "E", "confidence": "low"},
+    {"date": "1941-12-02", "timeHST": "20:30", "dateJST": "1941-12-03 16:00", "lat": 42.0, "lon": -170.0, "event": "Standby point reached ('afternoon of 3 December' JST in the operation order; the Joint Committee narrative says 4 December JST). Combat ships fuelled to capacity.", "courseDeg": 95, "speedKn": 9, "basis": "S: operation order, Joint Committee report, USSBS ('refuelling successfully completed on 3 December'). Longitude conflict 170 W / 165 W; arrival time E.", "confidence": "medium"},
+    {"date": "1941-12-03", "timeHST": "08:30", "dateJST": "1941-12-04 04:00", "lat": 42.0, "lon": -170.0, "event": "Turns south-east toward the approach point (course about 134 deg computed; Wallin 'about 135'; some accounts 145).", "courseDeg": 134, "speedKn": 13, "basis": "M for the 04:00 JST turn (Prange); E for the course.", "confidence": "low"},
+    {"date": "1941-12-03", "timeHST": "12:00", "lat": 41.567, "lon": -169.443, "event": "Noon position (interpolated).", "courseDeg": 134, "speedKn": 13, "basis": "E", "confidence": "low"},
+    {"date": "1941-12-04", "timeHST": "12:00", "lat": 38.594, "lon": -165.626, "event": "Noon position (interpolated). Heavy weather.", "courseDeg": 134, "speedKn": 13, "basis": "E", "confidence": "low"},
+    {"date": "1941-12-05", "timeHST": "11:30", "lat": 35.683, "lon": -161.888, "event": "After fuelling, the 2nd Supply Group (Toho Maru, Toei Maru, Nippon Maru) with destroyer Arare is detached to the return rendezvous.", "courseDeg": 134, "speedKn": 13, "basis": "S: combinedfleet Akagi and Nippon Maru TROMs ('about 1130', 5 December). Time base of the TROM entry is ambiguous; position E.", "confidence": "low"},
+    {"date": "1941-12-06", "timeHST": "08:10", "lat": 33.123, "lon": -158.6, "event": "Final refuelling (from 06:30); 1st Supply Group (Kyokuto Maru, Kenyo Maru, Kokuyo Maru, Shinkoku Maru) with destroyer Kasumi detached to the return rendezvous.", "courseDeg": 134, "speedKn": 9, "basis": "S: combinedfleet Soryu and Nippon Maru TROMs (0810 on 6 December; the Kyokuto Maru TROM dates it 5 December). Position E.", "confidence": "low"},
+    {"date": "1941-12-06", "timeHST": "11:30", "dateJST": "1941-12-07 07:00", "lat": 32.711, "lon": -158.07, "event": "Turn due south and increase to 24 knots for the run-in. Yamamoto's message read to all hands; 'Z' flag hoisted on Akagi. About 660 nm north of Kahuku Point.", "courseDeg": 180, "speedKn": 24, "basis": "S: operation order (07:00 JST X-1, 24 kn), TROMs (24 kn). M: flag and message (Prange). Position E, back-calculated from the launch point; the plan says 32 N 157 W. The Joint Committee narrative (M) gives 26 kn.", "confidence": "low"},
+    {"date": "1941-12-06", "timeHST": "18:00", "lat": 30.111, "lon": -158.07, "event": "Run-in, darkened ships (dead reckoning).", "courseDeg": 180, "speedKn": 24, "basis": "E", "confidence": "low"},
+    {"date": "1941-12-06", "timeHST": "23:00", "lat": 28.111, "lon": -158.07, "event": "About 400 nm north of Oahu (dead reckoning).", "courseDeg": 180, "speedKn": 24, "basis": "E; TROMs note '400 miles north of Oahu' for 6 December.", "confidence": "low"}
+  ],
+
+  "dec7": [
+    {"t": "00:00", "lat": 27.711, "lon": -158.07, "courseDeg": 180, "speedKn": 24, "event": "Run-in at 24 knots, ships darkened, radio silence. About 360 nm north of Kahuku Point.", "basis": "E: dead reckoning back from the launch point.", "confidence": "low"},
+    {"t": "03:00", "lat": 26.511, "lon": -158.07, "courseDeg": 180, "speedKn": 24, "event": "Aircrews called; aircraft armed and brought up from the hangars; engines warmed up on deck over the next two hours.", "basis": "E for position; M for the routine.", "confidence": "low"},
+    {"t": "05:00", "lat": 25.711, "lon": -158.07, "courseDeg": 180, "speedKn": 24, "event": "Force takes up No. 6 alert cruising disposition, the launch formation (00:30 JST).", "basis": "S: Genda memoir excerpt for the time; position E.", "confidence": "medium"},
+    {"t": "05:30", "lat": 25.511, "lon": -158.07, "courseDeg": 180, "speedKn": 24, "event": "Tone and Chikuma each catapult one Aichi E13A1 Type 0 reconnaissance floatplane into the dark: Tone's for Lahaina Roads, Chikuma's for Pearl Harbor (01:00 JST).", "basis": "S: Fuchida 1952, NPS study, Genda. combinedfleet TROMs print 05:00. Position E.", "confidence": "high"},
+    {"t": "05:50", "lat": 25.378, "lon": -158.07, "courseDeg": 70, "speedKn": 24, "event": "All ships turn together to port into the wind (01:20 JST); carriers hold 24 knots. Battle ensign and 'Z' flag at Akagi's masthead.", "basis": "S: Japanese chronologies (turn 01:20 JST), Fuchida ('turned to port'). Course 070 is E from 'ENE 13 m/s'; most English accounts just say 'east'.", "confidence": "medium"},
+    {"t": "06:00", "lat": 25.4, "lon": -158.001, "courseDeg": 70, "speedKn": 24, "event": "First-wave launch begins: green lamp swung in a circle on each flight deck, fighters first. Position about 221 nm from Kahuku Point bearing 000 deg (about 242 nm from Pearl Harbor): the '230 miles due north of Oahu' of the Japanese record.", "basis": "S: 01:30 JST launch (Japanese chronologies, Fuchida, USNI, Wallin). Other accounts give 06:05, 06:10 or 06:18. Position E, see launchPointAnalysis.", "confidence": "medium"},
+    {"t": "06:15", "lat": 25.435, "lon": -157.897, "courseDeg": 70, "speedKn": 24, "event": "183 aircraft airborne in about 15 minutes; six of the planned 189 did not go. Aircraft climb in a wide left-hand orbit over the force to form up.", "basis": "S: Arakaki & Kuborn, Jiji, NPS. Position E.", "confidence": "medium"},
+    {"t": "06:20", "lat": 25.446, "lon": -157.862, "courseDeg": 180, "speedKn": 24, "event": "First wave, formed up, passes over the flagship and departs south behind Fuchida. Force swings back to course 180.", "basis": "S: NPS (06:20 departure). Position E; matches the wave departure point in research/wave1.json.", "confidence": "medium"},
+    {"t": "07:05", "lat": 25.146, "lon": -157.862, "courseDeg": 70, "speedKn": 24, "event": "Second-wave aircraft spotted and warmed up; carriers swing into the wind again.", "basis": "S: NPS ('at 7:05 the carriers again swung eastward into the wind'). Position E.", "confidence": "low"},
+    {"t": "07:15", "lat": 25.169, "lon": -157.793, "courseDeg": 70, "speedKn": 24, "event": "Second-wave launch begins (02:45 JST). About 208 nm from Kahuku Point bearing 003 deg (plan: 200 nm).", "basis": "S: operation order and standard accounts for 07:15. Position E.", "confidence": "medium"},
+    {"t": "07:30", "lat": 25.203, "lon": -157.689, "courseDeg": 180, "speedKn": 20, "event": "Second wave (167 aircraft) formed up and gone south under LtCdr Shimazaki. Force stands on south to shorten the return flight instead of withdrawing north as the order had laid down.", "basis": "E for time and position. M (Prange): Nagumo closed to about 190 miles from Oahu.", "confidence": "low"},
+    {"t": "07:35", "lat": 25.175, "lon": -157.689, "courseDeg": 180, "speedKn": 20, "event": "Scout reports received: Chikuma's plane reports the fleet in Pearl Harbor, Tone's reports Lahaina anchorage empty; 07:38 wind and cloud over the target.", "basis": "S for the reports; position E.", "confidence": "medium"},
+    {"t": "07:53", "lat": 25.075, "lon": -157.689, "courseDeg": 180, "speedKn": 20, "event": "'Tora, Tora, Tora' received aboard Akagi.", "basis": "Well attested time; position E.", "confidence": "medium"},
+    {"t": "09:00", "lat": 24.703, "lon": -157.689, "courseDeg": 180, "speedKn": 10, "event": "Force reaches its recovery area about 180-190 nm north of Kahuku Point (about 200 nm from Pearl Harbor) and waits, combat air patrol overhead.", "basis": "E, constrained by 'about 190 miles' (M: Prange) and by return flight times.", "confidence": "low"},
+    {"t": "10:10", "lat": 24.703, "lon": -157.689, "courseDeg": 70, "speedKn": 24, "event": "First returning first-wave aircraft land. Carriers steam into the wind for each recovery cycle in a heavy swell; several aircraft are wrecked on landing and pushed over the side.", "basis": "M: 10:10 (Prange and others). Position E.", "confidence": "low"},
+    {"t": "11:15", "lat": 24.752, "lon": -157.539, "courseDeg": 70, "speedKn": 24, "event": "First wave largely aboard; second-wave aircraft begin to return (plan: 11:15-11:45).", "basis": "E, from the planned return windows.", "confidence": "low"},
+    {"t": "12:15", "lat": 24.798, "lon": -157.401, "courseDeg": 70, "speedKn": 24, "event": "Most second-wave aircraft aboard. Aircraft being refuelled and rearmed with anti-ship ordnance on the hangar and flight decks.", "basis": "E", "confidence": "low"},
+    {"t": "13:00", "lat": 24.832, "lon": -157.298, "courseDeg": 70, "speedKn": 24, "event": "Fuchida, last to return, lands on Akagi and reports to Nagumo on the bridge. Third-strike discussion.", "basis": "M: about 13:00 (Prange; Fuchida says he was about the last back - S). Some accounts say about noon. Position E.", "confidence": "low"},
+    {"t": "13:30", "lat": 24.855, "lon": -157.229, "courseDeg": 330, "speedKn": 26, "event": "Nagumo orders withdrawal; flag hoist on Akagi; force turns north-north-west at high speed toward the tanker rendezvous.", "basis": "M: 13:30 and 'north-north-west, 26 kn' (Prange). S: Fuchida ('flag signals... steamed north at high speed'). Course value E within NW-N.", "confidence": "low"},
+    {"t": "15:00", "lat": 25.418, "lon": -157.588, "courseDeg": 330, "speedKn": 26, "event": "Withdrawing (dead reckoning).", "basis": "E", "confidence": "low"},
+    {"t": "18:00", "lat": 26.544, "lon": -158.311, "courseDeg": 330, "speedKn": 26, "event": "Withdrawing at dusk (dead reckoning).", "basis": "E", "confidence": "low"},
+    {"t": "23:59", "lat": 28.796, "lon": -159.778, "courseDeg": 330, "speedKn": 26, "event": "Withdrawing (dead reckoning). Never found by US searches, which looked mainly south and west.", "basis": "E", "confidence": "low"}
+  ],
+
+  "launchPointAnalysis": {
+    "adopted": {"t": "06:00", "lat": 25.4, "lon": -158.0, "distanceNmFromKahukuPoint": 221, "distanceNmFromPearlHarbor": 242, "bearingFromOahuDeg": 0, "errorNm": 20},
+    "candidates": [
+      {"label": "Japanese record / most histories", "value": "230 nm due north of Oahu", "note": "Reference point on Oahu not stated."},
+      {"label": "USSBS and 1946 Joint Committee", "value": "about 200 miles north of Oahu", "note": "USSBS oddly times arrival at the launch point as 07:30."},
+      {"label": "Air & Space Forces Magazine, others", "value": "220 miles north of Oahu", "note": ""},
+      {"label": "Morison (recalled)", "value": "about 275 (statute) miles north of Pearl Harbor = 239 nm", "note": "M; could not be confirmed this session."},
+      {"label": "Round-number chart position (recalled)", "value": "26 N 158 W", "note": "M; 26 N would be 257 nm from Kahuku Point, too far for the radar timings."},
+      {"label": "Operation Order No. 3 taken literally", "value": "24.75 N 157.06 W (230 nm north of Lanai's west tip)", "note": "Inconsistent with the radar bearing."}
+    ],
+    "radarCrossCheck": "Opana first plotted the wave at 07:02, 132-137 statute miles (115-119 nm) out, 3 deg east of north, and lost it about 20 statute miles out at 07:39 (about 157-165 kn ground speed). A wave leaving 25.45 N 157.86 W at 06:20 covers the 111 nm to the 07:02 plot at 159 kn. A launch at 26 N would need about 200 kn; a launch north of Lanai would put the 07:02 bearing near 019 deg instead of 003.",
+    "confidence": "medium"
+  },
+
+  "launchOps": {
+    "deckProcedure": {
+      "spotting": "Each deck load was ranged aft with wings spread in take-off order: fighters at the front of the pack (shortest run), then the B5N level bombers or D3A dive bombers, with the torpedo-armed B5Ns last at the stern (longest run). Aircraft were armed and fuelled in the hangars, brought up by the lifts from about 03:30 and warmed up on deck. The second deck load was struck below ready and brought up as soon as the first wave had gone.",
+      "signals": "Air officer on the bridge orders the launch; the deck launch officer released each aircraft with a white hand flag, at night a green lamp swung in a circle (Fuchida). Chocks pulled, deck crews held the wingtips against the roll and waved caps as each aircraft passed. A steam jet at the bow showed the relative wind. Akagi flew the 'Z' flag with the battle ensign.",
+      "lighting": "Dark: launch began in nautical twilight about 35 minutes before sunrise at the force's position (sunrise there about 06:35; Honolulu 06:26). Waning gibbous moon (about 84 percent lit) in the western sky behind broken cloud. Dim deck-edge and centreline lights; aircraft showed navigation and formation lights to join up, and the leaders signalled by lamp.",
+      "formUp": "After take-off aircraft turned left and climbed in a wide left-hand orbit around the force, units joining on their leaders, made one circuit and set off south over the flagship at about 06:20. Cruise order of the first wave: Fuchida's 49 level bombers leading at about 3,000 m; 40 torpedo planes to the right and slightly below (about 2,800 m); 51 dive bombers to the left and above (about 3,400 m); 43 fighters above as cover (about 4,300 m). The wave flew above a cloud layer with tops near 2,000 m.",
+      "confidence": "medium"
+    },
+    "wave1": {
+      "start": "06:00",
+      "end": "06:15",
+      "departure": "06:20",
+      "launched": 183,
+      "planned": 189,
+      "leader": "Cdr. Fuchida Mitsuo (observer in Akagi B5N2 AI-301, pilot Lt. Matsuzaki Mitsuo)",
+      "order": [
+        {"carrier": "akagi", "seq": 1, "type": "A6M2 fighter", "count": 9, "note": "LtCdr. Itaya Shigeru, fighter leader; first off the deck."},
+        {"carrier": "akagi", "seq": 2, "type": "B5N2 level bomber (800-kg AP bomb)", "count": 15, "note": "Cdr. Fuchida Mitsuo."},
+        {"carrier": "akagi", "seq": 3, "type": "B5N2 torpedo bomber (Type 91 torpedo)", "count": 12, "note": "LtCdr. Murata Shigeharu, torpedo leader."},
+        {"carrier": "kaga", "seq": 1, "type": "A6M2 fighter", "count": 9, "note": "Lt. Shiga Yoshio."},
+        {"carrier": "kaga", "seq": 2, "type": "B5N2 level bomber (800-kg AP bomb)", "count": 14, "note": "LtCdr. Hashiguchi Takashi. 15 planned; one failed to launch."},
+        {"carrier": "kaga", "seq": 3, "type": "B5N2 torpedo bomber (Type 91 torpedo)", "count": 12, "note": "Lt. Kitajima Kazuyoshi."},
+        {"carrier": "soryu", "seq": 1, "type": "A6M2 fighter", "count": 8, "note": "Lt. Suganami Masaharu. 9 planned."},
+        {"carrier": "soryu", "seq": 2, "type": "B5N2 level bomber (800-kg AP bomb)", "count": 10, "note": "Lt. Abe Heijiro."},
+        {"carrier": "soryu", "seq": 3, "type": "B5N2 torpedo bomber (Type 91 torpedo)", "count": 8, "note": "Lt. Nagai Tsuyoshi."},
+        {"carrier": "hiryu", "seq": 1, "type": "A6M2 fighter", "count": 6, "note": "Lt. Okajima Kiyokuma."},
+        {"carrier": "hiryu", "seq": 2, "type": "B5N2 level bomber (800-kg AP bomb)", "count": 10, "note": "LtCdr. Kusumi Tadashi."},
+        {"carrier": "hiryu", "seq": 3, "type": "B5N2 torpedo bomber (Type 91 torpedo)", "count": 8, "note": "Lt. Matsumura Heita."},
+        {"carrier": "shokaku", "seq": 1, "type": "A6M2 fighter", "count": 5, "note": "Lt. Kaneko Tadashi. 6 planned."},
+        {"carrier": "shokaku", "seq": 2, "type": "D3A1 dive bomber (250-kg bomb)", "count": 26, "note": "LtCdr. Takahashi Kakuichi, dive-bomber leader. 27 planned."},
+        {"carrier": "zuikaku", "seq": 1, "type": "A6M2 fighter", "count": 6, "note": "Lt. Sato Masao."},
+        {"carrier": "zuikaku", "seq": 2, "type": "D3A1 dive bomber (250-kg bomb)", "count": 25, "note": "Lt. Sakamoto Akira. 27 planned."}
+      ],
+      "totalsByType": {"A6M2": 43, "B5N2_level": 49, "B5N2_torpedo": 40, "D3A1": 51},
+      "intervalSec": 25,
+      "intervalBasis": "E: 183 aircraft from six decks in about 15 minutes; Akagi's 36 aircraft imply about 25 s between take-offs. Fighters can go at 10-15 s, loaded B5Ns nearer 30 s.",
+      "aborts": [
+        {"carrier": "kaga", "type": "B5N2 level bomber", "count": 1},
+        {"carrier": "shokaku", "type": "D3A1", "count": 1},
+        {"carrier": "zuikaku", "type": "D3A1", "count": 2},
+        {"carrier": "soryu", "type": "A6M2", "count": 1},
+        {"carrier": "shokaku", "type": "A6M2", "count": 1}
+      ],
+      "abortsNote": "S: Arakaki & Kuborn - one horizontal bomber, three dive bombers and two Zeros failed to launch, all for mechanical trouble before take-off. S: NPS - one Zero crashed into the sea on take-off (pilot picked up by a destroyer) and another was left aboard with engine trouble. Attribution to carriers is by arithmetic (planned minus launched) and is M/E; which carrier's Zero crashed is not established here.",
+      "note": "Sequence within each carrier (fighters, then level or dive bombers, then torpedo planes) is M (Prange, Fuchida), medium confidence. Launch start is 06:00 in Japanese records; 06:05, 06:10 (NPS timeline) and 06:18 (combinedfleet) also appear, and one timeline says Nagumo held the launch briefly for the sea state.",
+      "confidence": "medium"
+    },
+    "wave2": {
+      "start": "07:15",
+      "end": "07:25",
+      "departure": "07:30",
+      "launched": 167,
+      "planned": 171,
+      "leader": "LtCdr. Shimazaki Shigekazu (Zuikaku)",
+      "order": [
+        {"carrier": "akagi", "seq": 1, "type": "A6M2 fighter", "count": 9, "note": "Lt. Shindo Saburo, second-wave fighter leader."},
+        {"carrier": "akagi", "seq": 2, "type": "D3A1 dive bomber (250-kg bomb)", "count": 18, "note": "Lt. Chihaya Takehiko."},
+        {"carrier": "kaga", "seq": 1, "type": "A6M2 fighter", "count": 9, "note": "Lt. Nikaido Yasushi."},
+        {"carrier": "kaga", "seq": 2, "type": "D3A1 dive bomber (250-kg bomb)", "count": 26, "note": "Lt. Makino Saburo. 27 planned."},
+        {"carrier": "soryu", "seq": 1, "type": "A6M2 fighter", "count": 9, "note": "Lt. Iida Fusata."},
+        {"carrier": "soryu", "seq": 2, "type": "D3A1 dive bomber (250-kg bomb)", "count": 17, "note": "LtCdr. Egusa Takashige, dive-bomber leader. 18 planned; one turned back with engine trouble."},
+        {"carrier": "hiryu", "seq": 1, "type": "A6M2 fighter", "count": 8, "note": "Lt. Nono Sumio. 9 planned."},
+        {"carrier": "hiryu", "seq": 2, "type": "D3A1 dive bomber (250-kg bomb)", "count": 17, "note": "Lt. Kobayashi Michio. 18 planned."},
+        {"carrier": "shokaku", "seq": 1, "type": "B5N2 level bomber (250-kg and 60-kg bombs)", "count": 27, "note": "Lt. Ichihara Tatsuo."},
+        {"carrier": "zuikaku", "seq": 1, "type": "B5N2 level bomber (250-kg and 60-kg bombs)", "count": 27, "note": "LtCdr. Shimazaki Shigekazu, wave leader."}
+      ],
+      "totalsByType": {"A6M2": 35, "D3A1": 78, "B5N2_level": 54},
+      "intervalSec": 25,
+      "aborts": [
+        {"carrier": "kaga", "type": "D3A1", "count": 1},
+        {"carrier": "soryu", "type": "D3A1", "count": 1},
+        {"carrier": "hiryu", "type": "D3A1", "count": 1},
+        {"carrier": "hiryu", "type": "A6M2", "count": 1}
+      ],
+      "note": "S: 54 B5N, 78 D3A, 35 A6M = 167. The four shortfalls against the plan of 171 are assigned to carriers by arithmetic (M/E). Japanese chronologies time the launch 02:45 JST = 07:15; NPS has the carriers turning into the wind at 07:05; one Japanese site gives 07:45. Arrived off Kahuku Point about 08:40 and was ordered to attack at 08:54 (S: Fuchida).",
+      "confidence": "medium"
+    },
+    "cap": {
+      "fightersRetained": 39,
+      "inferredByCarrier": {"akagi": 3, "kaga": 3, "soryu": 3, "hiryu": 6, "shokaku": 12, "zuikaku": 12},
+      "schedule": "Standing patrols rotated about every two hours from an hour before sunrise until 45 minutes after sunset (S: Wallin). The first patrol went up with the first wave; mainly Shokaku and Zuikaku fighters.",
+      "floatplanes": "Besides the two 05:30 scouts, floatplanes from the battleships and cruisers flew close anti-submarine and search patrols around the force (M, details not verified).",
+      "note": "39 fighters for combat air patrol is S (USNI Proceedings 1991: 432 aircraft = 353 raid + 39 CAP + 40 reserve). Wallin (S) says 54. The per-carrier split is E: fighter complement minus the fighters assigned to the two strikes.",
+      "confidence": "low"
+    },
+    "recovery": {
+      "plannedWindows": {"wave1": "10:00-10:30", "wave2": "11:15-11:45"},
+      "start": "10:10",
+      "wave1AboardBy": "11:15",
+      "wave2": "11:15-12:15",
+      "lastAircraft": "13:00 (Fuchida's B5N on Akagi)",
+      "position": {"lat": 24.75, "lon": -157.5, "radiusNm": 25, "distanceNmFromKahukuPoint": 185},
+      "returnRendezvous": "Aircraft left Oahu via an assembly point 20 nm from Kaena Point on bearing 340 deg, fighters joining bombers for navigation, then flew north to the carriers.",
+      "losses": {"aircraftLostInAction": 29, "wave1": 9, "wave2": 20, "byType": {"A6M2": 9, "D3A1": 15, "B5N2": 5}, "byCarrier": {"akagi": 5, "kaga": 15, "soryu": 5, "hiryu": 3, "shokaku": 1, "zuikaku": 0}, "aircrewLost": 55, "damaged": 74},
+      "note": "Times are M (Prange, standard accounts) and only approximately known; the position is E. Landing in a heavy swell wrecked a number of damaged aircraft, which were pushed overboard. Loss totals by carrier: S (combinedfleet TROMs for Akagi and Soryu) and M for the rest.",
+      "confidence": "low"
+    },
+    "thirdStrikeDecision": {
+      "t": "13:00-13:30",
+      "decision": "No further strike; retire.",
+      "who": "VAdm Nagumo on the advice of his chief of staff RAdm Kusaka ('We should retire as planned').",
+      "advocates": "Fuchida's post-war account has him urging another attack on returning, with Genda in support, and RAdm Yamaguchi (CarDiv 2) signalling that Soryu and Hiryu were ready. Aircraft were in fact being rearmed and ranged when the decision was made. Parshall and Zimm argue that Fuchida's bridge scene is embellished or invented and that a strike on fuel tanks and yards was not on anyone's agenda that afternoon.",
+      "reasons": ["Mission judged accomplished after two waves", "US carriers unlocated; only about ten floatplanes available to search", "Losses rose sharply in the second wave as defences woke up", "A third strike would land after dark in a rising sea", "Fuel: tankers already sent to the rendezvous, destroyers short-legged", "Within range of land-based bombers thought to survive on Oahu"],
+      "withdrawal": {"t": "13:30", "courseDeg": 330, "speedKn": 26, "note": "Direction reported as north or north-north-west; value is E."},
+      "aftermath": "Yamamoto's staff aboard Nagato urged ordering another attack; Yamamoto left the decision to the man on the spot. On 16 December (JST) Soryu, Hiryu, Tone, Chikuma, Tanikaze and Urakaze were detached to support the second Wake Island attack; the rest reached Hashirajima on 23-24 December.",
+      "confidence": "medium"
+    }
+  },
+
+  "scoutPlanes": [
+    {
+      "from": "chikuma",
+      "type": "Aichi E13A1 Type 0 reconnaissance seaplane ('Jake'), three crew",
+      "aircraftCode": "JII-1 (reported)",
+      "crew": "Sources differ: Japanese Wikipedia names WO Fukuoka Masaharu; Pacific Wrecks names the pilot as Ito Akira.",
+      "target": "Pearl Harbor",
+      "launch": "05:30",
+      "route": [
+        {"t": "05:30", "lat": 25.511, "lon": -158.07, "altM": 0, "note": "Catapulted from Chikuma."},
+        {"t": "06:30", "lat": 23.25, "lon": -158.02, "altM": 3000, "note": "Dead reckoning, course about 179 deg."},
+        {"t": "07:15", "lat": 21.75, "lon": -157.98, "altM": 3500, "note": "Estimated landfall north of Oahu, above the cloud deck. Opana logged small plots north of Oahu at 06:45-06:51 that are usually put down to the scouts."},
+        {"t": "07:35", "lat": 21.38, "lon": -157.95, "altM": 3500, "note": "Observing Pearl Harbor through cloud breaks; position schematic."},
+        {"t": "08:15", "lat": 21.0, "lon": -158.1, "altM": 3000, "note": "Then searched south of Oahu for carriers without result (Pacific Wrecks); schematic."}
+      ],
+      "reports": [
+        {"t": "07:35", "text": "Enemy fleet at anchor in Pearl Harbor: nine battleships, one heavy cruiser, six light cruisers. (Prange's wording, recalled. Fuchida's 1952 article gives ten battleships, one heavy cruiser, ten light cruisers.)"},
+        {"t": "07:38", "text": "Wind direction 080 degrees, speed 14 metres per second; cloud over the enemy fleet at 1,700 metres, amount 7. (Japanese Wikipedia times the Chikuma plane's report 03:08 JST = 07:38.)"}
+      ],
+      "note": "Route is a dead-reckoned schematic; only the launch time, target and the content of the reports are attested. The reports were the first radio transmissions from the force since leaving Japan.",
+      "confidence": "low"
+    },
+    {
+      "from": "tone",
+      "type": "Aichi E13A1 Type 0 reconnaissance seaplane ('Jake'), three crew",
+      "aircraftCode": "JI-1 (reported)",
+      "crew": "Pilot WO Narukawa Ryozo (combinedfleet, Pacific Wrecks).",
+      "target": "Lahaina Roads anchorage, Maui",
+      "launch": "05:30",
+      "route": [
+        {"t": "05:30", "lat": 25.511, "lon": -158.07, "altM": 0, "note": "Catapulted from Tone."},
+        {"t": "06:30", "lat": 23.28, "lon": -157.4, "altM": 3000, "note": "Dead reckoning, course about 165 deg, 289 nm to run."},
+        {"t": "07:00", "lat": 22.17, "lon": -157.07, "altM": 3000, "note": "Dead reckoning; passes east of Oahu and north of Molokai."},
+        {"t": "07:35", "lat": 20.95, "lon": -156.72, "altM": 3000, "note": "Lahaina Roads in sight between Maui, Lanai and Molokai; anchorage empty."},
+        {"t": "08:15", "lat": 20.6, "lon": -157.5, "altM": 3000, "note": "Return leg; schematic."}
+      ],
+      "reports": [
+        {"t": "07:35", "text": "The enemy fleet is not in Lahaina anchorage. (Another account times this about 07:40.)"}
+      ],
+      "note": "Route is a dead-reckoned schematic. Reaching Lahaina by 07:35 needs about 140 kn over the ground, which the E13A could manage with the north-easterly wind on its quarter. Submarine I-72 had already reported Lahaina empty on 6 December.",
+      "confidence": "low"
+    }
+  ],
+
+  "submarines": {
+    "organisation": "Sixth Fleet (Advance Expeditionary Force), VAdm Shimizu Mitsumi in the cruiser Katori at Kwajalein. Special Attack Unit of five Type C1 boats each carrying one Type A midget (Capt. Sasaki Hankyu in I-22). Submarine Squadrons 1, 2 and 3 formed the cordon around Oahu; I-10 and I-26 reconnoitred the South Pacific and Aleutians. With the three boats attached to the carriers, 30 fleet submarines took part.",
+    "typeA": {"lengthM": 23.9, "beamM": 1.85, "displacementT": 46, "armament": "two 45-cm Type 97 torpedoes in superimposed bow tubes; 140-kg scuttling charge", "speedKn": {"surfaced": 23, "submerged": 19}, "enduranceNote": "about 80 nm at 6 kn, under an hour at full speed; battery only, no means of recharging", "crew": 2},
+    "mothers": [
+      {"id": "i16", "name": "I-16", "class": "Type C1", "lengthM": 109.3, "beamM": 9.1, "displacementT": 2554, "commander": "Cdr. Yamada Kaoru", "midget": "i16_tou",
+       "launch": {"t": "00:42", "lat": 21.2092, "lon": -158.0149, "distanceNm": 7, "bearingFromEntranceDeg": 202, "basis": "S: combinedfleet - 7 miles SSW of the harbour entrance. Coordinates computed from the harbour mouth (21.317, -157.967)."},
+       "note": "First to launch. Received radio messages from her midget at 22:41 on 7 December and 00:51 on 8 December.", "confidence": "medium"},
+      {"id": "i22", "name": "I-22", "class": "Type C1", "lengthM": 109.3, "beamM": 9.1, "displacementT": 2554, "commander": "Cdr. Ageta Kiyoi (also read Kiyotake)", "midget": "i22_tou",
+       "launch": {"t": "01:16", "lat": 21.167, "lon": -157.967, "distanceNm": 9, "bearingFromEntranceDeg": 180, "basis": "S: combinedfleet - 9 miles from the entrance (arrived at the launch point 01:10). Bearing not given; due south assumed."},
+       "note": "Flagship of the Special Attack Unit (Capt. Sasaki Hankyu).", "confidence": "medium"},
+      {"id": "i18", "name": "I-18", "class": "Type C1", "lengthM": 109.3, "beamM": 9.1, "displacementT": 2554, "commander": "Cdr. Otani Kiyonori", "midget": "i18_tou",
+       "launch": {"t": "02:15", "lat": 21.1294, "lon": -157.8508, "distanceNm": 13, "bearingFromEntranceDeg": 150, "basis": "S: combinedfleet - about 13 miles from the entrance. Bearing not given; south-south-east assumed because her midget ended up off Keehi Lagoon, east of the entrance."},
+       "note": "", "confidence": "low"},
+      {"id": "i20", "name": "I-20", "class": "Type C1", "lengthM": 109.3, "beamM": 9.1, "displacementT": 2554, "commander": "Cdr. Yamada Takashi", "midget": "i20_tou",
+       "launch": {"t": "02:57", "lat": 21.2317, "lon": -157.9425, "distanceNm": 5.3, "bearingFromEntranceDeg": 165, "basis": "S: combinedfleet - 5.3 miles from the entrance. Bearing not given; assumed."},
+       "note": "Closest launch.", "confidence": "low"},
+      {"id": "i24", "name": "I-24", "class": "Type C1", "lengthM": 109.3, "beamM": 9.1, "displacementT": 2554, "commander": "Cdr. Hanabusa Hiroshi", "midget": "i24_tou_ha19",
+       "launch": {"t": "03:33", "lat": 21.25, "lon": -158.1405, "distanceNm": 10.5, "bearingFromEntranceDeg": 247, "basis": "S: combinedfleet - 10.5 miles WSW of the entrance."},
+       "note": "Last to launch; the midget's gyrocompass was known to be defective.", "confidence": "medium"}
+    ],
+    "motherRecoveryRendezvous": {"lat": 20.79, "lon": -157.11, "note": "Mother boats were to wait about 7 nm west-south-west of Lanai on the nights of 7-8 and 8-9 December; no midget arrived. E: coordinates from that description (M)."},
+    "midgets": [
+      {
+        "id": "i16_tou", "mother": "i16",
+        "crew": ["Ens. Yokoyama Masaharu", "PO2c Ueda Sadamu (also read Uyeda Tei)"],
+        "launch": {"t": "00:42", "lat": 21.2092, "lon": -158.0149},
+        "track": [
+          {"t": "00:42", "lat": 21.2092, "lon": -158.0149, "event": "Launched 7 nm SSW of the harbour entrance."},
+          {"t": "22:41", "lat": null, "lon": null, "event": "I-16 receives a radio message from the midget reporting the air attack a success. Position unknown; one theory has the boat hiding in West Loch."},
+          {"t": "00:51", "date": "1941-12-08", "lat": null, "lon": null, "event": "Last message: unable to navigate."}
+        ],
+        "fate": "Lost; no survivors. Both torpedoes had been fired. The hull, cut into three sections, lies in a military dumping ground about 3 nm south of Pearl Harbor among debris from the 1944 West Loch disaster; the sections were located by the Hawaii Undersea Research Laboratory in 1992, 2000 and 2001 and the identification announced in 2009. Whether it got into the harbour and fired at Battleship Row (a much-argued photograph), or fired at the cruiser St. Louis off the entrance at 10:04, is not settled.",
+        "wreck": {"lat": 21.262, "lon": -157.955, "basis": "E: 'about three miles south of Pearl Harbor'; exact position not published in anything reached.", "confidence": "low"},
+        "confidence": "low"
+      },
+      {
+        "id": "i22_tou", "mother": "i22",
+        "crew": ["Lt. Iwasa Naoji (senior midget officer)", "PO1c Sasaki Naokichi"],
+        "launch": {"t": "01:16", "lat": 21.167, "lon": -157.967},
+        "track": [
+          {"t": "01:16", "lat": 21.167, "lon": -157.967, "event": "Launched 9 nm off the entrance."},
+          {"t": "05:30", "lat": 21.325, "lon": -157.967, "event": "Estimated: passes the anti-torpedo net, whose gate stood open from 04:58 until about 08:40, and works up the channel submerged."},
+          {"t": "08:30", "lat": 21.372, "lon": -157.972, "event": "Conning tower sighted by USS Zane about 200 yd astern of Medusa, north-west of Ford Island; then by Curtiss, Medusa and others."},
+          {"t": "08:40", "lat": 21.3715, "lon": -157.9705, "event": "Fires a torpedo at Curtiss (misses, explodes against a dock at Pearl City); Curtiss puts a 5-inch shell through the conning tower. Second torpedo fired at the charging Monaghan misses and explodes on the Ford Island shore."},
+          {"t": "08:43", "lat": 21.3712, "lon": -157.9698, "event": "Rammed by USS Monaghan, then blown to the surface and sunk by two depth charges in about 9 m of water."}
+        ],
+        "fate": "Sunk in the harbour west-north-west of Ford Island at 08:43-08:44; both crew killed. Raised later in December and used, with the crew's remains inside, as fill for a quay at the submarine base. Identified as Iwasa's boat from a lieutenant's shoulder insignia (he was the only lieutenant among the ten).",
+        "wreck": {"lat": 21.3712, "lon": -157.9698, "basis": "E: placed from the Curtiss/Medusa berths (X-22 and X-23 as recalled; one source prints K-23 for Medusa) and the Ford Island shoreline; not a surveyed position.", "confidence": "low"},
+        "confidence": "medium"
+      },
+      {
+        "id": "i18_tou", "mother": "i18",
+        "crew": ["Ens. Furuno Shigemi", "PO1c Yokoyama Shigenori"],
+        "launch": {"t": "02:15", "lat": 21.1294, "lon": -157.8508},
+        "track": [
+          {"t": "02:15", "lat": 21.1294, "lon": -157.8508, "event": "Launched about 13 nm off the entrance."},
+          {"t": null, "lat": 21.288, "lon": -157.905, "event": "Depth-charged and abandoned off Keehi Lagoon, east of the harbour entrance; time unknown."}
+        ],
+        "fate": "Found by US Navy divers on 13 June 1960 in about 23 m (75 ft) of water off Keehi Lagoon with depth-charge damage, both torpedoes still in their tubes, the hatch unclipped from inside and no remains. Raised, returned to Japan and displayed at the former Naval Academy, Etajima.",
+        "wreck": {"lat": 21.288, "lon": -157.905, "basis": "E: 'off Keehi Lagoon in 75 ft'; original find position not located.", "confidence": "low"},
+        "confidence": "medium"
+      },
+      {
+        "id": "i20_tou", "mother": "i20",
+        "crew": ["Ens. Hiroo Akira", "PO2c Katayama Yoshio"],
+        "launch": {"t": "02:57", "lat": 21.2317, "lon": -157.9425},
+        "track": [
+          {"t": "02:57", "lat": 21.2317, "lon": -157.9425, "event": "Launched 5.3 nm off the entrance."},
+          {"t": "06:30", "lat": 21.25, "lon": -157.967, "event": "Seen from USS Antares following her and her towed lighter toward the entrance, conning tower awash."},
+          {"t": "06:37", "lat": 21.248, "lon": -157.967, "event": "Sighted by USS Ward; general quarters 06:40."},
+          {"t": "06:45", "lat": 21.2453, "lon": -157.967, "event": "Ward opens fire at about 100 yd: first shot misses, second (No. 3 gun) holes the base of the conning tower on the starboard side; four depth charges as Ward passes over. A PBY of VP-14 (Ens. Tanner) adds depth bombs. Ward reports at 06:53."}
+        ],
+        "fate": "Sunk by USS Ward at 06:45, the first shots of the Pacific War; both crew lost. Wreck found on 28 August 2002 by the University of Hawaii's submersibles Pisces IV and V in about 400 m of water roughly five statute miles off the harbour mouth, sitting upright with the shell hole in the conning tower and both torpedoes aboard. That this was I-20's boat is the usual attribution, not a certainty.",
+        "wreck": {"lat": 21.2453, "lon": -157.967, "depthM": 400, "basis": "E: HURL gives 400 m depth about five miles off the mouth of Pearl Harbor (press reports say three to four miles); coordinates are not published. Placed due south of the harbour mouth at that distance.", "confidence": "low"},
+        "confidence": "medium"
+      },
+      {
+        "id": "i24_tou_ha19", "mother": "i24",
+        "crew": ["Ens. Sakamaki Kazuo (captured, first Japanese prisoner of war)", "CWO Inagaki Kiyoshi (drowned)"],
+        "launch": {"t": "03:33", "lat": 21.25, "lon": -158.1405},
+        "track": [
+          {"t": "03:33", "lat": 21.25, "lon": -158.1405, "event": "Launched 10.5 nm WSW of the entrance with a dead gyrocompass; broaches, trim corrected."},
+          {"t": "07:00", "lat": 21.285, "lon": -157.99, "event": "Estimated: nearing the entrance, running on periscope and magnetic compass."},
+          {"t": "08:00", "lat": 21.3, "lon": -157.972, "event": "Runs onto a reef beside the entrance channel and surfaces."},
+          {"t": "08:17", "lat": 21.3, "lon": -157.972, "event": "USS Helm, leaving harbour, fires on the stranded boat and misses; the boat slides off and submerges. A second grounding wrecks the torpedo gear; depth-charging and battery fumes disable the crew."},
+          {"t": "18:00", "lat": 21.23, "lon": -157.8, "event": "Estimated: drifting east past Diamond Head, out of control."},
+          {"t": "04:30", "date": "1941-12-08", "lat": 21.364, "lon": -157.703, "event": "Strands on the reef off Waimanalo Beach near Bellows Field. Scuttling charge lit but fails; crew go into the surf."},
+          {"t": "05:40", "date": "1941-12-08", "lat": 21.3625, "lon": -157.7095, "event": "Sakamaki, washed ashore, is captured by Cpl. David Akui of the 298th Infantry. Inagaki's body comes ashore later."}
+        ],
+        "fate": "Never fired a torpedo. Grounded off Bellows Field, salvaged intact by the Army, toured the United States on war-bond drives and is now at the National Museum of the Pacific War, Fredericksburg, Texas.",
+        "wreck": {"lat": 21.364, "lon": -157.703, "basis": "E: reef a few hundred metres off the Bellows/Waimanalo beach; not a surveyed position. Times on 8 December are approximate.", "confidence": "low"},
+        "confidence": "medium"
+      }
+    ],
+    "relatedContacts": [
+      {"t": "03:42", "lat": 21.2538, "lon": -157.958, "event": "Minesweeper Condor sights a periscope about 1.75 nm south of the entrance buoys and signals Ward at 03:57. Which midget is unknown.", "confidence": "medium"},
+      {"t": "10:04", "lat": 21.283, "lon": -157.957, "event": "Cruiser St. Louis, clearing the channel, reports two torpedoes exploding on the reef near entrance buoy No. 1 and fires at a conning tower. Possibly I-16's boat; disputed.", "confidence": "low"}
+    ],
+    "cordon": [
+      {"id": "i9", "squadron": "SubRon 1 (flagship, RAdm Sato Tsutomu)", "lat": 23.63, "lon": -158.18, "note": "Line north-east of Oahu with I-15, I-17, I-25. Order of the western boats on the line not known.", "confidence": "low"},
+      {"id": "i15", "squadron": "SubRon 1", "lat": 23.56, "lon": -157.37, "note": "TROM: 'north of Oahu'.", "confidence": "low"},
+      {"id": "i17", "squadron": "SubRon 1", "lat": 23.25, "lon": -156.63, "note": "Next to I-25.", "confidence": "low"},
+      {"id": "i25", "squadron": "SubRon 1", "lat": 22.71, "lon": -156.06, "note": "Easternmost boat of the line.", "confidence": "low"},
+      {"id": "i7", "squadron": "SubRon 2 (flagship, RAdm Yamazaki Shigeaki)", "lat": 22.45, "lon": -158.17, "note": "Flagship of the boats stationed north of Oahu.", "confidence": "low"},
+      {"id": "i1", "squadron": "SubRon 2", "lat": 21.9, "lon": -159.05, "note": "Westernmost section of the Kauai Channel.", "confidence": "low"},
+      {"id": "i2", "squadron": "SubRon 2", "lat": 21.82, "lon": -158.78, "note": "Kauai Channel, between I-1 and I-3.", "confidence": "low"},
+      {"id": "i3", "squadron": "SubRon 2", "lat": 21.72, "lon": -158.5, "note": "Easternmost section of the Kauai Channel, off Kaena Point.", "confidence": "low"},
+      {"id": "i4", "squadron": "SubRon 2", "lat": 21.45, "lon": -157.45, "note": "Off the north-east coast of Oahu (Makapuu), next to I-6.", "confidence": "low"},
+      {"id": "i6", "squadron": "SubRon 2", "lat": 21.38, "lon": -157.3, "note": "Northern entrance of the Kaiwi (Molokai) Channel, between I-4 and I-5.", "confidence": "low"},
+      {"id": "i5", "squadron": "SubRon 2", "lat": 21.4, "lon": -156.95, "note": "North of Molokai.", "confidence": "low"},
+      {"id": "i8", "squadron": "SubRon 3 (flagship, RAdm Miwa Shigeyoshi)", "lat": 22.1, "lon": -158.6, "note": "TROM as summarised places her north-west of Oahu, unlike the rest of the squadron; uncertain.", "confidence": "low"},
+      {"id": "i68", "squadron": "SubRon 3", "lat": 21.02, "lon": -158.21, "note": "25-50 miles south-west of Oahu; ordered with I-69 to lie off the entrance to rescue midget crews.", "confidence": "low"},
+      {"id": "i69", "squadron": "SubRon 3", "lat": 20.99, "lon": -158.34, "note": "25-50 miles south-west of Oahu; later fouled a net off Barbers Point.", "confidence": "low"},
+      {"id": "i70", "squadron": "SubRon 3", "lat": 21.15, "lon": -157.97, "note": "About 10 miles off the entrance to Pearl Harbor. Sunk by Enterprise aircraft north-east of Oahu on 10 December.", "confidence": "low"},
+      {"id": "i72", "squadron": "SubRon 3", "lat": 21.14, "lon": -157.85, "note": "Off the entrance between I-70 and I-73. Had scouted Lahaina Roads on 6 December and reported it empty.", "confidence": "low"},
+      {"id": "i73", "squadron": "SubRon 3", "lat": 21.12, "lon": -157.75, "note": "Off the entrance, east of I-72.", "confidence": "low"},
+      {"id": "i71", "squadron": "SubRon 3", "lat": 21.0, "lon": -157.47, "note": "25-50 miles south-east of Oahu.", "confidence": "low"},
+      {"id": "i75", "squadron": "SubRon 3", "lat": 20.94, "lon": -158.55, "note": "25-50 miles south-west of Oahu.", "confidence": "low"},
+      {"id": "i74", "squadron": "SubRon 3", "lat": 21.36, "lon": -160.2, "note": "South of Niihau as lifeguard for aircraft told to ditch there.", "confidence": "low"},
+      {"id": "i19", "squadron": "Striking Force Patrol Unit", "lat": 22.77, "lon": -156.58, "note": "About 110 miles north-east of Oahu during the air attack.", "confidence": "low"},
+      {"id": "i21", "squadron": "Striking Force Patrol Unit", "lat": 24.0, "lon": -158.0, "note": "North of Oahu, between the island and the carriers; nominal position only.", "confidence": "low"},
+      {"id": "i23", "squadron": "Striking Force Patrol Unit", "lat": 24.0, "lon": -157.5, "note": "With the carrier force until reassigned at 15:10; nominal position only.", "confidence": "low"},
+      {"id": "i26", "squadron": "Reconnaissance (Aleutians)", "lat": 33.7, "lon": -145.5, "note": "About 1,000 nm north-east of Oahu; sank the freighter Cynthia Olson at about the hour of the attack. Position M.", "confidence": "medium"},
+      {"id": "i10", "squadron": "Reconnaissance (South Pacific)", "lat": null, "lon": null, "note": "Returning from scouting Fiji and Samoa, far south of Hawaii; the TROM summary says 'south of Oahu'. No position given.", "confidence": "low"}
+    ],
+    "cordonNote": "All cordon coordinates are E: the station descriptions in the combinedfleet TROMs (S) turned into nominal points. They show which sector each boat watched, nothing finer.",
+    "confidence": "medium"
+  },
+
+  "weatherAtLaunch": {
+    "windFromDeg": 70,
+    "windKn": 25,
+    "seaState": "Rough: long heavy swell from the north-east, carriers pitching hard with spray over the forward flight decks; rolls of 11 to 15 degrees reported.",
+    "cloud": "Broken to overcast, base roughly 1,000-1,500 m, tops near 2,000 m; the first wave flew above it at 3,000 m. Over Oahu at 07:38: wind 080 deg at 14 m/s, cloud at 1,700 m, amount 7.",
+    "sunrise": {"honolulu": "06:26", "atLaunchPointApprox": "06:35", "civilTwilightBeginsApprox": "06:14", "nauticalTwilightBeginsApprox": "05:47"},
+    "moon": "Waning gibbous, about 84 percent illuminated (full moon 3 December), in the western sky.",
+    "note": "S: a Japanese chronology gives 'ENE wind 13 m/s' at 06:00 with the carriers working up to 24 kn into it; Jiji says the decks tilted as much as 15 degrees; Fuchida says the sea was rough, the wind strong and the sky dark, and calls the wind 'northerly'; English accounts say 'east' (one says a 10-knot east wind). Twilight and moon values are E (computed).",
+    "confidence": "medium"
+  },
+
+  "aftermath": [
+    {"date": "1941-12-07", "note": "Midway Neutralization Unit (Ushio, Sazanami) shells Midway that night."},
+    {"date": "1941-12-10", "note": "I-70 sunk north-east of Oahu by SBDs from USS Enterprise."},
+    {"date": "1941-12-16", "note": "JST: Soryu, Hiryu, Tone, Chikuma, Tanikaze and Urakaze detached for Wake Island."},
+    {"date": "1941-12-23", "note": "JST: main body anchors at Hashirajima (23-24 December)."}
+  ],
+
+  "sources": [
+    {"title": "combinedfleet.com - IJN Akagi: Tabular Record of Movement (Tully)", "url": "https://www.combinedfleet.com/Akagi.htm"},
+    {"title": "combinedfleet.com - Kaga TROM", "url": "https://www.combinedfleet.com/kaga.htm"},
+    {"title": "combinedfleet.com - Soryu TROM", "url": "https://www.combinedfleet.com/soryu.htm"},
+    {"title": "combinedfleet.com - Hiryu TROM", "url": "https://www.combinedfleet.com/hiryu.htm"},
+    {"title": "combinedfleet.com - Shokaku TROM", "url": "https://www.combinedfleet.com/shokaku.htm"},
+    {"title": "combinedfleet.com - Zuikaku TROM", "url": "https://www.combinedfleet.com/Zuikak.htm"},
+    {"title": "combinedfleet.com - Hiei TROM", "url": "https://www.combinedfleet.com/hiei.htm"},
+    {"title": "combinedfleet.com - Kirishima TROM", "url": "https://www.combinedfleet.com/Kirishima.htm"},
+    {"title": "combinedfleet.com - Tone TROM", "url": "https://www.combinedfleet.com/tone_t.htm"},
+    {"title": "combinedfleet.com - Chikuma TROM", "url": "https://www.combinedfleet.com/chikuma_t.htm"},
+    {"title": "combinedfleet.com - Abukuma TROM", "url": "https://www.combinedfleet.com/abukuma_t.htm"},
+    {"title": "combinedfleet.com - Kyokuto Maru TROM (1st Supply Group)", "url": "https://www.combinedfleet.com/Kyokuto_t.htm"},
+    {"title": "combinedfleet.com - Nippon Maru TROM (2nd Supply Group)", "url": "https://www.combinedfleet.com/Nippon_t.htm"},
+    {"title": "combinedfleet.com - Midget Submarines at Pearl Harbor, Hawaii 1941 (Hackett & Kingsepp)", "url": "https://www.combinedfleet.com/Pearl.htm"},
+    {"title": "combinedfleet.com - I-16 TROM (also I-18, I-20, I-22, I-24 at the same path)", "url": "https://www.combinedfleet.com/I-16.htm"},
+    {"title": "combinedfleet.com - I-19 TROM (also I-21, I-23)", "url": "https://www.combinedfleet.com/I-19.htm"},
+    {"title": "combinedfleet.com - I-1 TROM (also I-2 to I-9, I-15, I-17, I-25, I-168 to I-175 for cordon stations)", "url": "https://www.combinedfleet.com/I-1.htm"},
+    {"title": "Japanese Monograph No. 97, Pearl Harbor Operations: General Outline of Orders and Plans", "url": "https://www.ibiblio.org/pha/monos/097/index.html"},
+    {"title": "Carrier Striking Task Force Operations Order No. 1, 23 November 1941", "url": "https://www.ibiblio.org/pha/timeline/411123aijn.html"},
+    {"title": "USSBS, The Campaigns of the Pacific War, ch. 2 (Japanese attack on Pearl Harbor, planning and execution)", "url": "https://www.ibiblio.org/hyperwar/AAF/USSBS/PTO-Campaigns/USSBS-PTO-2.html"},
+    {"title": "Joint Congressional Committee report (1946), Part II: The Japanese attack and its aftermath", "url": "https://www.ibiblio.org/pha/pha/congress/part_2.html"},
+    {"title": "Wallin, Pearl Harbor: Why, How, Fleet Salvage and Final Appraisal, ch. 6", "url": "https://www.ibiblio.org/hyperwar/USN/Wallin/Wallin-6.html"},
+    {"title": "Arakaki & Kuborn, 7 December 1941: The Air Force Story, ch. 4", "url": "https://www.ibiblio.org/hyperwar/AAF/7Dec41/7Dec41-4.html"},
+    {"title": "Fuchida, 'I Led the Air Attack on Pearl Harbor', USNI Proceedings, September 1952", "url": "https://www.usni.org/magazines/proceedings/1952/september/i-led-air-attack-pearl-harbor"},
+    {"title": "Fukudome, 'Hawaii Operation', USNI Proceedings, December 1955", "url": "https://www.usni.org/magazines/proceedings/1955/december/hawaii-operation"},
+    {"title": "'It Could Have Been Worse', USNI Proceedings, December 1991 (aircraft allocation incl. 39 CAP)", "url": "https://www.usni.org/magazines/proceedings/1991/december/it-could-have-been-worse"},
+    {"title": "'Commander Fuchida's Decision', USNI Naval History, December 2016", "url": "https://www.usni.org/magazines/naval-history-magazine/2016/december/commander-fuchidas-decision"},
+    {"title": "NPS, USS Arizona Memorial Submerged Cultural Resources Study (Japanese forces; scout planes)", "url": "https://www.nps.gov/parkhistory/online_books/usar/scrs/scrs2t.htm"},
+    {"title": "NPS, USS Arizona Memorial Submerged Cultural Resources Study (midget submarines)", "url": "https://www.nps.gov/parkhistory/online_books/usar/scrs/scrs2y.htm"},
+    {"title": "NPS, The Pearl Harbor Attack (article)", "url": "https://www.nps.gov/articles/pearlattackww2.htm"},
+    {"title": "NPS, Remembering Pearl Harbor: Minute by Minute", "url": "https://www.nps.gov/perl/learn/historyculture/timeline.htm"},
+    {"title": "NHHC H-Gram 001-2 (midget submarines, Ward)", "url": "https://www.history.navy.mil/about-us/leadership/director/directors-corner/h-grams/h-gram-001/h-001-2.html"},
+    {"title": "NHHC, USS Ward action report", "url": "https://www.history.navy.mil/research/archives/digital-exhibits-highlights/action-reports/wwii-pearl-harbor-attack/ships-s-z/uss-ward-dd-139-action-report.html"},
+    {"title": "NHHC, USS Monaghan action report", "url": "https://www.history.navy.mil/research/archives/digital-exhibits-highlights/action-reports/wwii-pearl-harbor-attack/ships-m-r/uss-monaghan-dd-354-action-report.html"},
+    {"title": "NHHC, Commander Destroyer Division 80 action report", "url": "https://www.history.navy.mil/research/archives/digital-exhibits-highlights/action-reports/wwii-pearl-harbor-attack/destroyer-division-80-battle-force-action-report.html"},
+    {"title": "NHHC photo NH 75483 caption (Kaga with Zuikaku, filmed from Akagi) via HyperWar", "url": "https://ibiblio.org/hyperwar/OnlineLibrary/photos/images/h75000/h75483c.htm"},
+    {"title": "Hawaii Undersea Research Laboratory, Japanese midget submarine discovery (2002)", "url": "https://www.soest.hawaii.edu/HURL/midget.php"},
+    {"title": "Wiltshire, Kerby & Kalvaitis, 'The Search, Discovery and Survey of a World War II Japanese Type A Midget Submarine', Oceanography 15(4)", "url": "https://tos.org/oceanography/article/the-search-discovery-and-survey-of-a-world-war-ii-japanese-typea-midget-sub"},
+    {"title": "NOAA Office of National Marine Sanctuaries, Japanese mini submarines at Pearl Harbor", "url": "https://sanctuaries.noaa.gov/maritime/japanese-mini-subs/"},
+    {"title": "Jiji Press special, first-wave launch (15-degree deck tilt, 15 minutes)", "url": "https://www.jiji.com/jc/v2?id=20091207attack_on_pearl_harbor_04"},
+    {"title": "Genda Minoru, Shinjuwan Sakusen Kaikoroku, publisher's excerpt (disposition No. 6 at 00:30, scouts at 01:00 JST)", "url": "https://books.bunshun.jp/articles/-/9180"},
+    {"title": "Torikai Lab chronology of the attack (ENE 13 m/s, 24 kn)", "url": "http://torikai.starfree.jp/1941/time-tables.html"},
+    {"title": "Japanese Wikipedia, Attack on Pearl Harbor (Chikuma scout report 03:08 JST)", "url": "https://ja.wikipedia.org/wiki/%E7%9C%9F%E7%8F%A0%E6%B9%BE%E6%94%BB%E6%92%83"},
+    {"title": "Yahoo Chiebukuro answer pointing to the disposition diagrams in Senshi Sosho vol. 10", "url": "https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q11286515521"},
+    {"title": "Pacific Wrecks, 7 December 1941 (scout plane crews and codes)", "url": "https://pacificwrecks.com/date/1941/12/07.html"},
+    {"title": "Maui Meshworks, Aichi E13A1 at Lahaina anchorage", "url": "https://maui-meshworks.com/e13a1info.htm"},
+    {"title": "Air & Space Forces Magazine, November 2016 (220 miles north of Oahu)", "url": "https://www.airandspaceforces.com/PDF/MagazineArchive/Documents/2016/November%202016/1116pearl.pdf"},
+    {"title": "Defense Media Network, Pearl Harbor: The Attack", "url": "https://defensemedianetwork.com/stories/pearl-harbor-the-attack/3"},
+    {"title": "Weatherwise 2007, weather and Pearl Harbor", "url": "https://www.aos.wisc.edu/~hopkins/Weather_History/Pearl_Harbor/Wx&Pearl_Harbor_weatherwise2007.pdf"},
+    {"title": "Wikipedia, Order of battle of the attack on Pearl Harbor (starting point only)", "url": "https://en.wikipedia.org/wiki/Order_of_battle_of_the_attack_on_Pearl_Harbor"},
+    {"title": "Books cited from memory, not re-verified this session: Prange, At Dawn We Slept; Lord, Day of Infamy; Zimm, Attack on Pearl Harbor; Goldstein & Dillon, The Pearl Harbor Papers; Senshi Sosho vol. 10, Hawai Sakusen; Evans & Peattie, Kaigun; Parshall & Tully, Shattered Sword; Parshall, 'Reflecting on Fuchida' (Naval War College Review, 2010); Burlingame, Advance Force Pearl Harbor; Morison, The Rising Sun in the Pacific", "url": ""}
+  ]
+}

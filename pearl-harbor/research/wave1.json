@@ -1,0 +1,4040 @@
+{
+  "wave": 1,
+  "commander": "Cdr Mitsuo Fuchida (Akagi hikotaicho; observer/commander in B5N2 AI-301, pilot Lt Mitsuo Matsuzaki, radioman PO1c Tokunobu Mizuki)",
+  "total": 183,
+  "plannedTotal": 189,
+  "byType": {
+    "B5N2_level_bomber": 49,
+    "B5N2_torpedo": 40,
+    "D3A1_dive_bomber": 51,
+    "A6M2_fighter": 43
+  },
+  "meta": {
+    "timeBasis": "Hawaii local time 7 Dec 1941 (UTC-10:30). Tokyo time minus 19h30m.",
+    "nameOrder": "Western order (given name first). Japanese sources give surname first.",
+    "researchLimits": "Direct page fetching was blocked on this machine and the web-search quota ran out part-way through. Facts were checked against search-result summaries of the listed sources plus the author's prior knowledge of the literature. No source page was read in full. Every waypoint between documented anchors is a geometric model, flagged in 'basis'.",
+    "coordinateNote": "Ship and airfield target coordinates here are approximations derived from the Arizona/Missouri/Utah memorial anchors and a 045/225 Battleship Row axis. Prefer the project's dedicated ship-position dataset where it disagrees.",
+    "aborts": {
+      "note": "189 planned, 6 failed to launch or aborted: 1 B5N level bomber (Kaga), 3 D3A (1 Shokaku, 2 Zuikaku), 2 A6M (1 Soryu, 1 Shokaku per navweaps; some lists put the second fighter abort on Zuikaku instead).",
+      "confidence": "medium"
+    },
+    "launch": {
+      "start": "06:00",
+      "allAirborne": "06:15",
+      "departure": "06:20",
+      "lat": 25.446,
+      "lon": -157.862,
+      "basis": "Estimated. Sources say about 230 nm due north of Oahu. Back-projected along the Opana radar track (first plot 132-136 statute miles, 3 deg east of north of Opana at 07:02) at the roughly 160 kt ground speed the radar plots imply. Aligned with kido_butai.json, which independently adopts 25.446 N 157.862 W for the 06:20 departure.",
+      "note": "Launch start is given as 06:00, 06:05, 06:10 or 06:18 in different accounts; 15 minutes to launch 183 aircraft is consistent across them. Departure about 06:20.",
+      "confidence": "low"
+    },
+    "rendezvous": {
+      "lat": 21.888,
+      "lon": -158.4038,
+      "altM": 1000,
+      "basis": "Computed from the Japanese attack plan: 20 nautical miles bearing 340 deg from Kaena Point, altitude 1,000 m (below cloud if cloud at that height).",
+      "confidence": "high"
+    },
+    "recovery": {
+      "lat": 24.7,
+      "lon": -157.69,
+      "firstLandings": "10:10",
+      "basis": "Position and 10:10 first-landing time aligned with the sibling file kido_butai.json (recovery area about 180-190 nm north of Kahuku Point; 10:10 per Prange as recalled there). Both are low-confidence estimates.",
+      "confidence": "low"
+    },
+    "weather": {
+      "sunrise": "06:26",
+      "enRoute": "Dense cloud layer below the formation, base about 1,500 m and tops about 2,000 m, breaking up near Oahu. Formation flew above it at 2,800-4,300 m. North-easterly tail wind.",
+      "overOahu": "KGMB weather heard by Fuchida: partly cloudy, mostly over the mountains, cloud base 3,500 ft (about 1,070 m), visibility good, wind north 10 kt. Cloud drifting over Battleship Row spoiled some level-bombing runs.",
+      "confidence": "medium"
+    },
+    "ordnance": {
+      "levelBomb": "Type 99 No. 80 Mk 5 armour-piercing bomb, about 797-800 kg, converted from a 40/41 cm naval shell. One per B5N2.",
+      "torpedo": "Type 91 Mod 2 aerial torpedo, 45 cm, about 838-848 kg, 204 kg warhead, with wooden breakaway tail fins and anti-roll stabilisers for shallow water. One per B5N2.",
+      "diveBomb": "Type 98 No. 25 land (general-purpose) bomb, about 242-250 kg. One per D3A1.",
+      "fighter": "A6M2 Model 21: two 20 mm cannon and two 7.7 mm machine guns.",
+      "confidence": "high"
+    },
+    "crossFileNotes": [
+      {
+        "topic": "Opana radar plots",
+        "note": "warnings.json places the 07:02 plot at 23.5934, -157.9009 and the 07:30 plot at 22.3639, -157.9542, matching this file. Its last plot (07:39, 22 statute miles) is at 22.0019, -157.9697, about 3 nm north of where this file's track is at 07:39. The 07:40 deployment point here (21.90, -157.99) was set about 3 nm further south than the radar implies so that the documented attack times (Kaneohe 07:48, Wheeler 07:51, Ewa 07:53, Ford Island 07:55) can be met at plausible speeds. Moving it north to match the radar delays every arrival by about one minute.",
+        "confidence": "low"
+      },
+      {
+        "topic": "Carrier positions",
+        "note": "Launch, departure and recovery positions follow kido_butai.json.",
+        "confidence": "low"
+      },
+      {
+        "topic": "Name readings",
+        "note": "Soryu's fighter leader appears as Masaji Suganami here and Masaharu Suganami in kido_butai.json; both readings are in print.",
+        "confidence": "medium"
+      }
+    ]
+  },
+  "groups": [
+    {
+      "id": "level_akagi",
+      "role": "level_bomber",
+      "aircraft": "Nakajima B5N2 Type 97 carrier attack bomber (Kate)",
+      "carrier": "akagi",
+      "unit": "1st Attack Unit",
+      "count": 15,
+      "planned": 15,
+      "leader": "Cdr Mitsuo Fuchida (also overall strike commander)",
+      "weapon": "1 x Type 99 No. 80 Mk 5 AP bomb (about 800 kg) each",
+      "formationEnroute": "Lead group of the whole wave. Three chutai of five aircraft, each a five-plane arrowhead, chutai in column. Torpedo planes to the right and 200 m lower, dive bombers to the left and 500 m higher, fighters 1,300 m above.",
+      "formationAttack": "Chutai in line astern, each a tight five-plane V. A specially trained lead bombardier flew the lead (sighting) aircraft of each chutai and all five released on his drop. In Fuchida's chutai the sighting aircraft (pilot CPO Akira Watanabe, bombardier PO1c Yanosuke Aso) moved ahead of Fuchida's own plane for the run.",
+      "cruiseAltM": 3000,
+      "cruiseSpeedKn": 125,
+      "groundSpeedKn": 158,
+      "route": [
+        {
+          "t": "06:20",
+          "lat": 25.45,
+          "lon": -157.85,
+          "altM": 500,
+          "note": "Form-up complete over the carriers, course about 180 deg, climbing.",
+          "basis": "estimate",
+          "confidence": "low"
+        },
+        {
+          "t": "07:02",
+          "lat": 23.594,
+          "lon": -157.9,
+          "altM": 3000,
+          "note": "First Opana radar plot: 132 statute miles (some records 136-137), 3 deg east of north of Opana.",
+          "basis": "computed from radar range/bearing",
+          "confidence": "medium"
+        },
+        {
+          "t": "07:30",
+          "lat": 22.36,
+          "lon": -157.96,
+          "altM": 3000,
+          "note": "About now Fuchida sees surf on Oahu's north shore through a break in the cloud.",
+          "basis": "interpolated at 158 kt",
+          "confidence": "low"
+        },
+        {
+          "t": "07:40",
+          "lat": 21.9,
+          "lon": -157.99,
+          "altM": 3000,
+          "note": "Deployment point off Kahuku Point. Fuchida fires the 'black dragon' flare, then a second.",
+          "basis": "Compromise between Fuchida ('over Kahuku Point' at 07:40) and the Opana track (echo lost about 20 statute miles out at 07:39).",
+          "confidence": "low"
+        },
+        {
+          "t": "07:47",
+          "lat": 21.66,
+          "lon": -158.12,
+          "altM": 3000,
+          "note": "Off Waialua Bay/Haleiwa, paralleling the north-west coast.",
+          "basis": "modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "07:49",
+          "lat": 21.635,
+          "lon": -158.19,
+          "altM": 3000,
+          "note": "'To-To-To' attack order sent.",
+          "basis": "modelled position for a documented time",
+          "confidence": "low"
+        },
+        {
+          "t": "07:50:30",
+          "lat": 21.61,
+          "lon": -158.25,
+          "altM": 3000,
+          "note": "Just short of Kaena Point, turns south to stay west of the Waianae Range.",
+          "basis": "Arakaki and Kuborn route description; position modelled",
+          "confidence": "medium"
+        },
+        {
+          "t": "07:53",
+          "lat": 21.48,
+          "lon": -158.245,
+          "altM": 3000,
+          "note": "'Tora Tora Tora' sent, off the Waianae coast.",
+          "basis": "modelled position for a documented time",
+          "confidence": "low"
+        },
+        {
+          "t": "07:57",
+          "lat": 21.33,
+          "lon": -158.16,
+          "altM": 3000,
+          "note": "Off Nanakuli/Kahe Point.",
+          "basis": "modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "07:59",
+          "lat": 21.275,
+          "lon": -158.08,
+          "altM": 3000,
+          "note": "Rounds Barbers Point. Fuchida notes the Barbers Point airfield empty to his left and makes a circuit here to keep pace with the schedule.",
+          "basis": "Fuchida narrative; position modelled",
+          "confidence": "medium"
+        },
+        {
+          "t": "08:00",
+          "lat": 21.283,
+          "lon": -158.038,
+          "altM": 3000,
+          "note": "Initial point off Ewa Beach. Turns to about 045 deg, aligned with Battleship Row.",
+          "basis": "geometry: 045 deg line through the Arizona anchor",
+          "confidence": "low"
+        },
+        {
+          "t": "08:02:35",
+          "lat": 21.358,
+          "lon": -157.9575,
+          "altM": 3000,
+          "note": "Over the south-west end of Battleship Row (California). Anti-aircraft fire begins; Fuchida's plane is holed.",
+          "basis": "modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "08:02:50",
+          "lat": 21.3649,
+          "lon": -157.95,
+          "altM": 3000,
+          "note": "Over the north-east end of the row. Fuchida's lead chutai does not release: cloud covered the aim point at the drop.",
+          "basis": "Fuchida narrative; time modelled",
+          "confidence": "low"
+        }
+      ],
+      "attacks": [
+        {
+          "start": "08:02",
+          "end": "08:04",
+          "target": "Battleship Row, inboard battleships (first pass)",
+          "targetLat": 21.3636,
+          "targetLon": -157.9515,
+          "approachBearingDeg": 45,
+          "releaseAltM": 3000,
+          "diveAngleDeg": 0,
+          "passes": 1,
+          "description": "Run from the south-west along the long axis of the row. Fuchida's own five-plane chutai aborted at the release point. What Akagi's 2nd and 3rd chutai dropped on, and when, is not established in the sources reviewed; some chutai across the four carriers made up to three runs.",
+          "results": [],
+          "confidence": "low"
+        },
+        {
+          "start": "08:12",
+          "end": "08:15",
+          "target": "maryland",
+          "targetLat": 21.3623,
+          "targetLon": -157.9531,
+          "approachBearingDeg": 45,
+          "releaseAltM": 3000,
+          "diveAngleDeg": 0,
+          "passes": 1,
+          "description": "Fuchida's chutai circled right over Honolulu and was starting its second run when Arizona blew up. Smoke hid the northern ships, so Fuchida shifted to Maryland, which he judged untouched, and dropped. He watched through the floor port and called two hits.",
+          "results": [
+            {
+              "t": "08:14",
+              "target": "maryland",
+              "effect": "Fuchida claimed two hits. Maryland did take two AP bomb hits that morning (one through the forecastle awning, one entering the hull forward below the waterline, flooding forward compartments). Zimm argues Fuchida's own bombs missed (two burrowed into Ford Island, the rest fell in the harbour), so the Maryland hits may belong to another chutai.",
+              "hitLocation": "forecastle forward (through the awning), and port bow near frame 10 about 22 ft below the waterline",
+              "attribution": "disputed",
+              "confidence": "low"
+            }
+          ],
+          "confidence": "low"
+        }
+      ],
+      "egress": [
+        {
+          "t": "08:04",
+          "lat": 21.385,
+          "lon": -157.915,
+          "altM": 3000,
+          "note": "Fuchida's chutai turns right after the aborted pass.",
+          "basis": "modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "08:06",
+          "lat": 21.33,
+          "lon": -157.87,
+          "altM": 3000,
+          "note": "Circling over Honolulu waiting for another chance.",
+          "basis": "Fuchida narrative; position modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "08:08",
+          "lat": 21.285,
+          "lon": -157.93,
+          "altM": 3000,
+          "note": "Offshore south of Hickam, heading west to re-enter the run.",
+          "basis": "modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "08:11",
+          "lat": 21.283,
+          "lon": -158.038,
+          "altM": 3000,
+          "note": "Initial point again.",
+          "basis": "modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "08:14",
+          "lat": 21.3623,
+          "lon": -157.9531,
+          "altM": 3000,
+          "note": "Release on Maryland.",
+          "basis": "modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "08:30",
+          "lat": 21.36,
+          "lon": -157.96,
+          "altM": 3500,
+          "note": "Fuchida's own aircraft stays over Pearl Harbor to observe and to direct the second wave. The other Akagi level bombers leave for the rendezvous.",
+          "basis": "Fuchida narrative",
+          "confidence": "medium"
+        },
+        {
+          "t": "08:40",
+          "lat": 21.888,
+          "lon": -158.4038,
+          "altM": 1000,
+          "note": "Other Akagi level bombers at the rendezvous 20 nm, 340 deg from Kaena Point.",
+          "basis": "plan; time modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "10:15",
+          "lat": 24.7,
+          "lon": -157.69,
+          "altM": 0,
+          "note": "Recovery aboard Akagi (estimated). Fuchida himself left Oahu about 10:00 and landed about 13:00, the last aircraft back.",
+          "basis": "Carrier recovery position taken from the sibling file kido_butai.json (itself an estimate); time estimated",
+          "confidence": "low"
+        }
+      ],
+      "losses": [],
+      "note": "Fuchida's plane was hit by anti-aircraft fire on the first run (fuselage holed, a control cable part-severed) but stayed airborne.",
+      "confidence": "medium"
+    },
+    {
+      "id": "level_kaga",
+      "role": "level_bomber",
+      "aircraft": "Nakajima B5N2 Type 97 carrier attack bomber (Kate)",
+      "carrier": "kaga",
+      "unit": "2nd Attack Unit",
+      "count": 14,
+      "planned": 15,
+      "leader": "Lt Cdr Takashi Hashiguchi",
+      "weapon": "1 x Type 99 No. 80 Mk 5 AP bomb (about 800 kg) each",
+      "formationEnroute": "Second in the level-bomber column behind Akagi. Three chutai (5, 5 and 4 aircraft) in column.",
+      "formationAttack": "Chutai in line astern, each a five-plane (one four-plane) V dropping on the lead bombardier.",
+      "cruiseAltM": 3000,
+      "cruiseSpeedKn": 125,
+      "groundSpeedKn": 158,
+      "route": [
+        {
+          "t": "06:20",
+          "lat": 25.46,
+          "lon": -157.85,
+          "altM": 500,
+          "note": "Form-up, astern of Akagi's level bombers.",
+          "basis": "estimate",
+          "confidence": "low"
+        },
+        {
+          "t": "07:02",
+          "lat": 23.604,
+          "lon": -157.9,
+          "altM": 3000,
+          "note": "Opana radar first plot of the wave.",
+          "basis": "computed from radar range/bearing",
+          "confidence": "medium"
+        },
+        {
+          "t": "07:40",
+          "lat": 21.91,
+          "lon": -157.99,
+          "altM": 3000,
+          "note": "Deployment off Kahuku Point.",
+          "basis": "see level_akagi",
+          "confidence": "low"
+        },
+        {
+          "t": "07:51",
+          "lat": 21.61,
+          "lon": -158.25,
+          "altM": 3000,
+          "note": "Turn south short of Kaena Point.",
+          "basis": "modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "08:00:30",
+          "lat": 21.275,
+          "lon": -158.08,
+          "altM": 3000,
+          "note": "Off Barbers Point.",
+          "basis": "modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "08:01:30",
+          "lat": 21.283,
+          "lon": -158.038,
+          "altM": 3000,
+          "note": "Initial point, turn to 045 deg.",
+          "basis": "modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "08:04:15",
+          "lat": 21.3649,
+          "lon": -157.95,
+          "altM": 3000,
+          "note": "Over Tennessee/West Virginia, then Arizona and Vestal, within a few seconds.",
+          "basis": "modelled",
+          "confidence": "low"
+        }
+      ],
+      "attacks": [
+        {
+          "start": "08:04",
+          "end": "08:06",
+          "target": "arizona",
+          "targetLat": 21.3649,
+          "targetLon": -157.95,
+          "approachBearingDeg": 45,
+          "releaseAltM": 3000,
+          "diveAngleDeg": 0,
+          "passes": 1,
+          "description": "Five Kaga aircraft bombed Arizona; their pattern walked from amidships to the stern. Vestal, moored outboard, was struck in the same minutes.",
+          "results": [
+            {
+              "t": "08:05",
+              "target": "arizona",
+              "effect": "Bomb glanced off the face of Turret IV, penetrated the deck and exploded in the captain's pantry area, starting a small fire.",
+              "hitLocation": "aft, starboard side by Turret IV",
+              "attribution": "Kaga (per the account summarised in Wikipedia's USS Arizona article)",
+              "confidence": "medium"
+            },
+            {
+              "t": "08:05",
+              "target": "arizona",
+              "effect": "Further hits or very near misses port side aft/amidships. Japanese and BuShips counts give four hits and three near misses on Arizona in all; De Virgilio lowers this to two hits and two very near misses.",
+              "hitLocation": "port side amidships to aft",
+              "attribution": "Kaga and Hiryu patterns",
+              "confidence": "low"
+            },
+            {
+              "t": "08:05",
+              "target": "vestal",
+              "effect": "Two AP bomb hits. One struck forward on the starboard side and exploded in a storeroom; one struck aft on the port side, passed through the ship and out the bottom, flooding compartments.",
+              "hitLocation": "forward about frame 44 starboard; aft about frame 110 port",
+              "attribution": "Collateral hits from the patterns aimed at Arizona (Kaga and/or Hiryu)",
+              "confidence": "medium"
+            }
+          ],
+          "confidence": "medium"
+        },
+        {
+          "start": "08:04",
+          "end": "08:10",
+          "target": "tennessee",
+          "targetLat": 21.3636,
+          "targetLon": -157.9515,
+          "approachBearingDeg": 45,
+          "releaseAltM": 3000,
+          "diveAngleDeg": 0,
+          "passes": 1,
+          "description": "Kaga's other two chutai bombed the Tennessee/West Virginia pair. Which carrier's chutai scored each hit on these two ships is not securely established; the hits are recorded here and cross-referenced under level_soryu.",
+          "results": [
+            {
+              "t": "08:08",
+              "target": "tennessee",
+              "effect": "AP bomb struck the centre gun of Turret II, cracking the barrel; fragments swept West Virginia's bridge and mortally wounded Capt Mervyn Bennion.",
+              "hitLocation": "Turret II centre gun",
+              "attribution": "Kaga or Soryu (unresolved)",
+              "confidence": "low"
+            },
+            {
+              "t": "08:08",
+              "target": "tennessee",
+              "effect": "AP bomb broke up on or passed through the roof of Turret III with a low-order detonation.",
+              "hitLocation": "Turret III roof",
+              "attribution": "Kaga or Soryu (unresolved)",
+              "confidence": "low"
+            }
+          ],
+          "confidence": "low"
+        }
+      ],
+      "egress": [
+        {
+          "t": "08:07",
+          "lat": 21.39,
+          "lon": -157.93,
+          "altM": 3000,
+          "note": "Clear of the harbour to the north-east, turning left.",
+          "basis": "modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "08:13",
+          "lat": 21.5,
+          "lon": -158.1,
+          "altM": 2500,
+          "note": "Crossing north-west toward Kaena Point.",
+          "basis": "modelled; actual withdrawal track not documented in sources reviewed",
+          "confidence": "low"
+        },
+        {
+          "t": "08:30",
+          "lat": 21.888,
+          "lon": -158.4038,
+          "altM": 1000,
+          "note": "Rendezvous.",
+          "basis": "plan; time modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "10:15",
+          "lat": 24.7,
+          "lon": -157.69,
+          "altM": 0,
+          "note": "Recovery aboard Kaga (estimated).",
+          "basis": "Carrier recovery position taken from the sibling file kido_butai.json (itself an estimate); time estimated",
+          "confidence": "low"
+        }
+      ],
+      "losses": [],
+      "note": "One Kaga level bomber failed to launch, leaving 14.",
+      "confidence": "medium"
+    },
+    {
+      "id": "level_soryu",
+      "role": "level_bomber",
+      "aircraft": "Nakajima B5N2 Type 97 carrier attack bomber (Kate)",
+      "carrier": "soryu",
+      "unit": "3rd Attack Unit",
+      "count": 10,
+      "planned": 10,
+      "leader": "Lt Heijiro Abe",
+      "weapon": "1 x Type 99 No. 80 Mk 5 AP bomb (about 800 kg) each",
+      "formationEnroute": "Third in the level-bomber column. Two chutai of five.",
+      "formationAttack": "Two five-plane Vs in line astern, each dropping on its lead bombardier. PO Noboru Kanai, the fleet's best-known bombardier, flew in the lead aircraft of the first chutai.",
+      "cruiseAltM": 3000,
+      "cruiseSpeedKn": 125,
+      "groundSpeedKn": 158,
+      "route": [
+        {
+          "t": "06:20",
+          "lat": 25.47,
+          "lon": -157.85,
+          "altM": 500,
+          "note": "Form-up.",
+          "basis": "estimate",
+          "confidence": "low"
+        },
+        {
+          "t": "07:02",
+          "lat": 23.614,
+          "lon": -157.9,
+          "altM": 3000,
+          "note": "Opana radar first plot of the wave.",
+          "basis": "computed from radar range/bearing",
+          "confidence": "medium"
+        },
+        {
+          "t": "07:40",
+          "lat": 21.92,
+          "lon": -157.99,
+          "altM": 3000,
+          "note": "Deployment off Kahuku Point.",
+          "basis": "see level_akagi",
+          "confidence": "low"
+        },
+        {
+          "t": "07:51:30",
+          "lat": 21.61,
+          "lon": -158.25,
+          "altM": 3000,
+          "note": "Turn south short of Kaena Point.",
+          "basis": "modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "08:01:30",
+          "lat": 21.275,
+          "lon": -158.08,
+          "altM": 3000,
+          "note": "Off Barbers Point.",
+          "basis": "modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "08:02:30",
+          "lat": 21.283,
+          "lon": -158.038,
+          "altM": 3000,
+          "note": "Initial point, turn to 045 deg.",
+          "basis": "modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "08:05",
+          "lat": 21.3636,
+          "lon": -157.9515,
+          "altM": 3000,
+          "note": "Over Tennessee and West Virginia.",
+          "basis": "modelled",
+          "confidence": "low"
+        }
+      ],
+      "attacks": [
+        {
+          "start": "08:05",
+          "end": "08:10",
+          "target": "west_virginia",
+          "targetLat": 21.3634,
+          "targetLon": -157.9512,
+          "approachBearingDeg": 45,
+          "releaseAltM": 3000,
+          "diveAngleDeg": 0,
+          "passes": 1,
+          "description": "Kanai's diary, as reported by the World War II Database, says his aircraft attacked West Virginia and Tennessee. Prange and older accounts instead credit Kanai with the Arizona magazine hit; the NHHC and De Virgilio credit Hiryu. This file follows the Hiryu attribution.",
+          "results": [
+            {
+              "t": "08:08",
+              "target": "west_virginia",
+              "effect": "AP bomb went through the foretop and superstructure and came to rest on the second deck without exploding (dud).",
+              "hitLocation": "foretop, port side, down to second deck",
+              "attribution": "Soryu or Kaga (unresolved)",
+              "confidence": "low"
+            },
+            {
+              "t": "08:08",
+              "target": "west_virginia",
+              "effect": "AP bomb struck the roof of Turret III, wrecked the floatplane on the catapult and broke up in the turret without a full detonation (dud).",
+              "hitLocation": "Turret III roof",
+              "attribution": "Soryu or Kaga (unresolved)",
+              "confidence": "low"
+            }
+          ],
+          "confidence": "low"
+        }
+      ],
+      "egress": [
+        {
+          "t": "08:08",
+          "lat": 21.39,
+          "lon": -157.93,
+          "altM": 3000,
+          "note": "Clear of the harbour to the north-east, turning left.",
+          "basis": "modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "08:14",
+          "lat": 21.5,
+          "lon": -158.1,
+          "altM": 2500,
+          "note": "Crossing north-west toward Kaena Point.",
+          "basis": "modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "08:31",
+          "lat": 21.888,
+          "lon": -158.4038,
+          "altM": 1000,
+          "note": "Rendezvous.",
+          "basis": "plan; time modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "10:20",
+          "lat": 24.7,
+          "lon": -157.69,
+          "altM": 0,
+          "note": "Recovery aboard Soryu (estimated).",
+          "basis": "Carrier recovery position taken from the sibling file kido_butai.json (itself an estimate); time estimated",
+          "confidence": "low"
+        }
+      ],
+      "losses": [],
+      "note": "The target of Soryu's second chutai is not established in the sources reviewed.",
+      "confidence": "low"
+    },
+    {
+      "id": "level_hiryu",
+      "role": "level_bomber",
+      "aircraft": "Nakajima B5N2 Type 97 carrier attack bomber (Kate)",
+      "carrier": "hiryu",
+      "unit": "4th Attack Unit",
+      "count": 10,
+      "planned": 10,
+      "leader": "Lt Cdr Tadashi Kusumi",
+      "weapon": "1 x Type 99 No. 80 Mk 5 AP bomb (about 800 kg) each",
+      "formationEnroute": "Last in the level-bomber column. Two chutai of five.",
+      "formationAttack": "Two five-plane Vs in line astern, each dropping on its lead bombardier.",
+      "cruiseAltM": 3000,
+      "cruiseSpeedKn": 125,
+      "groundSpeedKn": 158,
+      "route": [
+        {
+          "t": "06:20",
+          "lat": 25.48,
+          "lon": -157.85,
+          "altM": 500,
+          "note": "Form-up.",
+          "basis": "estimate",
+          "confidence": "low"
+        },
+        {
+          "t": "07:02",
+          "lat": 23.624,
+          "lon": -157.9,
+          "altM": 3000,
+          "note": "Opana radar first plot of the wave.",
+          "basis": "computed from radar range/bearing",
+          "confidence": "medium"
+        },
+        {
+          "t": "07:40",
+          "lat": 21.93,
+          "lon": -157.99,
+          "altM": 3000,
+          "note": "Deployment off Kahuku Point.",
+          "basis": "see level_akagi",
+          "confidence": "low"
+        },
+        {
+          "t": "07:52",
+          "lat": 21.61,
+          "lon": -158.25,
+          "altM": 3000,
+          "note": "Turn south short of Kaena Point.",
+          "basis": "modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "08:02:30",
+          "lat": 21.275,
+          "lon": -158.08,
+          "altM": 3000,
+          "note": "Off Barbers Point.",
+          "basis": "modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "08:03:30",
+          "lat": 21.283,
+          "lon": -158.038,
+          "altM": 3000,
+          "note": "Initial point, turn to 045 deg.",
+          "basis": "modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "08:06",
+          "lat": 21.3649,
+          "lon": -157.95,
+          "altM": 3000,
+          "note": "Over Arizona. Release by Kusumi's five aircraft.",
+          "basis": "documented time (about 08:06); position is the Arizona anchor",
+          "confidence": "medium"
+        }
+      ],
+      "attacks": [
+        {
+          "start": "08:05",
+          "end": "08:06",
+          "target": "arizona",
+          "targetLat": 21.3649,
+          "targetLon": -157.95,
+          "approachBearingDeg": 45,
+          "releaseAltM": 3000,
+          "diveAngleDeg": 0,
+          "passes": 1,
+          "description": "Five Hiryu aircraft under Kusumi bombed Arizona's bow area just after Kaga's five had bombed her stern. One bomb struck beside Turret II and reached the forward magazines.",
+          "results": [
+            {
+              "t": "08:06",
+              "target": "arizona",
+              "effect": "800 kg AP bomb struck near Turret II (NHHC: glanced off the turret faceplate), penetrated the armoured deck and set off the black-powder and main forward magazines about seven seconds later. The forward half of the ship was destroyed; 1,177 of her crew died. The fireball and smoke rose roughly 1,000 m.",
+              "hitLocation": "starboard side of forecastle beside Turret II",
+              "attribution": "Hiryu, Kusumi's chutai (NHHC, De Virgilio). Traditional accounts credit PO Noboru Kanai of Soryu.",
+              "timeNote": "08:06 follows the modern reconstruction. Ship reports, the NPS lesson plan and most older histories say about 08:10.",
+              "confidence": "medium"
+            }
+          ],
+          "confidence": "medium"
+        }
+      ],
+      "egress": [
+        {
+          "t": "08:09",
+          "lat": 21.39,
+          "lon": -157.93,
+          "altM": 3000,
+          "note": "Clear of the harbour to the north-east, turning left.",
+          "basis": "modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "08:15",
+          "lat": 21.5,
+          "lon": -158.1,
+          "altM": 2500,
+          "note": "Crossing north-west toward Kaena Point.",
+          "basis": "modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "08:32",
+          "lat": 21.888,
+          "lon": -158.4038,
+          "altM": 1000,
+          "note": "Rendezvous.",
+          "basis": "plan; time modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "10:20",
+          "lat": 24.7,
+          "lon": -157.69,
+          "altM": 0,
+          "note": "Recovery aboard Hiryu (estimated).",
+          "basis": "Carrier recovery position taken from the sibling file kido_butai.json (itself an estimate); time estimated",
+          "confidence": "low"
+        }
+      ],
+      "losses": [],
+      "note": "Kusumi was a pilot, not the bombardier, so the man who released the fatal bomb is not reliably named. The target of Hiryu's second chutai is not established in the sources reviewed.",
+      "confidence": "medium"
+    },
+    {
+      "id": "torpedo_akagi",
+      "role": "torpedo",
+      "aircraft": "Nakajima B5N2 Type 97 carrier attack bomber (Kate)",
+      "carrier": "akagi",
+      "unit": "1st Torpedo Attack Unit",
+      "count": 12,
+      "planned": 12,
+      "leader": "Lt Cdr Shigeharu Murata (overall torpedo leader; observer in AI-311)",
+      "weapon": "1 x Type 91 Mod 2 aerial torpedo each",
+      "formationEnroute": "Right of and 200 m below the level bombers. Chutai Vs in column: Akagi, Kaga, Soryu, Hiryu.",
+      "formationAttack": "Single file, long line astern at roughly 500 m intervals, down Southeast Loch. Two chutai of six.",
+      "cruiseAltM": 2800,
+      "cruiseSpeedKn": 125,
+      "groundSpeedKn": 158,
+      "route": [
+        {
+          "t": "06:20",
+          "lat": 25.45,
+          "lon": -157.88,
+          "altM": 500,
+          "note": "Form-up, right of the level bombers.",
+          "basis": "estimate",
+          "confidence": "low"
+        },
+        {
+          "t": "07:02",
+          "lat": 23.594,
+          "lon": -157.93,
+          "altM": 2800,
+          "note": "Opana radar first plot of the wave.",
+          "basis": "computed from radar range/bearing, offset right",
+          "confidence": "medium"
+        },
+        {
+          "t": "07:40",
+          "lat": 21.9,
+          "lon": -158.02,
+          "altM": 2800,
+          "note": "Deployment. Murata reads one flare as 'surprise' and starts down.",
+          "basis": "see level_akagi",
+          "confidence": "low"
+        },
+        {
+          "t": "07:45:30",
+          "lat": 21.66,
+          "lon": -158.12,
+          "altM": 2000,
+          "note": "Off Haleiwa, descending and accelerating ahead of the level bombers.",
+          "basis": "modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "07:48:40",
+          "lat": 21.52,
+          "lon": -158.19,
+          "altM": 1200,
+          "note": "West side of the Waianae Range.",
+          "basis": "modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "07:51:20",
+          "lat": 21.4,
+          "lon": -158.15,
+          "altM": 500,
+          "note": "Lualualei/Nanakuli. About 07:51 the torpedo force splits into its four carrier groups: Soryu/Hiryu head for the west side of Ford Island, Akagi/Kaga swing south.",
+          "basis": "Stille gives 07:51 for the split; position modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "07:53",
+          "lat": 21.33,
+          "lon": -158.075,
+          "altM": 300,
+          "note": "Seen from Ewa at 07:53: about 18 'torpedo planes' at 1,000 ft heading for Pearl Harbor from the Barbers Point direction.",
+          "basis": "Marine Corps history (Cressman and Wenger); position modelled",
+          "confidence": "medium"
+        },
+        {
+          "t": "07:54:25",
+          "lat": 21.305,
+          "lon": -158.03,
+          "altM": 150,
+          "note": "Along the coast south of Ewa.",
+          "basis": "modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "07:55:30",
+          "lat": 21.305,
+          "lon": -157.975,
+          "altM": 100,
+          "note": "Crossing the harbour entrance off Fort Weaver.",
+          "basis": "modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "07:56:15",
+          "lat": 21.325,
+          "lon": -157.945,
+          "altM": 50,
+          "note": "Over Hickam Field, turning north.",
+          "basis": "documented route via Hickam; position modelled",
+          "confidence": "medium"
+        },
+        {
+          "t": "07:56:50",
+          "lat": 21.3455,
+          "lon": -157.9345,
+          "altM": 30,
+          "note": "Left turn at the head of Southeast Loch, steadying on about 310 deg.",
+          "basis": "geometry",
+          "confidence": "low"
+        },
+        {
+          "t": "07:57:10",
+          "lat": 21.3587,
+          "lon": -157.9483,
+          "altM": 20,
+          "note": "Lead aircraft releases about 600 m from Oklahoma/West Virginia.",
+          "basis": "Stille: first six Akagi aircraft attacked from 07:57; release point computed 600 m out on a 309 deg line",
+          "confidence": "medium"
+        },
+        {
+          "t": "07:57:20",
+          "lat": 21.3621,
+          "lon": -157.9528,
+          "altM": 20,
+          "note": "Overflies Battleship Row and Ford Island.",
+          "basis": "modelled",
+          "confidence": "low"
+        }
+      ],
+      "attacks": [
+        {
+          "start": "07:57",
+          "end": "07:59",
+          "target": "west_virginia",
+          "targetLat": 21.3634,
+          "targetLon": -157.9512,
+          "approachBearingDeg": 310,
+          "releaseAltM": 20,
+          "diveAngleDeg": 0,
+          "passes": 1,
+          "description": "Murata's first chutai of six came down Southeast Loch with Oklahoma and West Virginia dead ahead and split between them. Murata's own torpedo is credited as a hit on West Virginia.",
+          "results": [
+            {
+              "t": "07:57",
+              "target": "west_virginia",
+              "effect": "First torpedo hits port side amidships. West Virginia took seven confirmed torpedo hits in all (range in sources 6 to 9), listed heavily and was counter-flooded to settle upright.",
+              "hitLocation": "port side amidships, on and below the armour belt",
+              "attribution": "Akagi (first hits)",
+              "confidence": "medium"
+            },
+            {
+              "t": "07:57",
+              "target": "oklahoma",
+              "effect": "First torpedo hits port side. Three struck within about a minute; five are confirmed (range in sources 3 to 9). The ship rolled over to port and capsized by about 08:08.",
+              "hitLocation": "port side amidships, frames about 42-70",
+              "attribution": "Akagi (first hits)",
+              "confidence": "medium"
+            }
+          ],
+          "confidence": "medium"
+        },
+        {
+          "start": "07:59",
+          "end": "08:01",
+          "target": "oklahoma",
+          "targetLat": 21.3621,
+          "targetLon": -157.9528,
+          "approachBearingDeg": 310,
+          "releaseAltM": 20,
+          "diveAngleDeg": 0,
+          "passes": 1,
+          "description": "Akagi's second chutai of six (Lt Jinichi Goto) followed down the same lane against Oklahoma and West Virginia. Two Hiryu aircraft cut across the Akagi stream near Hickam and delayed the aircraft heading for Oklahoma.",
+          "results": [
+            {
+              "t": "08:00",
+              "target": "oklahoma",
+              "effect": "Further hits as the ship listed; later torpedoes struck higher on the hull above the belt.",
+              "hitLocation": "port side, progressively higher",
+              "attribution": "Akagi, Hiryu and Kaga aircraft mixed",
+              "confidence": "low"
+            }
+          ],
+          "confidence": "low"
+        }
+      ],
+      "egress": [
+        {
+          "t": "07:58",
+          "lat": 21.367,
+          "lon": -157.966,
+          "altM": 50,
+          "note": "Across Ford Island, climbing away to the west/north-west.",
+          "basis": "modelled; exit direction not confirmed",
+          "confidence": "low"
+        },
+        {
+          "t": "08:03",
+          "lat": 21.42,
+          "lon": -158.08,
+          "altM": 500,
+          "note": "Toward the Waianae Range.",
+          "basis": "modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "08:20",
+          "lat": 21.888,
+          "lon": -158.4038,
+          "altM": 1000,
+          "note": "Rendezvous.",
+          "basis": "plan; time modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "10:10",
+          "lat": 24.7,
+          "lon": -157.69,
+          "altM": 0,
+          "note": "Recovery aboard Akagi (estimated).",
+          "basis": "Carrier recovery position taken from the sibling file kido_butai.json (itself an estimate); time estimated",
+          "confidence": "low"
+        }
+      ],
+      "losses": [],
+      "note": "No Akagi torpedo aircraft were lost. In the illustrative allocation in torpedoAttack.perShipHits, all 12 Akagi torpedoes are assigned to Oklahoma and West Virginia; up to two may instead have gone to California.",
+      "confidence": "medium"
+    },
+    {
+      "id": "torpedo_kaga",
+      "role": "torpedo",
+      "aircraft": "Nakajima B5N2 Type 97 carrier attack bomber (Kate)",
+      "carrier": "kaga",
+      "unit": "2nd Torpedo Attack Unit",
+      "count": 12,
+      "planned": 12,
+      "leader": "Lt Kazuyoshi Kitajima (given name also read Ichiryo)",
+      "weapon": "1 x Type 91 Mod 2 aerial torpedo each",
+      "formationEnroute": "Second torpedo unit, astern of Akagi's.",
+      "formationAttack": "Single file down Southeast Loch a few minutes behind Akagi, in a longer, looser string. By then the defences were firing.",
+      "cruiseAltM": 2800,
+      "cruiseSpeedKn": 125,
+      "groundSpeedKn": 158,
+      "route": [
+        {
+          "t": "06:20",
+          "lat": 25.46,
+          "lon": -157.88,
+          "altM": 500,
+          "note": "Form-up.",
+          "basis": "estimate",
+          "confidence": "low"
+        },
+        {
+          "t": "07:02",
+          "lat": 23.604,
+          "lon": -157.93,
+          "altM": 2800,
+          "note": "Opana radar first plot of the wave.",
+          "basis": "computed from radar range/bearing, offset right",
+          "confidence": "medium"
+        },
+        {
+          "t": "07:40",
+          "lat": 21.91,
+          "lon": -158.02,
+          "altM": 2800,
+          "note": "Deployment off Kahuku Point.",
+          "basis": "see level_akagi",
+          "confidence": "low"
+        },
+        {
+          "t": "07:47",
+          "lat": 21.66,
+          "lon": -158.12,
+          "altM": 2000,
+          "note": "Off Haleiwa, descending, about three minutes behind Akagi's torpedo planes.",
+          "basis": "modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "07:51",
+          "lat": 21.52,
+          "lon": -158.19,
+          "altM": 1200,
+          "note": "West side of the Waianae Range.",
+          "basis": "modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "07:54:15",
+          "lat": 21.4,
+          "lon": -158.15,
+          "altM": 500,
+          "note": "Lualualei/Nanakuli, following Akagi's group south.",
+          "basis": "modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "07:56:30",
+          "lat": 21.33,
+          "lon": -158.075,
+          "altM": 300,
+          "note": "Past Ewa.",
+          "basis": "modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "07:58:40",
+          "lat": 21.305,
+          "lon": -157.975,
+          "altM": 100,
+          "note": "Crossing the harbour entrance.",
+          "basis": "modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "07:59:30",
+          "lat": 21.325,
+          "lon": -157.945,
+          "altM": 50,
+          "note": "Over Hickam Field.",
+          "basis": "modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "08:00",
+          "lat": 21.3455,
+          "lon": -157.9345,
+          "altM": 30,
+          "note": "Turn into Southeast Loch under fire from ships at the Navy Yard and destroyers in the loch.",
+          "basis": "modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "08:00:30",
+          "lat": 21.3587,
+          "lon": -157.9483,
+          "altM": 20,
+          "note": "First Kaga releases.",
+          "basis": "modelled from 'a few minutes after Akagi'",
+          "confidence": "low"
+        }
+      ],
+      "attacks": [
+        {
+          "start": "08:00",
+          "end": "08:06",
+          "target": "oklahoma",
+          "targetLat": 21.3621,
+          "targetLon": -157.9528,
+          "approachBearingDeg": 310,
+          "releaseAltM": 20,
+          "diveAngleDeg": 0,
+          "passes": 1,
+          "description": "Kaga's twelve were the last torpedo unit in. Most that released went for Oklahoma and West Virginia; one aircraft's torpedo, the last of the attack, hit Nevada forward; one or two are thought to have gone for California. A Kaga crew claimed a hit on Arizona that the wreck does not bear out. Five were shot down.",
+          "results": [
+            {
+              "t": "08:02",
+              "target": "west_virginia",
+              "effect": "Additional hits; ship settling on an even keel after counter-flooding.",
+              "hitLocation": "port side amidships and aft (one hit wrecked the steering gear)",
+              "attribution": "Kaga and Hiryu aircraft mixed",
+              "confidence": "low"
+            },
+            {
+              "t": "08:03",
+              "target": "nevada",
+              "effect": "One torpedo hit forward on the port side, opening a hole about 14 m by 9 m; the attacking aircraft was shot down close astern of the ship.",
+              "hitLocation": "port bow about frame 41, between Turrets I and II",
+              "attribution": "Kaga",
+              "timeNote": "Nevada-based accounts give 08:02-08:03; some histories say about 08:10.",
+              "confidence": "medium"
+            },
+            {
+              "t": "08:01",
+              "target": "arizona",
+              "effect": "Claimed torpedo hit. Witnesses on Vestal reported a torpedo passing under her and striking Arizona, and early Navy reports accepted one hit. Surveys of the wreck have found no torpedo damage; counted as zero.",
+              "hitLocation": "none confirmed (claimed port side forward)",
+              "attribution": "Kaga claim",
+              "confidence": "medium"
+            },
+            {
+              "t": "08:05",
+              "target": "california",
+              "effect": "Two torpedo hits at 08:05 from three torpedoes launched at her. One was from Juzo Mori's Soryu aircraft; the other two attackers are assigned here to Kaga as a model choice.",
+              "hitLocation": "port side about frame 52 (forward, below Turret II) and about frame 101 (aft, below Turret III)",
+              "attribution": "Soryu (Mori) plus Kaga or Akagi (unresolved)",
+              "confidence": "low"
+            }
+          ],
+          "confidence": "medium"
+        }
+      ],
+      "egress": [
+        {
+          "t": "08:06",
+          "lat": 21.367,
+          "lon": -157.966,
+          "altM": 50,
+          "note": "Survivors cross Ford Island and climb away west.",
+          "basis": "modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "08:28",
+          "lat": 21.888,
+          "lon": -158.4038,
+          "altM": 1000,
+          "note": "Rendezvous.",
+          "basis": "plan; time modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "10:15",
+          "lat": 24.7,
+          "lon": -157.69,
+          "altM": 0,
+          "note": "Seven aircraft recovered aboard Kaga (estimated time). A sixth damaged torpedo bomber is said by one account to have ditched later; not confirmed.",
+          "basis": "Carrier recovery position taken from the sibling file kido_butai.json (itself an estimate); time estimated",
+          "confidence": "low"
+        }
+      ],
+      "losses": [
+        {
+          "aircraft": "B5N2, reported tail code AII-356",
+          "crew": "3 killed. A ww2db photo caption identifies the recovered aircraft as Lt Mimori Suzuki's.",
+          "t": "08:02",
+          "lat": 21.3562,
+          "lon": -157.9432,
+          "cause": "Anti-aircraft fire. Crashed in Southeast Loch; wreck later lifted by crane (NHHC photo 80-G-32684 shows a Kaga Kate being recovered).",
+          "basis": "Crash area from j-aircraft crash-site research as quoted on Axis History Forum; coordinates are an estimate for the mouth of the loch.",
+          "confidence": "low"
+        },
+        {
+          "aircraft": "B5N2, alleged tail code AII-353",
+          "crew": "3 killed; names not established here",
+          "t": "08:03",
+          "lat": 21.3465,
+          "lon": -157.965,
+          "cause": "Anti-aircraft fire. Crashed and burned on the grounds of the Naval Hospital at Hospital Point.",
+          "basis": "j-aircraft; coordinates estimated for the 1941 hospital site",
+          "confidence": "low"
+        },
+        {
+          "aircraft": "B5N2",
+          "crew": "3 killed; names not established here",
+          "t": "08:03",
+          "lat": 21.3668,
+          "lon": -157.9472,
+          "cause": "Shot down by Nevada's guns just after torpedoing her; fell about 100 yards off her port quarter. Not recovered.",
+          "basis": "Nevada action report and j-aircraft ('aft of USS Nevada'); coordinates estimated from the berth",
+          "confidence": "low"
+        },
+        {
+          "aircraft": "B5N2",
+          "crew": "3 killed; names not established here",
+          "t": "08:05",
+          "lat": 21.333,
+          "lon": -157.987,
+          "cause": "Anti-aircraft fire. Crashed on land west of the harbour, north of Fort Weaver.",
+          "basis": "j-aircraft as quoted; coordinates are a rough estimate",
+          "confidence": "low"
+        },
+        {
+          "aircraft": "B5N2",
+          "crew": "3 killed; names not established here",
+          "t": "08:04",
+          "lat": null,
+          "lon": null,
+          "cause": "Anti-aircraft fire. Crash site not identified in the sources reviewed (j-aircraft says four or five Kates fell in the waters around Ford Island).",
+          "basis": "unknown",
+          "confidence": "low"
+        }
+      ],
+      "lossCrewNames": {
+        "names": [
+          "Lt Mimori Suzuki",
+          "Syuzo Kitahara",
+          "Kenichi Kumamoto",
+          "Izumi Nagai",
+          "Narikatsu Ohashi"
+        ],
+        "note": "Names that appear on the navweaps Kaga B5N casualty list and in the search summaries. The list holds 15 torpedo-plane aircrew in all; pairing of names to aircraft and crash sites was not verified. Wikipedia's order of battle places Suzuki in the 3rd shotai and records two aircraft of that shotai lost.",
+        "confidence": "low"
+      },
+      "note": "The only torpedo unit to lose aircraft: 5 of 12. In the model used here four were hit before release and one after (the Nevada attacker), which reconciles 40 aircraft with about 36 torpedoes launched.",
+      "confidence": "medium"
+    },
+    {
+      "id": "torpedo_soryu",
+      "role": "torpedo",
+      "aircraft": "Nakajima B5N2 Type 97 carrier attack bomber (Kate)",
+      "carrier": "soryu",
+      "unit": "3rd Torpedo Attack Unit",
+      "count": 8,
+      "planned": 8,
+      "leader": "Lt Tsuyoshi Nagai",
+      "weapon": "1 x Type 91 Mod 2 aerial torpedo each",
+      "formationEnroute": "Third torpedo unit.",
+      "formationAttack": "Line astern from the west toward the carrier moorings on the north-west side of Ford Island. Nagai pushed ahead of the Hiryu unit to speed the attack.",
+      "cruiseAltM": 2800,
+      "cruiseSpeedKn": 125,
+      "groundSpeedKn": 158,
+      "route": [
+        {
+          "t": "06:20",
+          "lat": 25.47,
+          "lon": -157.88,
+          "altM": 500,
+          "note": "Form-up.",
+          "basis": "estimate",
+          "confidence": "low"
+        },
+        {
+          "t": "07:02",
+          "lat": 23.614,
+          "lon": -157.93,
+          "altM": 2800,
+          "note": "Opana radar first plot of the wave.",
+          "basis": "computed from radar range/bearing, offset right",
+          "confidence": "medium"
+        },
+        {
+          "t": "07:40",
+          "lat": 21.92,
+          "lon": -158.02,
+          "altM": 2800,
+          "note": "Deployment off Kahuku Point.",
+          "basis": "see level_akagi",
+          "confidence": "low"
+        },
+        {
+          "t": "07:45:30",
+          "lat": 21.66,
+          "lon": -158.12,
+          "altM": 2000,
+          "note": "Off Haleiwa, descending.",
+          "basis": "modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "07:51:20",
+          "lat": 21.4,
+          "lon": -158.15,
+          "altM": 500,
+          "note": "Split from the Akagi/Kaga group; turn east across the southern Waianae foothills.",
+          "basis": "Stille gives 07:51; position modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "07:53",
+          "lat": 21.365,
+          "lon": -158.07,
+          "altM": 300,
+          "note": "North of Ewa.",
+          "basis": "modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "07:54:25",
+          "lat": 21.378,
+          "lon": -158,
+          "altM": 100,
+          "note": "Over West Loch and the Waipio Peninsula.",
+          "basis": "modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "07:54:55",
+          "lat": 21.377,
+          "lon": -157.975,
+          "altM": 50,
+          "note": "Pearl City Peninsula. No carriers at the moorings: Detroit, Raleigh, Utah and Tangier lie there.",
+          "basis": "modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "07:55:15",
+          "lat": 21.3715,
+          "lon": -157.9665,
+          "altM": 20,
+          "note": "Release against Utah and Raleigh.",
+          "basis": "Stille: torpedo attack opened 07:55 with the Soryu/Hiryu aircraft; point computed about 500 m out",
+          "confidence": "medium"
+        }
+      ],
+      "attacks": [
+        {
+          "start": "07:55",
+          "end": "07:57",
+          "target": "utah",
+          "targetLat": 21.3688,
+          "targetLon": -157.9624,
+          "approachBearingDeg": 125,
+          "releaseAltM": 20,
+          "diveAngleDeg": 0,
+          "passes": 1,
+          "description": "Six of Soryu's eight attacked the ships at the carrier berths, against the briefing not to waste torpedoes on Utah. These were the first torpedo detonations of the raid.",
+          "results": [
+            {
+              "t": "07:56",
+              "target": "utah",
+              "effect": "Two torpedo hits on the port side. The old target ship listed at once and capsized at about 08:12.",
+              "hitLocation": "port side forward and amidships",
+              "timeNote": "Utah's own report logs the first hit at 08:01; reconstructions put it at about 07:55-07:56.",
+              "attribution": "Soryu",
+              "confidence": "medium"
+            },
+            {
+              "t": "07:56",
+              "target": "raleigh",
+              "effect": "One torpedo hit on the port side flooded the forward engine room and No. 2 fire room; the cruiser nearly capsized but was kept afloat.",
+              "hitLocation": "port side about frame 58",
+              "attribution": "Soryu",
+              "confidence": "high"
+            },
+            {
+              "t": "07:56",
+              "target": "detroit",
+              "effect": "Remaining torpedoes missed; at least one ran past Detroit and Raleigh into the Ford Island shore.",
+              "hitLocation": "none",
+              "attribution": "Soryu",
+              "confidence": "medium"
+            }
+          ],
+          "confidence": "medium"
+        },
+        {
+          "start": "07:56",
+          "end": "07:57",
+          "target": "helena",
+          "targetLat": 21.3543,
+          "targetLon": -157.9578,
+          "approachBearingDeg": 130,
+          "releaseAltM": 20,
+          "diveAngleDeg": 0,
+          "passes": 1,
+          "description": "Nagai passed up Utah, crossed the south end of Ford Island and attacked the ships at 1010 Dock, the usual berth of the fleet flagship. His torpedo ran under the minelayer Oglala and hit the cruiser Helena. The dock runs roughly parallel to Battleship Row, so a hit on the outboard (starboard) side implies a run from the north-west across the south end of Ford Island; the bearing is an estimate.",
+          "results": [
+            {
+              "t": "07:57",
+              "target": "helena",
+              "effect": "One torpedo hit, starboard side amidships, flooding one engine room and one boiler room. The blast sprang Oglala's plates; she capsized at about 10:00.",
+              "hitLocation": "starboard side about frame 75-80, well below the waterline",
+              "attribution": "Soryu, Nagai",
+              "confidence": "high"
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "start": "08:03",
+          "end": "08:05",
+          "target": "california",
+          "targetLat": 21.358,
+          "targetLon": -157.9575,
+          "approachBearingDeg": 320,
+          "releaseAltM": 20,
+          "diveAngleDeg": 0,
+          "passes": 2,
+          "description": "PO Juzo Mori followed Nagai toward 1010 Dock, saw the target was a cruiser, held his torpedo, circled and made a second run against California.",
+          "results": [
+            {
+              "t": "08:05",
+              "target": "california",
+              "effect": "Hit claimed by Mori. California took two torpedoes at 08:05.",
+              "hitLocation": "port side",
+              "attribution": "Soryu, Mori (memoir)",
+              "confidence": "medium"
+            }
+          ],
+          "confidence": "medium"
+        }
+      ],
+      "egress": [
+        {
+          "t": "07:58",
+          "lat": 21.39,
+          "lon": -157.99,
+          "altM": 100,
+          "note": "Utah attackers break away north-west over Pearl City.",
+          "basis": "modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "08:22",
+          "lat": 21.888,
+          "lon": -158.4038,
+          "altM": 1000,
+          "note": "Rendezvous.",
+          "basis": "plan; time modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "10:15",
+          "lat": 24.7,
+          "lon": -157.69,
+          "altM": 0,
+          "note": "Recovery aboard Soryu (estimated).",
+          "basis": "Carrier recovery position taken from the sibling file kido_butai.json (itself an estimate); time estimated",
+          "confidence": "low"
+        }
+      ],
+      "losses": [],
+      "note": "Eight torpedoes: six at Utah/Raleigh (three hits), one at Helena (hit), one at California (hit claimed). The leader of the six Utah attackers is given in some accounts as Lt Tatsumi Nakajima; not verified.",
+      "confidence": "medium",
+      "subRoutes": [
+        {
+          "element": "Nagai (1 aircraft), with Mori following",
+          "waypoints": [
+            {
+              "t": "07:55:00",
+              "lat": 21.377,
+              "lon": -157.975,
+              "altM": 50,
+              "note": "Pearl City Peninsula; passes up Utah.",
+              "basis": "modelled",
+              "confidence": "low"
+            },
+            {
+              "t": "07:56:15",
+              "lat": 21.364,
+              "lon": -157.971,
+              "altM": 30,
+              "hold": true,
+              "note": "West side of Ford Island. About a minute is unaccounted for here; it is a model artefact that makes the route meet the documented 07:57 hit.",
+              "basis": "modelled",
+              "confidence": "low"
+            },
+            {
+              "t": "07:56:35",
+              "lat": 21.3572,
+              "lon": -157.9615,
+              "altM": 20,
+              "note": "Release about 500 m from Oglala/Helena, heading about 130 deg.",
+              "basis": "computed back from the hit time at 42 kt",
+              "confidence": "low"
+            },
+            {
+              "t": "07:57:00",
+              "lat": 21.3543,
+              "lon": -157.9578,
+              "altM": 20,
+              "note": "Torpedo passes under Oglala and hits Helena. Mori, behind Nagai, withholds his torpedo.",
+              "basis": "documented time; position approximate",
+              "confidence": "medium"
+            }
+          ]
+        },
+        {
+          "element": "Mori (1 aircraft), second run",
+          "waypoints": [
+            {
+              "t": "07:57:10",
+              "lat": 21.3543,
+              "lon": -157.9578,
+              "altM": 30,
+              "note": "Overflies 1010 Dock without releasing.",
+              "basis": "Mori memoir; position approximate",
+              "confidence": "low"
+            },
+            {
+              "t": "08:00:00",
+              "lat": 21.33,
+              "lon": -157.93,
+              "altM": 100,
+              "hold": true,
+              "note": "Wide circle over the Hickam side of the harbour.",
+              "basis": "modelled",
+              "confidence": "low"
+            },
+            {
+              "t": "08:04:30",
+              "lat": 21.3539,
+              "lon": -157.9534,
+              "altM": 20,
+              "note": "Release about 600 m from California, heading about 320 deg.",
+              "basis": "computed; time fitted to the 08:05 hits",
+              "confidence": "low"
+            },
+            {
+              "t": "08:05:00",
+              "lat": 21.358,
+              "lon": -157.9575,
+              "altM": 20,
+              "note": "Hit claimed on California.",
+              "basis": "California action report time; position approximate",
+              "confidence": "medium"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "torpedo_hiryu",
+      "role": "torpedo",
+      "aircraft": "Nakajima B5N2 Type 97 carrier attack bomber (Kate)",
+      "carrier": "hiryu",
+      "unit": "4th Torpedo Attack Unit",
+      "count": 8,
+      "planned": 8,
+      "leader": "Lt Heita Matsumura (name also rendered Hirata Matsumura); second chutai Lt Hiroharu Kadono",
+      "weapon": "1 x Type 91 Mod 2 aerial torpedo each",
+      "formationEnroute": "Fourth torpedo unit.",
+      "formationAttack": "Approached the carrier moorings from the west behind Soryu, then broke up: Matsumura's element swung south around the harbour mouth to Battleship Row, Kadono's went for 1010 Dock.",
+      "cruiseAltM": 2800,
+      "cruiseSpeedKn": 125,
+      "groundSpeedKn": 158,
+      "route": [
+        {
+          "t": "06:20",
+          "lat": 25.48,
+          "lon": -157.88,
+          "altM": 500,
+          "note": "Form-up.",
+          "basis": "estimate",
+          "confidence": "low"
+        },
+        {
+          "t": "07:02",
+          "lat": 23.624,
+          "lon": -157.93,
+          "altM": 2800,
+          "note": "Opana radar first plot of the wave.",
+          "basis": "computed from radar range/bearing, offset right",
+          "confidence": "medium"
+        },
+        {
+          "t": "07:40",
+          "lat": 21.93,
+          "lon": -158.02,
+          "altM": 2800,
+          "note": "Deployment off Kahuku Point.",
+          "basis": "see level_akagi",
+          "confidence": "low"
+        },
+        {
+          "t": "07:51:30",
+          "lat": 21.4,
+          "lon": -158.15,
+          "altM": 500,
+          "note": "Split from the Akagi/Kaga group.",
+          "basis": "modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "07:53:30",
+          "lat": 21.365,
+          "lon": -158.07,
+          "altM": 300,
+          "note": "North of Ewa. Kadono misses Matsumura's turn and orbits over Ewa.",
+          "basis": "Zimm narrative; position modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "07:55",
+          "lat": 21.372,
+          "lon": -157.99,
+          "altM": 100,
+          "note": "Matsumura sees smoke over Ford Island, confirms there are no carriers, refuses Utah and veers toward the harbour mouth.",
+          "basis": "Zimm/Stille narrative; position modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "07:56",
+          "lat": 21.33,
+          "lon": -157.985,
+          "altM": 80,
+          "note": "Matsumura's pair southbound west of the entrance channel.",
+          "basis": "modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "07:56:45",
+          "lat": 21.318,
+          "lon": -157.955,
+          "altM": 50,
+          "note": "Around the harbour mouth, turning in over Hickam.",
+          "basis": "documented 'came around over Hickam'; position modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "07:57:40",
+          "lat": 21.3455,
+          "lon": -157.9345,
+          "altM": 30,
+          "note": "Joins the Akagi stream at the head of Southeast Loch, cutting in ahead of Akagi aircraft bound for Oklahoma.",
+          "basis": "Zimm narrative; position modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "07:58:10",
+          "lat": 21.36,
+          "lon": -157.9467,
+          "altM": 20,
+          "note": "Matsumura releases at West Virginia.",
+          "basis": "computed 600 m out on a 309 deg line; time modelled",
+          "confidence": "low"
+        }
+      ],
+      "attacks": [
+        {
+          "start": "07:58",
+          "end": "07:59",
+          "target": "west_virginia",
+          "targetLat": 21.3634,
+          "targetLon": -157.9512,
+          "approachBearingDeg": 310,
+          "releaseAltM": 20,
+          "diveAngleDeg": 0,
+          "passes": 1,
+          "description": "Matsumura and his wingman Oku attacked West Virginia. Matsumura's observer photographed the water column of Oku's hit.",
+          "results": [
+            {
+              "t": "07:58",
+              "target": "west_virginia",
+              "effect": "Two hits claimed (Matsumura, Oku); Oku's is supported by the photograph.",
+              "hitLocation": "port side amidships",
+              "attribution": "Hiryu",
+              "confidence": "medium"
+            }
+          ],
+          "confidence": "medium"
+        },
+        {
+          "start": "07:58",
+          "end": "08:00",
+          "target": "oklahoma",
+          "targetLat": 21.3621,
+          "targetLon": -157.9528,
+          "approachBearingDeg": 310,
+          "releaseAltM": 20,
+          "diveAngleDeg": 0,
+          "passes": 1,
+          "description": "Per Stille, four Hiryu aircraft ended up interspersed with Akagi's on Battleship Row: two at West Virginia and two at Oklahoma.",
+          "results": [
+            {
+              "t": "07:59",
+              "target": "oklahoma",
+              "effect": "Two torpedoes launched; hits not individually confirmed.",
+              "hitLocation": "port side",
+              "attribution": "Hiryu",
+              "confidence": "low"
+            }
+          ],
+          "confidence": "low"
+        },
+        {
+          "start": "07:58",
+          "end": "08:00",
+          "target": "helena",
+          "targetLat": 21.3543,
+          "targetLon": -157.9578,
+          "approachBearingDeg": 130,
+          "releaseAltM": 20,
+          "diveAngleDeg": 0,
+          "passes": 1,
+          "description": "Kadono, orbiting over Ewa, saw Nagai's hit on Helena and led Hiryu aircraft against the same ships at 1010 Dock. All missed. Leaving their runs they crossed the path of the Akagi and Kaga aircraft heading for Battleship Row.",
+          "results": [
+            {
+              "t": "07:59",
+              "target": "helena",
+              "effect": "No hits. Torpedoes missed or struck the dock area.",
+              "hitLocation": "none",
+              "attribution": "Hiryu, Kadono's element",
+              "confidence": "medium"
+            }
+          ],
+          "countNote": "Stille: four aircraft at 1010 Dock and four on Battleship Row. Zimm (as excerpted): Kadono led five others, i.e. six at 1010 Dock and two on Battleship Row. This file uses 4 and 4 because it matches Zimm's own per-ship launch totals.",
+          "confidence": "low"
+        }
+      ],
+      "egress": [
+        {
+          "t": "08:00",
+          "lat": 21.367,
+          "lon": -157.966,
+          "altM": 50,
+          "note": "Across Ford Island and away west.",
+          "basis": "modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "08:22",
+          "lat": 21.888,
+          "lon": -158.4038,
+          "altM": 1000,
+          "note": "Rendezvous.",
+          "basis": "plan; time modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "10:15",
+          "lat": 24.7,
+          "lon": -157.69,
+          "altM": 0,
+          "note": "Recovery aboard Hiryu (estimated).",
+          "basis": "Carrier recovery position taken from the sibling file kido_butai.json (itself an estimate); time estimated",
+          "confidence": "low"
+        }
+      ],
+      "losses": [],
+      "note": "No losses. Matsumura's aircraft is usually shown as BII-320 (not verified this session).",
+      "confidence": "medium",
+      "subRoutes": [
+        {
+          "element": "Kadono element (4 aircraft; 6 in Zimm's version)",
+          "waypoints": [
+            {
+              "t": "07:56:00",
+              "lat": 21.33,
+              "lon": -158.04,
+              "altM": 300,
+              "hold": true,
+              "note": "Orbiting over Ewa after missing Matsumura's turn.",
+              "basis": "Zimm narrative; position modelled",
+              "confidence": "low"
+            },
+            {
+              "t": "07:57:15",
+              "lat": 21.352,
+              "lon": -157.99,
+              "altM": 100,
+              "note": "Eastbound across West Loch.",
+              "basis": "modelled",
+              "confidence": "low"
+            },
+            {
+              "t": "07:57:50",
+              "lat": 21.3615,
+              "lon": -157.967,
+              "altM": 30,
+              "note": "Over the south end of Ford Island.",
+              "basis": "modelled",
+              "confidence": "low"
+            },
+            {
+              "t": "07:58:00",
+              "lat": 21.3572,
+              "lon": -157.9615,
+              "altM": 20,
+              "note": "Release at the ships at 1010 Dock.",
+              "basis": "modelled",
+              "confidence": "low"
+            },
+            {
+              "t": "07:58:25",
+              "lat": 21.3543,
+              "lon": -157.9578,
+              "altM": 20,
+              "note": "Torpedoes miss. Aircraft pull out across the Akagi/Kaga approach lane.",
+              "basis": "Zimm narrative",
+              "confidence": "low"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dive_shokaku",
+      "role": "dive_bomber",
+      "aircraft": "Aichi D3A1 Type 99 carrier bomber (Val)",
+      "carrier": "shokaku",
+      "unit": "15th Attack Unit",
+      "count": 26,
+      "planned": 27,
+      "leader": "Lt Cdr Kakuichi Takahashi (overall dive-bomber leader; aircraft usually shown as EI-238)",
+      "weapon": "1 x Type 98 No. 25 land bomb (about 242-250 kg) each",
+      "formationEnroute": "Left of and 500 m above the level bombers. Three chutai of nine (one of eight), each of three three-plane shotai Vs.",
+      "formationAttack": "Shotai in line astern, diving in succession. Nine aircraft against Ford Island, seventeen against Hickam.",
+      "cruiseAltM": 3500,
+      "cruiseSpeedKn": 125,
+      "groundSpeedKn": 158,
+      "route": [
+        {
+          "t": "06:20",
+          "lat": 25.45,
+          "lon": -157.82,
+          "altM": 500,
+          "note": "Form-up, left of the level bombers.",
+          "basis": "estimate",
+          "confidence": "low"
+        },
+        {
+          "t": "07:02",
+          "lat": 23.594,
+          "lon": -157.87,
+          "altM": 3500,
+          "note": "Opana radar first plot of the wave.",
+          "basis": "computed from radar range/bearing, offset left",
+          "confidence": "medium"
+        },
+        {
+          "t": "07:40",
+          "lat": 21.9,
+          "lon": -157.96,
+          "altM": 3500,
+          "note": "Deployment. Takahashi sees two flares, reads 'surprise lost' and takes the dive bombers in first, climbing to about 4,000 m.",
+          "basis": "see level_akagi",
+          "confidence": "low"
+        },
+        {
+          "t": "07:46",
+          "lat": 21.68,
+          "lon": -158.03,
+          "altM": 4000,
+          "note": "Crosses the north shore near Waimea/Haleiwa and heads down the central plain.",
+          "basis": "Arakaki and Kuborn: split near Haleiwa; position modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "07:49",
+          "lat": 21.56,
+          "lon": -158.02,
+          "altM": 4000,
+          "note": "North of Wheeler Field. Zuikaku's 25 peel off for Wheeler; Takahashi's 26 continue south.",
+          "basis": "Arakaki and Kuborn; position modelled",
+          "confidence": "medium"
+        },
+        {
+          "t": "07:51:20",
+          "lat": 21.47,
+          "lon": -158,
+          "altM": 4000,
+          "note": "Passing east of Wheeler.",
+          "basis": "modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "07:53:40",
+          "lat": 21.4,
+          "lon": -157.94,
+          "altM": 3500,
+          "note": "Over Pearl City/Waimalu, north-east of Ford Island. Unit splits: 9 for Ford Island, 17 on toward Hickam.",
+          "basis": "modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "07:54:25",
+          "lat": 21.372,
+          "lon": -157.948,
+          "altM": 3000,
+          "note": "Ford Island element pushes over from the north-east.",
+          "basis": "CINCPAC: about nine dive bombers from the north-east; position modelled",
+          "confidence": "medium"
+        },
+        {
+          "t": "07:55",
+          "lat": 21.36,
+          "lon": -157.9628,
+          "altM": 450,
+          "note": "First bomb released over the south end of Ford Island.",
+          "basis": "documented time; position approximate",
+          "confidence": "medium"
+        }
+      ],
+      "attacks": [
+        {
+          "start": "07:55",
+          "end": "08:05",
+          "target": "ford_island_nas",
+          "targetLat": 21.36,
+          "targetLon": -157.9628,
+          "approachBearingDeg": 225,
+          "releaseAltM": 450,
+          "diveAngleDeg": 55,
+          "passes": 2,
+          "description": "About nine dive bombers came from the north-east and bombed, then strafed, the hangars and parked aircraft at the south end of Ford Island as the 07:55 'prep' signal for morning colours was being hoisted. This was the first bomb on Pearl Harbor proper.",
+          "results": [
+            {
+              "t": "07:55",
+              "target": "ford_island_nas",
+              "effect": "First bomb lands at the seaplane ramp at the south end of the island; Hangar 6 is hit and set on fire; PBY flying boats on the ramp and apron burn. Ford Island lost 33 aircraft destroyed or damaged, 19 of them PBYs.",
+              "hitLocation": "seaplane ramp and Hangar 6, south end of Ford Island",
+              "confidence": "medium"
+            },
+            {
+              "t": "07:58",
+              "target": "ford_island_nas",
+              "effect": "Lt Cdr Logan Ramsey orders the broadcast 'AIR RAID PEARL HARBOR X THIS IS NOT DRILL' from the Ford Island command centre.",
+              "hitLocation": "n/a",
+              "confidence": "high"
+            }
+          ],
+          "confidence": "medium"
+        },
+        {
+          "start": "07:55",
+          "end": "08:10",
+          "target": "hickam_field",
+          "targetLat": 21.3335,
+          "targetLon": -157.949,
+          "approachBearingDeg": 330,
+          "releaseAltM": 450,
+          "diveAngleDeg": 55,
+          "passes": 2,
+          "description": "Seventeen dive bombers swung round east of the harbour and attacked Hickam from the south-east, crossing Fort Kamehameha. First bombs fell on the Hawaiian Air Depot buildings and the hangar line, then the aircraft strafed.",
+          "results": [
+            {
+              "t": "07:55",
+              "target": "hickam_field",
+              "effect": "Hawaiian Air Depot shops and the hangar line hit; B-17s, B-18s and A-20s parked wingtip to wingtip set on fire.",
+              "hitLocation": "Hawaiian Air Depot and hangar line",
+              "note": "Sources disagree on which hangars took direct hits (Hangars 1 and 3 in one account; 9, 13 and 15 in the NPS landmark form, which covers the whole day).",
+              "confidence": "medium"
+            }
+          ],
+          "countNote": "The 9/17 split is from a secondary timeline plus CINCPAC's 'about nine' at Ford Island and a Navy log of '18 dive bombers from the south-east' at Hickam.",
+          "confidence": "medium"
+        }
+      ],
+      "egress": [
+        {
+          "t": "08:12",
+          "lat": 21.3245,
+          "lon": -158.0455,
+          "altM": 100,
+          "note": "Some Shokaku aircraft strafed Ewa on the way out (Marine history; it also mentions light bombs).",
+          "basis": "Cressman and Wenger; time modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "08:35",
+          "lat": 21.888,
+          "lon": -158.4038,
+          "altM": 1000,
+          "note": "Rendezvous.",
+          "basis": "plan; time modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "10:20",
+          "lat": 24.7,
+          "lon": -157.69,
+          "altM": 0,
+          "note": "Recovery aboard Shokaku (estimated).",
+          "basis": "Carrier recovery position taken from the sibling file kido_butai.json (itself an estimate); time estimated",
+          "confidence": "low"
+        }
+      ],
+      "losses": [
+        {
+          "aircraft": "D3A1 (Shokaku)",
+          "crew": "2 lost. The navweaps list names Kunio Iwatsuki and Tetsusaburo Kumazo (possibly Kumakura) among Shokaku's first-wave D3A aircrew; that these two were the lost crew is an inference.",
+          "t": null,
+          "lat": null,
+          "lon": null,
+          "cause": "Failed to return. Lansdale's research says it was lost at sea on the way back to Shokaku; other lists count it as shot down over Pearl Harbor.",
+          "basis": "j-aircraft (Lansdale) via search summary",
+          "confidence": "low"
+        }
+      ],
+      "note": "The only first-wave dive bomber lost.",
+      "confidence": "medium",
+      "subRoutes": [
+        {
+          "element": "Hickam element (17 aircraft)",
+          "waypoints": [
+            {
+              "t": "07:51:20",
+              "lat": 21.47,
+              "lon": -158,
+              "altM": 4000,
+              "note": "With the Ford Island element east of Wheeler.",
+              "basis": "modelled",
+              "confidence": "low"
+            },
+            {
+              "t": "07:54:10",
+              "lat": 21.38,
+              "lon": -157.9,
+              "altM": 3500,
+              "note": "Over Halawa/Aiea, east of the harbour.",
+              "basis": "modelled",
+              "confidence": "low"
+            },
+            {
+              "t": "07:55:35",
+              "lat": 21.315,
+              "lon": -157.925,
+              "altM": 3000,
+              "note": "Offshore of Fort Kamehameha; turns north-west and pushes over.",
+              "basis": "US accounts: first attackers approached over Fort Kamehameha / from the south-east; position modelled",
+              "confidence": "low"
+            },
+            {
+              "t": "07:56:15",
+              "lat": 21.3335,
+              "lon": -157.949,
+              "altM": 450,
+              "note": "First bombs on the Hawaiian Air Depot and hangar line. Documented time is 07:55; the geometry puts it a minute or so after the Ford Island bombs.",
+              "basis": "modelled",
+              "confidence": "low"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dive_zuikaku",
+      "role": "dive_bomber",
+      "aircraft": "Aichi D3A1 Type 99 carrier bomber (Val)",
+      "carrier": "zuikaku",
+      "unit": "16th Attack Unit",
+      "count": 25,
+      "planned": 27,
+      "leader": "Lt Akira Sakamoto",
+      "weapon": "1 x Type 98 No. 25 land bomb (about 242-250 kg) each",
+      "formationEnroute": "With Shokaku's dive bombers, left of and above the level bombers.",
+      "formationAttack": "Split into two groups that attacked Wheeler's hangar line from the east and the west, shotai diving in succession, then repeated strafing passes.",
+      "cruiseAltM": 3500,
+      "cruiseSpeedKn": 125,
+      "groundSpeedKn": 158,
+      "route": [
+        {
+          "t": "06:20",
+          "lat": 25.46,
+          "lon": -157.82,
+          "altM": 500,
+          "note": "Form-up.",
+          "basis": "estimate",
+          "confidence": "low"
+        },
+        {
+          "t": "07:02",
+          "lat": 23.604,
+          "lon": -157.87,
+          "altM": 3500,
+          "note": "Opana radar first plot of the wave.",
+          "basis": "computed from radar range/bearing, offset left",
+          "confidence": "medium"
+        },
+        {
+          "t": "07:40",
+          "lat": 21.91,
+          "lon": -157.96,
+          "altM": 3500,
+          "note": "Deployment off Kahuku Point; climbs toward 4,000 m.",
+          "basis": "see level_akagi",
+          "confidence": "low"
+        },
+        {
+          "t": "07:46",
+          "lat": 21.68,
+          "lon": -158.03,
+          "altM": 4000,
+          "note": "Crosses the north shore near Haleiwa.",
+          "basis": "modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "07:49",
+          "lat": 21.56,
+          "lon": -158.02,
+          "altM": 4000,
+          "note": "North of Wheeler; splits into two attack groups.",
+          "basis": "Arakaki and Kuborn; position modelled",
+          "confidence": "medium"
+        },
+        {
+          "t": "07:50:25",
+          "lat": 21.5,
+          "lon": -158.015,
+          "altM": 3500,
+          "note": "Push-over.",
+          "basis": "modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "07:51",
+          "lat": 21.484,
+          "lon": -158.0375,
+          "altM": 450,
+          "note": "First bombs on the Wheeler hangar line.",
+          "basis": "documented time (range 07:50-08:02 in sources); position approximate",
+          "confidence": "medium"
+        }
+      ],
+      "attacks": [
+        {
+          "start": "07:51",
+          "end": "08:10",
+          "target": "wheeler_field",
+          "targetLat": 21.484,
+          "targetLon": -158.0375,
+          "approachBearingDeg": 270,
+          "approachBearingAltDeg": 90,
+          "releaseAltM": 450,
+          "diveAngleDeg": 55,
+          "passes": 3,
+          "description": "Twenty-five dive bombers bombed the hangars, shops and barracks along the flight line, where the P-40s and P-36s were parked wingtip to wingtip, then came back to strafe together with Soryu's Zeros. Witnesses describe some releases from low altitude in shallow dives.",
+          "results": [
+            {
+              "t": "07:51",
+              "target": "wheeler_field",
+              "effect": "Direct hits on Hangars 1 and 3 and on barracks beside the flight line; stored ammunition in a hangar exploded; fires swept the parked fighters. Wheeler was put out of action as a fighter base for the first wave.",
+              "hitLocation": "hangar line and adjacent barracks",
+              "timeNote": "07:51 follows the Flight Journal/Wenger timeline. Other sources give 07:50, 07:53 and 08:02 (older Army accounts).",
+              "confidence": "medium"
+            }
+          ],
+          "confidence": "medium"
+        }
+      ],
+      "egress": [
+        {
+          "t": "08:12",
+          "lat": 21.3245,
+          "lon": -158.0455,
+          "altM": 100,
+          "note": "Sakamoto led aircraft south to strafe Ewa after Wheeler.",
+          "basis": "Arakaki and Kuborn via search summary; time modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "08:35",
+          "lat": 21.888,
+          "lon": -158.4038,
+          "altM": 1000,
+          "note": "Rendezvous.",
+          "basis": "plan; time modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "10:20",
+          "lat": 24.7,
+          "lon": -157.69,
+          "altM": 0,
+          "note": "Recovery aboard Zuikaku (estimated).",
+          "basis": "Carrier recovery position taken from the sibling file kido_butai.json (itself an estimate); time estimated",
+          "confidence": "low"
+        }
+      ],
+      "losses": [],
+      "note": "Zuikaku lost no aircraft in the first wave.",
+      "confidence": "medium"
+    },
+    {
+      "id": "fighter_akagi",
+      "role": "fighter",
+      "aircraft": "Mitsubishi A6M2 Model 21 Type 0 carrier fighter (Zero)",
+      "carrier": "akagi",
+      "unit": "1st Fighter Combat Unit",
+      "count": 9,
+      "planned": 9,
+      "leader": "Lt Cdr Shigeru Itaya (overall fighter leader; aircraft AI-155)",
+      "weapon": "2 x 20 mm cannon, 2 x 7.7 mm machine guns",
+      "formationEnroute": "Top cover about 1,300 m above the bombers, three three-plane shotai, weaving to hold station on the slower bombers.",
+      "formationAttack": "Shotai in loose line astern for strafing passes at 10-30 m.",
+      "cruiseAltM": 4300,
+      "cruiseSpeedKn": 125,
+      "groundSpeedKn": 158,
+      "route": [
+        {
+          "t": "06:20",
+          "lat": 25.45,
+          "lon": -157.85,
+          "altM": 1000,
+          "note": "Form-up above the bombers.",
+          "basis": "estimate",
+          "confidence": "low"
+        },
+        {
+          "t": "07:02",
+          "lat": 23.594,
+          "lon": -157.9,
+          "altM": 4300,
+          "note": "Opana radar first plot of the wave.",
+          "basis": "computed from radar range/bearing",
+          "confidence": "medium"
+        },
+        {
+          "t": "07:40",
+          "lat": 21.9,
+          "lon": -157.99,
+          "altM": 4300,
+          "note": "Deployment. The fighters do not react to the first flare, which prompts Fuchida's second.",
+          "basis": "see level_akagi",
+          "confidence": "low"
+        },
+        {
+          "t": "07:45:25",
+          "lat": 21.66,
+          "lon": -158.12,
+          "altM": 3500,
+          "note": "Off Haleiwa with the western group.",
+          "basis": "modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "07:48:30",
+          "lat": 21.52,
+          "lon": -158.19,
+          "altM": 2000,
+          "note": "West side of the Waianae Range, descending.",
+          "basis": "modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "07:51",
+          "lat": 21.4,
+          "lon": -158.15,
+          "altM": 600,
+          "note": "Lualualei/Nanakuli.",
+          "basis": "modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "07:53",
+          "lat": 21.365,
+          "lon": -158.09,
+          "altM": 300,
+          "note": "Seen from Ewa at 07:53: about 21 single-seat aircraft coming over the hills from the Nanakuli direction at 1,000 ft.",
+          "basis": "Marine Corps history; position modelled",
+          "confidence": "medium"
+        },
+        {
+          "t": "07:55",
+          "lat": 21.3245,
+          "lon": -158.0455,
+          "altM": 20,
+          "note": "First strafing pass at Ewa.",
+          "basis": "documented (about 07:53-07:55)",
+          "confidence": "medium"
+        },
+        {
+          "t": "08:05",
+          "lat": 21.3245,
+          "lon": -158.0455,
+          "altM": 100,
+          "hold": true,
+          "note": "Leaves Ewa after about ten minutes of strafing passes.",
+          "basis": "modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "08:06:20",
+          "lat": 21.315,
+          "lon": -157.975,
+          "altM": 100,
+          "note": "Crossing the harbour entrance toward Fort Kamehameha and Hickam.",
+          "basis": "inferred from the Hirano loss account; time modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "08:07",
+          "lat": 21.3335,
+          "lon": -157.949,
+          "altM": 20,
+          "note": "Strafing Hickam.",
+          "basis": "modelled",
+          "confidence": "low"
+        }
+      ],
+      "attacks": [
+        {
+          "start": "07:55",
+          "end": "08:05",
+          "target": "ewa_mcas",
+          "targetLat": 21.3245,
+          "targetLon": -158.0455,
+          "approachBearingDeg": 135,
+          "releaseAltM": 20,
+          "diveAngleDeg": 5,
+          "passes": 4,
+          "description": "Itaya's fighters made the first strafing attacks on Ewa Mooring Mast Field, coming in from the north-west at about 1,000 ft and dropping to within 20-25 ft of the ground, firing short bursts at the aircraft parked on the mat and reversing for repeat runs.",
+          "results": [
+            {
+              "t": "07:55",
+              "target": "ewa_mcas",
+              "effect": "MAG-21's parked F4Fs, SBDs and SB2Us set on fire. Over the whole morning Ewa lost 33 of its 49 aircraft destroyed and the rest damaged.",
+              "hitLocation": "aircraft parking mat",
+              "confidence": "medium"
+            }
+          ],
+          "confidence": "medium"
+        },
+        {
+          "start": "08:07",
+          "end": "08:20",
+          "target": "hickam_field",
+          "targetLat": 21.3335,
+          "targetLon": -157.949,
+          "approachBearingDeg": 60,
+          "releaseAltM": 20,
+          "diveAngleDeg": 5,
+          "passes": 3,
+          "description": "Akagi fighters then crossed Fort Kamehameha to strafe Hickam's flight line and went for the B-17s arriving from California. By now the defences were alert.",
+          "results": [
+            {
+              "t": "08:10",
+              "target": "hickam_field",
+              "effect": "PO1c Takeshi Hirano's Zero is hit by ground fire and by USS Helm; it clips palm trees and crashes into Building 52 at Fort Kamehameha.",
+              "hitLocation": "Fort Kamehameha ordnance machine shop",
+              "confidence": "medium"
+            }
+          ],
+          "confidence": "medium"
+        }
+      ],
+      "egress": [
+        {
+          "t": "08:25",
+          "lat": 21.3,
+          "lon": -158.1,
+          "altM": 500,
+          "note": "Leaving past Barbers Point.",
+          "basis": "modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "08:45",
+          "lat": 21.888,
+          "lon": -158.4038,
+          "altM": 1000,
+          "note": "Rendezvous; fighters join bombers for navigation home.",
+          "basis": "plan; time modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "10:20",
+          "lat": 24.7,
+          "lon": -157.69,
+          "altM": 0,
+          "note": "Recovery aboard Akagi (estimated).",
+          "basis": "Carrier recovery position taken from the sibling file kido_butai.json (itself an estimate); time estimated",
+          "confidence": "low"
+        }
+      ],
+      "losses": [
+        {
+          "aircraft": "A6M2 Model 21, tail code AI-154, manufacture number 5289",
+          "crew": "PO1c Takeshi Hirano (given name also read Takashi), killed",
+          "t": "08:10",
+          "lat": 21.3215,
+          "lon": -157.959,
+          "cause": "Anti-aircraft fire from Army gunners around Hickam and from USS Helm. Tried to put down on a street at Fort Kamehameha, clipped palm trees and struck Building 52 (ordnance machine shop).",
+          "basis": "Pacific Wrecks, HistoryNet/Military Times; coordinates are an estimate for the Fort Kamehameha cantonment",
+          "confidence": "medium"
+        }
+      ],
+      "note": "Itaya is also credited with shooting up a civilian light aircraft in the first aerial encounter of the morning. One article says the Akagi fighters flew above and left of Shokaku's dive bombers on the way in; the Marine history has them arriving at Ewa over the Waianae hills. The western route is used here.",
+      "confidence": "medium"
+    },
+    {
+      "id": "fighter_kaga",
+      "role": "fighter",
+      "aircraft": "Mitsubishi A6M2 Model 21 Type 0 carrier fighter (Zero)",
+      "carrier": "kaga",
+      "unit": "2nd Fighter Combat Unit",
+      "count": 9,
+      "planned": 9,
+      "leader": "Lt Yoshio Shiga",
+      "weapon": "2 x 20 mm cannon, 2 x 7.7 mm machine guns",
+      "formationEnroute": "Top cover with Akagi's fighters, three three-plane shotai.",
+      "formationAttack": "Shotai in loose line astern for strafing passes.",
+      "cruiseAltM": 4300,
+      "cruiseSpeedKn": 125,
+      "groundSpeedKn": 158,
+      "route": [
+        {
+          "t": "06:20",
+          "lat": 25.46,
+          "lon": -157.85,
+          "altM": 1000,
+          "note": "Form-up above the bombers.",
+          "basis": "estimate",
+          "confidence": "low"
+        },
+        {
+          "t": "07:02",
+          "lat": 23.604,
+          "lon": -157.9,
+          "altM": 4300,
+          "note": "Opana radar first plot of the wave.",
+          "basis": "computed from radar range/bearing",
+          "confidence": "medium"
+        },
+        {
+          "t": "07:40",
+          "lat": 21.91,
+          "lon": -157.99,
+          "altM": 4300,
+          "note": "Deployment off Kahuku Point.",
+          "basis": "see level_akagi",
+          "confidence": "low"
+        },
+        {
+          "t": "07:49:15",
+          "lat": 21.52,
+          "lon": -158.19,
+          "altM": 2000,
+          "note": "West side of the Waianae Range behind Akagi's fighters.",
+          "basis": "modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "07:53:45",
+          "lat": 21.365,
+          "lon": -158.09,
+          "altM": 300,
+          "note": "Over the hills from Nanakuli toward Ewa.",
+          "basis": "Marine Corps history; position modelled",
+          "confidence": "medium"
+        },
+        {
+          "t": "07:56",
+          "lat": 21.3245,
+          "lon": -158.0455,
+          "altM": 20,
+          "note": "Strafes Ewa soon after Itaya.",
+          "basis": "Marine Corps history; time modelled",
+          "confidence": "medium"
+        },
+        {
+          "t": "08:06",
+          "lat": 21.3245,
+          "lon": -158.0455,
+          "altM": 100,
+          "hold": true,
+          "note": "Leaves Ewa.",
+          "basis": "modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "08:08",
+          "lat": 21.3335,
+          "lon": -157.949,
+          "altM": 20,
+          "note": "Strafing Hickam, then Ford Island.",
+          "basis": "Japanese target assignment; time modelled",
+          "confidence": "low"
+        }
+      ],
+      "attacks": [
+        {
+          "start": "07:56",
+          "end": "08:06",
+          "target": "ewa_mcas",
+          "targetLat": 21.3245,
+          "targetLon": -158.0455,
+          "approachBearingDeg": 135,
+          "releaseAltM": 20,
+          "diveAngleDeg": 5,
+          "passes": 3,
+          "description": "Shiga's nine strafed Ewa immediately after Itaya's. Shiga's assignment included neutralising the 'Barbers Point airdrome'.",
+          "results": [
+            {
+              "t": "07:56",
+              "target": "ewa_mcas",
+              "effect": "Further parked Marine aircraft burned; the station ambulance took more than 50 hits.",
+              "hitLocation": "aircraft parking mat and camp",
+              "confidence": "medium"
+            }
+          ],
+          "confidence": "medium"
+        },
+        {
+          "start": "08:08",
+          "end": "08:25",
+          "target": "hickam_field",
+          "targetLat": 21.3335,
+          "targetLon": -157.949,
+          "approachBearingDeg": 60,
+          "releaseAltM": 20,
+          "diveAngleDeg": 5,
+          "passes": 3,
+          "description": "Strafing of Hickam and Ford Island in support of Shokaku's dive bombers. Osprey credits Kaga fighters with part of the destruction on Ford Island. Two Kaga fighters failed to return.",
+          "results": [
+            {
+              "t": "08:10",
+              "target": "hickam_field",
+              "effect": "Parked bombers and arriving B-17s strafed.",
+              "hitLocation": "flight line",
+              "confidence": "low"
+            }
+          ],
+          "confidence": "low"
+        }
+      ],
+      "egress": [
+        {
+          "t": "08:45",
+          "lat": 21.888,
+          "lon": -158.4038,
+          "altM": 1000,
+          "note": "Rendezvous.",
+          "basis": "plan; time modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "10:20",
+          "lat": 24.7,
+          "lon": -157.69,
+          "altM": 0,
+          "note": "Seven recovered aboard Kaga (estimated time).",
+          "basis": "Carrier recovery position taken from the sibling file kido_butai.json (itself an estimate); time estimated",
+          "confidence": "low"
+        }
+      ],
+      "losses": [
+        {
+          "aircraft": "A6M2 Model 21 (Kaga)",
+          "crew": "PO2c Seinoshin Sano, killed",
+          "t": null,
+          "lat": null,
+          "lon": null,
+          "cause": "Failed to return; believed anti-aircraft fire. Time and crash site not established in the sources reviewed.",
+          "basis": "Lansdale (j-aircraft) via search summary",
+          "confidence": "low"
+        },
+        {
+          "aircraft": "A6M2 Model 21 (Kaga)",
+          "crew": "PO2c Toru Haneda, killed",
+          "t": null,
+          "lat": null,
+          "lon": null,
+          "cause": "Failed to return; believed anti-aircraft fire. Time and crash site not established in the sources reviewed.",
+          "basis": "Lansdale (j-aircraft) via search summary",
+          "confidence": "low"
+        }
+      ],
+      "note": "Shiga's aircraft is usually shown as AII-105 (not verified this session).",
+      "confidence": "medium"
+    },
+    {
+      "id": "fighter_soryu",
+      "role": "fighter",
+      "aircraft": "Mitsubishi A6M2 Model 21 Type 0 carrier fighter (Zero)",
+      "carrier": "soryu",
+      "unit": "3rd Fighter Combat Unit",
+      "count": 8,
+      "planned": 9,
+      "leader": "Lt Masaji Suganami",
+      "weapon": "2 x 20 mm cannon, 2 x 7.7 mm machine guns",
+      "formationEnroute": "Top cover, three shotai (one short).",
+      "formationAttack": "Shotai in loose line astern along the Wheeler flight line.",
+      "cruiseAltM": 4300,
+      "cruiseSpeedKn": 125,
+      "groundSpeedKn": 158,
+      "route": [
+        {
+          "t": "06:20",
+          "lat": 25.47,
+          "lon": -157.84,
+          "altM": 1000,
+          "note": "Form-up above the bombers.",
+          "basis": "estimate",
+          "confidence": "low"
+        },
+        {
+          "t": "07:02",
+          "lat": 23.614,
+          "lon": -157.89,
+          "altM": 4300,
+          "note": "Opana radar first plot of the wave.",
+          "basis": "computed from radar range/bearing",
+          "confidence": "medium"
+        },
+        {
+          "t": "07:40",
+          "lat": 21.92,
+          "lon": -157.98,
+          "altM": 4300,
+          "note": "Deployment. Fuchida believed Suganami's fighters had missed the first flare.",
+          "basis": "see level_akagi",
+          "confidence": "low"
+        },
+        {
+          "t": "07:46",
+          "lat": 21.68,
+          "lon": -158.03,
+          "altM": 4300,
+          "note": "Crosses the north shore with the dive bombers.",
+          "basis": "modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "07:49",
+          "lat": 21.56,
+          "lon": -158.02,
+          "altM": 3000,
+          "note": "North of Wheeler; no American fighters airborne.",
+          "basis": "modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "07:51",
+          "lat": 21.51,
+          "lon": -157.975,
+          "altM": 2000,
+          "note": "Covering east of the field while the dive bombers go in.",
+          "basis": "modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "07:53",
+          "lat": 21.484,
+          "lon": -158.0375,
+          "altM": 20,
+          "note": "Strafing Wheeler after the first bombs.",
+          "basis": "one timeline gives 07:53 for Zuikaku dive bombers and Soryu Zeros opening the attack",
+          "confidence": "medium"
+        },
+        {
+          "t": "08:05",
+          "lat": 21.484,
+          "lon": -158.0375,
+          "altM": 200,
+          "hold": true,
+          "note": "Leaves Wheeler.",
+          "basis": "modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "08:08:30",
+          "lat": 21.3245,
+          "lon": -158.0455,
+          "altM": 20,
+          "note": "Strafing Ewa.",
+          "basis": "sources say Soryu's fighters headed south-west once Wheeler was burning; time modelled",
+          "confidence": "low"
+        }
+      ],
+      "attacks": [
+        {
+          "start": "07:53",
+          "end": "08:05",
+          "target": "wheeler_field",
+          "targetLat": 21.484,
+          "targetLon": -158.0375,
+          "approachBearingDeg": 270,
+          "releaseAltM": 20,
+          "diveAngleDeg": 5,
+          "passes": 3,
+          "description": "Three strafing runs along the rows of parked P-40s and P-36s once the dive bombers had hit the hangars.",
+          "results": [
+            {
+              "t": "07:53",
+              "target": "wheeler_field",
+              "effect": "Parked fighters set on fire along the apron.",
+              "hitLocation": "aircraft parking apron",
+              "confidence": "medium"
+            }
+          ],
+          "confidence": "medium"
+        },
+        {
+          "start": "08:09",
+          "end": "08:25",
+          "target": "ewa_mcas",
+          "targetLat": 21.3245,
+          "targetLon": -158.0455,
+          "approachBearingDeg": 180,
+          "releaseAltM": 20,
+          "diveAngleDeg": 5,
+          "passes": 3,
+          "description": "Soryu's eight Zeros strafed Ewa after Wheeler (Pacific Wrecks credits them with the bulk of the destruction there). Zeros in this area also set on Enterprise SBDs arriving from sea at about 08:20-08:30.",
+          "results": [
+            {
+              "t": "08:12",
+              "target": "ewa_mcas",
+              "effect": "Remaining intact Marine aircraft strafed.",
+              "hitLocation": "aircraft parking mat",
+              "confidence": "low"
+            }
+          ],
+          "confidence": "low"
+        }
+      ],
+      "egress": [
+        {
+          "t": "08:45",
+          "lat": 21.888,
+          "lon": -158.4038,
+          "altM": 1000,
+          "note": "Rendezvous.",
+          "basis": "plan; time modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "10:25",
+          "lat": 24.7,
+          "lon": -157.69,
+          "altM": 0,
+          "note": "Recovery aboard Soryu (estimated).",
+          "basis": "Carrier recovery position taken from the sibling file kido_butai.json (itself an estimate); time estimated",
+          "confidence": "low"
+        }
+      ],
+      "losses": [],
+      "note": "One Soryu fighter aborted at launch. A few sources say seven rather than eight Zeros at Wheeler.",
+      "confidence": "medium"
+    },
+    {
+      "id": "fighter_hiryu",
+      "role": "fighter",
+      "aircraft": "Mitsubishi A6M2 Model 21 Type 0 carrier fighter (Zero)",
+      "carrier": "hiryu",
+      "unit": "4th Fighter Combat Unit",
+      "count": 6,
+      "planned": 6,
+      "leader": "Lt Kiyokuma Okajima",
+      "weapon": "2 x 20 mm cannon, 2 x 7.7 mm machine guns",
+      "formationEnroute": "Top cover, two three-plane shotai.",
+      "formationAttack": "Shotai in loose line astern for strafing passes.",
+      "cruiseAltM": 4300,
+      "cruiseSpeedKn": 125,
+      "groundSpeedKn": 158,
+      "route": [
+        {
+          "t": "06:20",
+          "lat": 25.48,
+          "lon": -157.84,
+          "altM": 1000,
+          "note": "Form-up above the bombers.",
+          "basis": "estimate",
+          "confidence": "low"
+        },
+        {
+          "t": "07:02",
+          "lat": 23.624,
+          "lon": -157.89,
+          "altM": 4300,
+          "note": "Opana radar first plot of the wave.",
+          "basis": "computed from radar range/bearing",
+          "confidence": "medium"
+        },
+        {
+          "t": "07:40",
+          "lat": 21.93,
+          "lon": -157.98,
+          "altM": 4300,
+          "note": "Deployment off Kahuku Point.",
+          "basis": "see level_akagi",
+          "confidence": "low"
+        },
+        {
+          "t": "07:49:15",
+          "lat": 21.56,
+          "lon": -158.02,
+          "altM": 3000,
+          "note": "Down the central plain with the dive bombers.",
+          "basis": "modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "07:51:15",
+          "lat": 21.51,
+          "lon": -157.975,
+          "altM": 2000,
+          "note": "Covering east of Wheeler.",
+          "basis": "modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "07:53",
+          "lat": 21.484,
+          "lon": -158.0375,
+          "altM": 500,
+          "note": "Sweeps Wheeler; finds no air opposition.",
+          "basis": "Japanese plan assigned Hiryu's fighters to Wheeler and Barbers Point; presence over Wheeler not confirmed",
+          "confidence": "low"
+        },
+        {
+          "t": "07:58",
+          "lat": 21.484,
+          "lon": -158.0375,
+          "altM": 500,
+          "hold": true,
+          "note": "Leaves the Wheeler area.",
+          "basis": "modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "08:01:30",
+          "lat": 21.3245,
+          "lon": -158.0455,
+          "altM": 20,
+          "note": "Strafing Ewa.",
+          "basis": "Flight Journal timeline: Hiryu fighters hit Ewa; time modelled",
+          "confidence": "low"
+        }
+      ],
+      "attacks": [
+        {
+          "start": "08:02",
+          "end": "08:20",
+          "target": "ewa_mcas",
+          "targetLat": 21.3245,
+          "targetLon": -158.0455,
+          "approachBearingDeg": 180,
+          "releaseAltM": 20,
+          "diveAngleDeg": 5,
+          "passes": 4,
+          "description": "Okajima's six strafed Ewa Mooring Mast Field in repeated passes. Whether they first strafed Wheeler is not confirmed.",
+          "results": [
+            {
+              "t": "08:02",
+              "target": "ewa_mcas",
+              "effect": "Parked Marine aircraft strafed and burned.",
+              "hitLocation": "aircraft parking mat",
+              "confidence": "low"
+            }
+          ],
+          "confidence": "low"
+        }
+      ],
+      "egress": [
+        {
+          "t": "08:45",
+          "lat": 21.888,
+          "lon": -158.4038,
+          "altM": 1000,
+          "note": "Rendezvous.",
+          "basis": "plan; time modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "10:25",
+          "lat": 24.7,
+          "lon": -157.69,
+          "altM": 0,
+          "note": "Recovery aboard Hiryu (estimated).",
+          "basis": "Carrier recovery position taken from the sibling file kido_butai.json (itself an estimate); time estimated",
+          "confidence": "low"
+        }
+      ],
+      "losses": [],
+      "note": "No losses.",
+      "confidence": "low"
+    },
+    {
+      "id": "fighter_shokaku",
+      "role": "fighter",
+      "aircraft": "Mitsubishi A6M2 Model 21 Type 0 carrier fighter (Zero)",
+      "carrier": "shokaku",
+      "unit": "5th Fighter Combat Unit",
+      "count": 5,
+      "planned": 6,
+      "countNote": "Shokaku 5 and Zuikaku 6 follows navweaps (aborts on Soryu and Shokaku). Wikipedia's Zuikaku article gives Zuikaku five Zeros at Kaneohe, which would make it Shokaku 6 and Zuikaku 5. Either way the Kaneohe force was 11.",
+      "leader": "Lt Tadashi Kaneko",
+      "weapon": "2 x 20 mm cannon, 2 x 7.7 mm machine guns",
+      "formationEnroute": "Top cover, two shotai.",
+      "formationAttack": "Shotai in line astern for strafing passes over the seaplane ramp and moorings.",
+      "cruiseAltM": 4300,
+      "cruiseSpeedKn": 125,
+      "groundSpeedKn": 158,
+      "route": [
+        {
+          "t": "06:20",
+          "lat": 25.45,
+          "lon": -157.83,
+          "altM": 1000,
+          "note": "Form-up above the bombers.",
+          "basis": "estimate",
+          "confidence": "low"
+        },
+        {
+          "t": "07:02",
+          "lat": 23.594,
+          "lon": -157.88,
+          "altM": 4300,
+          "note": "Opana radar first plot of the wave.",
+          "basis": "computed from radar range/bearing",
+          "confidence": "medium"
+        },
+        {
+          "t": "07:40",
+          "lat": 21.9,
+          "lon": -157.97,
+          "altM": 4300,
+          "note": "Deployment. The eleven Shokaku and Zuikaku fighters leave the formation and fly east.",
+          "basis": "Marine Corps history; position modelled",
+          "confidence": "medium"
+        },
+        {
+          "t": "07:43:15",
+          "lat": 21.72,
+          "lon": -157.94,
+          "altM": 3000,
+          "note": "Crosses the coast near Kahuku, descending fast.",
+          "basis": "modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "07:46",
+          "lat": 21.56,
+          "lon": -157.86,
+          "altM": 1500,
+          "note": "Down the windward coast.",
+          "basis": "modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "07:48:20",
+          "lat": 21.444,
+          "lon": -157.769,
+          "altM": 30,
+          "note": "First strafing pass at NAS Kaneohe Bay, the first shots of the air attack.",
+          "basis": "documented time 07:48 (range 07:46-07:52); position approximate",
+          "confidence": "medium"
+        }
+      ],
+      "attacks": [
+        {
+          "start": "07:48",
+          "end": "08:05",
+          "target": "kaneohe_nas",
+          "targetLat": 21.444,
+          "targetLon": -157.769,
+          "approachBearingDeg": 150,
+          "releaseAltM": 20,
+          "diveAngleDeg": 5,
+          "passes": 4,
+          "description": "Eleven Zeros strafed the PBYs moored in the bay and parked on the ramp for roughly a quarter of an hour. No bombers accompanied them in the first wave.",
+          "results": [
+            {
+              "t": "07:48",
+              "target": "kaneohe_nas",
+              "effect": "PBYs at their moorings and on the ramp set on fire. By the end of the day 27 of the 33 PBYs present were destroyed and 6 damaged.",
+              "hitLocation": "seaplane ramp, moorings and Hangar 1 apron",
+              "confidence": "medium"
+            }
+          ],
+          "confidence": "medium"
+        },
+        {
+          "start": "08:30",
+          "end": "08:31",
+          "target": "bellows_field",
+          "targetLat": 21.369,
+          "targetLon": -157.7115,
+          "approachBearingDeg": 270,
+          "releaseAltM": 20,
+          "diveAngleDeg": 5,
+          "passes": 1,
+          "description": "A single fighter strafed the tent area at Bellows at about 08:30, wounding one man. It is usually taken to be a first-wave Zero from the Kaneohe group; the carrier is not established.",
+          "results": [
+            {
+              "t": "08:30",
+              "target": "bellows_field",
+              "effect": "Tent area strafed; one man wounded.",
+              "hitLocation": "tent area",
+              "confidence": "low"
+            }
+          ],
+          "confidence": "low"
+        }
+      ],
+      "egress": [
+        {
+          "t": "08:15",
+          "lat": 21.72,
+          "lon": -157.94,
+          "altM": 1000,
+          "note": "North along the windward coast past Kahuku.",
+          "basis": "modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "08:50",
+          "lat": 21.888,
+          "lon": -158.4038,
+          "altM": 1000,
+          "note": "Rendezvous.",
+          "basis": "plan; time modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "10:25",
+          "lat": 24.7,
+          "lon": -157.69,
+          "altM": 0,
+          "note": "Recovery aboard Shokaku (estimated).",
+          "basis": "Carrier recovery position taken from the sibling file kido_butai.json (itself an estimate); time estimated",
+          "confidence": "low"
+        }
+      ],
+      "losses": [],
+      "note": "No losses.",
+      "confidence": "medium"
+    },
+    {
+      "id": "fighter_zuikaku",
+      "role": "fighter",
+      "aircraft": "Mitsubishi A6M2 Model 21 Type 0 carrier fighter (Zero)",
+      "carrier": "zuikaku",
+      "unit": "6th Fighter Combat Unit",
+      "count": 6,
+      "planned": 6,
+      "countNote": "See fighter_shokaku: the 5/6 split between the two carriers is disputed.",
+      "leader": "Lt Masao Sato",
+      "weapon": "2 x 20 mm cannon, 2 x 7.7 mm machine guns",
+      "formationEnroute": "Top cover, two three-plane shotai.",
+      "formationAttack": "Shotai in line astern for strafing passes.",
+      "cruiseAltM": 4300,
+      "cruiseSpeedKn": 125,
+      "groundSpeedKn": 158,
+      "route": [
+        {
+          "t": "06:20",
+          "lat": 25.46,
+          "lon": -157.83,
+          "altM": 1000,
+          "note": "Form-up above the bombers.",
+          "basis": "estimate",
+          "confidence": "low"
+        },
+        {
+          "t": "07:02",
+          "lat": 23.604,
+          "lon": -157.88,
+          "altM": 4300,
+          "note": "Opana radar first plot of the wave.",
+          "basis": "computed from radar range/bearing",
+          "confidence": "medium"
+        },
+        {
+          "t": "07:40",
+          "lat": 21.91,
+          "lon": -157.97,
+          "altM": 4300,
+          "note": "Deployment; turns east with Shokaku's fighters.",
+          "basis": "Marine Corps history; position modelled",
+          "confidence": "medium"
+        },
+        {
+          "t": "07:43:30",
+          "lat": 21.72,
+          "lon": -157.94,
+          "altM": 3000,
+          "note": "Crosses the coast near Kahuku.",
+          "basis": "modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "07:46:15",
+          "lat": 21.56,
+          "lon": -157.86,
+          "altM": 1500,
+          "note": "Down the windward coast.",
+          "basis": "modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "07:48:40",
+          "lat": 21.444,
+          "lon": -157.769,
+          "altM": 30,
+          "note": "Strafing NAS Kaneohe Bay.",
+          "basis": "documented time 07:48 (range 07:46-07:52)",
+          "confidence": "medium"
+        }
+      ],
+      "attacks": [
+        {
+          "start": "07:48",
+          "end": "08:05",
+          "target": "kaneohe_nas",
+          "targetLat": 21.444,
+          "targetLon": -157.769,
+          "approachBearingDeg": 150,
+          "releaseAltM": 20,
+          "diveAngleDeg": 5,
+          "passes": 4,
+          "description": "Strafed Kaneohe's flying boats together with Shokaku's fighters.",
+          "results": [
+            {
+              "t": "07:50",
+              "target": "kaneohe_nas",
+              "effect": "PBYs at moorings and on the ramp burned.",
+              "hitLocation": "seaplane ramp and moorings",
+              "confidence": "medium"
+            }
+          ],
+          "confidence": "medium"
+        }
+      ],
+      "egress": [
+        {
+          "t": "08:15",
+          "lat": 21.72,
+          "lon": -157.94,
+          "altM": 1000,
+          "note": "North along the windward coast past Kahuku.",
+          "basis": "modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "08:50",
+          "lat": 21.888,
+          "lon": -158.4038,
+          "altM": 1000,
+          "note": "Rendezvous.",
+          "basis": "plan; time modelled",
+          "confidence": "low"
+        },
+        {
+          "t": "10:25",
+          "lat": 24.7,
+          "lon": -157.69,
+          "altM": 0,
+          "note": "Recovery aboard Zuikaku (estimated).",
+          "basis": "Carrier recovery position taken from the sibling file kido_butai.json (itself an estimate); time estimated",
+          "confidence": "low"
+        }
+      ],
+      "losses": [],
+      "note": "No losses.",
+      "confidence": "medium"
+    }
+  ],
+  "torpedoAttack": {
+    "summary": "Forty B5N2s attacked in about 11 minutes (07:55 to about 08:06). About 36 torpedoes were released and 19 are counted as hits in the modern reconstruction. Two streams: Soryu and Hiryu (16) from the west against the carrier moorings on the north-west side of Ford Island, with some diverting to 1010 Dock and Battleship Row; Akagi and Kaga (24) south past Ewa, over Hickam and down Southeast Loch against Battleship Row.",
+    "sequence": [
+      {
+        "order": 1,
+        "t": "07:55",
+        "carrier": "soryu",
+        "planes": 6,
+        "target": "utah / raleigh (carrier berths F-11, F-12)",
+        "hits": 3,
+        "note": "First torpedoes of the raid. Utah 2, Raleigh 1, the rest missed. Approach from the west over Pearl City, heading about 125 deg.",
+        "confidence": "medium"
+      },
+      {
+        "order": 2,
+        "t": "07:57",
+        "carrier": "soryu",
+        "planes": 1,
+        "target": "helena / oglala (1010 Dock)",
+        "hits": 1,
+        "note": "Nagai. Run from the north-west across the south end of Ford Island (estimated heading 130 deg). Torpedo ran under Oglala and hit Helena.",
+        "confidence": "high"
+      },
+      {
+        "order": 3,
+        "t": "07:57",
+        "carrier": "akagi",
+        "planes": 6,
+        "target": "west_virginia / oklahoma",
+        "hits": null,
+        "note": "Murata's first chutai down Southeast Loch, heading about 310 deg. First hits on both ships. Hits per aircraft not established.",
+        "confidence": "medium"
+      },
+      {
+        "order": 4,
+        "t": "07:58",
+        "carrier": "hiryu",
+        "planes": 2,
+        "target": "west_virginia",
+        "hits": 2,
+        "note": "Matsumura and Oku, having come round over Hickam and cut into the Akagi stream. Two hits claimed; Oku's photographed.",
+        "confidence": "medium"
+      },
+      {
+        "order": 5,
+        "t": "07:58",
+        "carrier": "hiryu",
+        "planes": 4,
+        "target": "helena / oglala (1010 Dock)",
+        "hits": 0,
+        "note": "Kadono's element, same line as Nagai. All missed. Zimm's text implies six aircraft here and only two Hiryu aircraft on Battleship Row.",
+        "confidence": "low"
+      },
+      {
+        "order": 6,
+        "t": "07:59",
+        "carrier": "hiryu",
+        "planes": 2,
+        "target": "oklahoma",
+        "hits": null,
+        "note": "Interspersed with Akagi aircraft (Stille).",
+        "confidence": "low"
+      },
+      {
+        "order": 7,
+        "t": "07:59",
+        "carrier": "akagi",
+        "planes": 6,
+        "target": "oklahoma / west_virginia",
+        "hits": null,
+        "note": "Second Akagi chutai (Lt Jinichi Goto). Some accounts send one or two of these to California.",
+        "confidence": "low"
+      },
+      {
+        "order": 8,
+        "t": "08:00",
+        "carrier": "kaga",
+        "planes": 12,
+        "target": "oklahoma / west_virginia / nevada / california (arizona claimed)",
+        "hits": null,
+        "note": "Last unit in, a few minutes behind Akagi in a loose string, into alerted defences. Five shot down; about eight torpedoes released. One hit Nevada at about 08:03.",
+        "confidence": "medium"
+      },
+      {
+        "order": 9,
+        "t": "08:05",
+        "carrier": "soryu",
+        "planes": 1,
+        "target": "california",
+        "hits": 1,
+        "note": "Mori, on his second run after breaking off from 1010 Dock. Hit claimed.",
+        "confidence": "medium"
+      }
+    ],
+    "release": {
+      "altM": 20,
+      "altRangeM": [
+        10,
+        20
+      ],
+      "speedKn": 160,
+      "rangeM": 600,
+      "rangeBandM": [
+        400,
+        1000
+      ],
+      "armingRunM": 200,
+      "torpedoSpeedKn": 42,
+      "runDepthM": 6,
+      "runDepthNote": "Depth setting is given as 4 m or 6 m in different accounts; not verified this session. Harbour depth was about 12-14 m (40-45 ft).",
+      "note": "Level release at about 160 kt from 10-20 m, the method worked out at Kagoshima for a 12 m harbour. The NPS timeline describes the planes as 'just 20 feet above' the water; Wikipedia's Type 91 article quotes 180 kt at 20 m. Range figures are estimates: Southeast Loch gives roughly 900-1,200 m of open water in front of Battleship Row.",
+      "confidence": "medium"
+    },
+    "perShipHits": {
+      "west_virginia": {
+        "launched": 9,
+        "hits": 7,
+        "hitsRange": [
+          6,
+          9
+        ],
+        "firstHit": "07:57",
+        "note": "Seven confirmed (Zimm, De Virgilio). The 1942 damage report said four or five; NHHC says as many as nine.",
+        "confidence": "medium"
+      },
+      "oklahoma": {
+        "launched": 12,
+        "hits": 5,
+        "hitsRange": [
+          3,
+          9
+        ],
+        "firstHit": "07:57",
+        "note": "Capsized about 08:08. Early report: three or more. Usual modern figure five; NHHC allows up to nine.",
+        "confidence": "medium"
+      },
+      "california": {
+        "launched": 3,
+        "hits": 2,
+        "hitsRange": [
+          2,
+          2
+        ],
+        "firstHit": "08:05",
+        "note": "Two hits, port side about frames 52 and 101. Well documented by the Bureau of Ships.",
+        "confidence": "high"
+      },
+      "nevada": {
+        "launched": 1,
+        "hits": 1,
+        "hitsRange": [
+          1,
+          1
+        ],
+        "firstHit": "08:03",
+        "note": "Port bow about frame 41.",
+        "confidence": "high"
+      },
+      "arizona": {
+        "launched": 0,
+        "hits": 0,
+        "hitsRange": [
+          0,
+          1
+        ],
+        "firstHit": null,
+        "note": "One hit claimed by a Kaga crew and reported by Vestal witnesses; not supported by the wreck.",
+        "confidence": "medium"
+      },
+      "utah": {
+        "launched": 6,
+        "hits": 2,
+        "hitsRange": [
+          2,
+          2
+        ],
+        "firstHit": "07:56",
+        "note": "The six torpedoes were shared between Utah and Raleigh. Utah capsized about 08:12.",
+        "confidence": "medium"
+      },
+      "raleigh": {
+        "launched": 0,
+        "hits": 1,
+        "hitsRange": [
+          1,
+          1
+        ],
+        "firstHit": "07:56",
+        "note": "Launch count is included in Utah's six.",
+        "confidence": "high"
+      },
+      "helena": {
+        "launched": 5,
+        "hits": 1,
+        "hitsRange": [
+          1,
+          1
+        ],
+        "firstHit": "07:57",
+        "note": "Nagai's hit, via under Oglala. Oglala capsized from the blast damage about 10:00.",
+        "confidence": "high"
+      },
+      "totals": {
+        "aircraft": 40,
+        "launched": 36,
+        "hits": 19,
+        "note": "Battleship Row launch counts (12, 9, 3, 1) are Zimm's. The 6 and 5 for the Utah group and 1010 Dock, and so the total of 36, are this file's reconstruction. Other tallies: NHHC 'up to 21 of 29' on Battleship Row; one secondary source says 13 of 40.",
+        "confidence": "medium"
+      },
+      "illustrativeAllocationByCarrier": {
+        "akagi": {
+          "oklahoma": 6,
+          "west_virginia": 6
+        },
+        "kaga": {
+          "oklahoma": 4,
+          "west_virginia": 1,
+          "california": 2,
+          "nevada": 1,
+          "notReleased": 4
+        },
+        "soryu": {
+          "utah_raleigh": 6,
+          "helena": 1,
+          "california": 1
+        },
+        "hiryu": {
+          "helena": 4,
+          "west_virginia": 2,
+          "oklahoma": 2
+        },
+        "note": "A modelling aid only. It is one allocation that satisfies Zimm's per-ship launch totals and Stille's narrative; the sources reviewed do not give a plane-by-plane assignment for Akagi and Kaga.",
+        "confidence": "low"
+      }
+    },
+    "kagaLosses": "See groups[torpedo_kaga].losses: Southeast Loch (AII-356), Naval Hospital grounds, close astern of Nevada, on land north of Fort Weaver, and one unlocated.",
+    "confidence": "medium"
+  },
+  "levelBombing": {
+    "summary": "Forty-nine B5N2s in ten chutai ran up Battleship Row from the south-west at 3,000 m, each chutai dropping together on its lead bombardier. Forty-nine bombs gave ten confirmed hits: two each on Arizona, Tennessee, Maryland, West Virginia and Vestal. Six of the ten were duds, broke up or detonated low-order. One of the two on Arizona destroyed the ship.",
+    "runInBearingDeg": 45,
+    "releaseAltM": 3000,
+    "bombFallTimeS": 26,
+    "bombFallNote": "Approximate free-fall time from 3,000 m; computed, not sourced.",
+    "hitsByShip": {
+      "arizona": 2,
+      "tennessee": 2,
+      "maryland": 2,
+      "west_virginia": 2,
+      "vestal": 2
+    },
+    "alternativeCounts": "Japanese claims and the Bureau of Ships count give Arizona four hits and three near misses. One secondary source gives eight hits from the 49 bombs.",
+    "repeatRuns": "Cloud and smoke forced several chutai to go round again; Fuchida says some made three runs. His own chutai released on its second run.",
+    "confidence": "medium"
+  },
+  "signals": [
+    {
+      "t": "07:00",
+      "signal": "Radio direction finder on KGMB Honolulu",
+      "meaning": "Fuchida homes on the station's music, corrects course by about 5 degrees and hears the Honolulu weather.",
+      "note": "Time approximate. Weather heard: partly cloudy, mostly over the mountains, base 3,500 ft, visibility good, wind north 10 kt.",
+      "confidence": "medium"
+    },
+    {
+      "t": "07:35",
+      "signal": "Reconnaissance report from Chikuma's floatplane",
+      "meaning": "Enemy fleet is in Pearl Harbor (battleships and cruisers counted), with wind and cloud over the target; Tone's floatplane reports Lahaina anchorage empty.",
+      "note": "Time approximate; not verified this session.",
+      "confidence": "low"
+    },
+    {
+      "t": "07:40",
+      "signal": "One 'black dragon' smoke flare from Fuchida's signal pistol",
+      "meaning": "Surprise achieved: torpedo planes attack first, then level bombers, then dive bombers.",
+      "note": "Fired on arrival off Kahuku Point.",
+      "confidence": "high"
+    },
+    {
+      "t": "07:40:10",
+      "signal": "Second 'black dragon' flare",
+      "meaning": "Intended as a repeat for the fighters. Two flares meant 'surprise lost': dive bombers and fighters go first to suppress the defences.",
+      "note": "Fuchida says he fired again because Suganami's fighters had not reacted. Takahashi took the two together as 'surprise lost' and led the dive bombers in at once; Murata, seeing this, hurried the torpedo planes. Zimm argues the interval was too short for Fuchida's version and that he meant to fire two. The 10-second gap is illustrative.",
+      "confidence": "medium"
+    },
+    {
+      "t": "07:49",
+      "signal": "To-To-To (radio, repeated 'to')",
+      "meaning": "Totsugeki seyo: all units attack.",
+      "note": "Keyed by Fuchida's radioman, PO1c Tokunobu Mizuki.",
+      "confidence": "high"
+    },
+    {
+      "t": "07:53",
+      "signal": "Tora-Tora-Tora (radio)",
+      "meaning": "Surprise attack achieved.",
+      "note": "Sent to Akagi; also heard directly aboard Nagato in the Inland Sea. Sent before the first bomb fell on Pearl Harbor.",
+      "confidence": "high"
+    },
+    {
+      "t": "07:58",
+      "signal": "AIR RAID PEARL HARBOR X THIS IS NOT DRILL (US Navy broadcast)",
+      "meaning": "American alarm, from Ford Island.",
+      "note": "Included for the timeline; not a Japanese signal.",
+      "confidence": "high"
+    }
+  ],
+  "timeline": [
+    {
+      "t": "06:00",
+      "event": "Six carriers about 230 nm north of Oahu begin launching the first wave (also given as 06:05-06:18).",
+      "confidence": "medium"
+    },
+    {
+      "t": "06:15",
+      "event": "183 of 189 aircraft airborne after about 15 minutes; six fail to launch.",
+      "confidence": "medium"
+    },
+    {
+      "t": "06:20",
+      "event": "Fuchida leads the formation south.",
+      "confidence": "medium"
+    },
+    {
+      "t": "06:26",
+      "event": "Sunrise. The formation is above a solid cloud layer with tops near 2,000 m.",
+      "confidence": "medium"
+    },
+    {
+      "t": "07:02",
+      "event": "Opana radar station picks up the wave 132-136 statute miles out, 3 deg east of north.",
+      "confidence": "high"
+    },
+    {
+      "t": "07:30",
+      "event": "Fuchida sights the north shore of Oahu through a break in the cloud.",
+      "confidence": "low"
+    },
+    {
+      "t": "07:39",
+      "event": "Opana loses the echo in ground clutter about 20 statute miles out.",
+      "confidence": "medium"
+    },
+    {
+      "t": "07:40",
+      "event": "Off Kahuku Point. Fuchida fires one flare, then a second; the wave deploys. Kaneohe fighters turn east, dive bombers climb and head down the centre of the island, level bombers and torpedo planes turn west along the north shore.",
+      "confidence": "high"
+    },
+    {
+      "t": "07:48",
+      "event": "Eleven Zeros from Shokaku and Zuikaku begin strafing NAS Kaneohe Bay.",
+      "confidence": "medium"
+    },
+    {
+      "t": "07:49",
+      "event": "Fuchida orders 'To-To-To'.",
+      "confidence": "high"
+    },
+    {
+      "t": "07:51",
+      "event": "Zuikaku's 25 dive bombers begin bombing Wheeler Field. The torpedo force splits into its attack groups.",
+      "confidence": "medium"
+    },
+    {
+      "t": "07:53",
+      "event": "'Tora-Tora-Tora'. Marines at Ewa see torpedo planes passing toward Pearl Harbor and fighters coming over the hills from Nanakuli.",
+      "confidence": "high"
+    },
+    {
+      "t": "07:55",
+      "event": "Shokaku dive bombers hit Ford Island and Hickam. Soryu torpedo planes release at Utah and Raleigh. Akagi and Kaga fighters start strafing Ewa.",
+      "confidence": "high"
+    },
+    {
+      "t": "07:56",
+      "event": "Torpedoes hit Utah (two) and Raleigh (one).",
+      "confidence": "medium"
+    },
+    {
+      "t": "07:57",
+      "event": "Murata's Akagi torpedo planes begin hitting West Virginia and Oklahoma. Nagai's torpedo hits Helena.",
+      "confidence": "medium"
+    },
+    {
+      "t": "07:58",
+      "event": "'AIR RAID PEARL HARBOR X THIS IS NOT DRILL'. Matsumura's Hiryu pair torpedo West Virginia.",
+      "confidence": "medium"
+    },
+    {
+      "t": "08:00",
+      "event": "Kaga's torpedo planes begin their runs into heavy fire; five are shot down in the next few minutes.",
+      "confidence": "medium"
+    },
+    {
+      "t": "08:02",
+      "event": "Level bombers begin their runs up Battleship Row from the south-west at 3,000 m. Fuchida's lead chutai aborts.",
+      "confidence": "low"
+    },
+    {
+      "t": "08:03",
+      "event": "A Kaga torpedo hits Nevada forward.",
+      "confidence": "medium"
+    },
+    {
+      "t": "08:05",
+      "event": "Two torpedoes hit California. Kaga level bombers hit Arizona aft and Vestal.",
+      "confidence": "medium"
+    },
+    {
+      "t": "08:06",
+      "event": "A Hiryu level bomber's bomb detonates Arizona's forward magazines (traditional time 08:10).",
+      "confidence": "medium"
+    },
+    {
+      "t": "08:08",
+      "event": "Oklahoma capsizes. AP bombs hit Tennessee's turrets; fragments mortally wound West Virginia's captain.",
+      "confidence": "low"
+    },
+    {
+      "t": "08:10",
+      "event": "Hirano's Akagi Zero crashes at Fort Kamehameha. Soryu and Hiryu fighters are strafing Ewa.",
+      "confidence": "medium"
+    },
+    {
+      "t": "08:12",
+      "event": "Utah capsizes.",
+      "confidence": "high"
+    },
+    {
+      "t": "08:14",
+      "event": "Fuchida's chutai bombs Maryland on its second run.",
+      "confidence": "low"
+    },
+    {
+      "t": "08:25",
+      "event": "First-wave units begin withdrawing toward the rendezvous north-west of Kaena Point. A lull follows until the second wave arrives at about 08:54.",
+      "confidence": "medium"
+    },
+    {
+      "t": "08:30",
+      "event": "A lone Zero strafes Bellows Field.",
+      "confidence": "low"
+    },
+    {
+      "t": "08:45",
+      "event": "Bombers and fighters assembled at the rendezvous (20 nm, 340 deg from Kaena Point, 1,000 m) and heading north.",
+      "confidence": "low"
+    },
+    {
+      "t": "10:10",
+      "event": "First-wave aircraft begin landing on the carriers, about 190 nm north of Oahu.",
+      "confidence": "low"
+    },
+    {
+      "t": "13:00",
+      "event": "Fuchida, who stayed over Oahu through the second wave, lands on Akagi.",
+      "confidence": "medium"
+    }
+  ],
+  "losses": {
+    "firstWaveTotal": 9,
+    "byType": {
+      "A6M2": 3,
+      "D3A1": 1,
+      "B5N2_torpedo": 5,
+      "B5N2_level": 0
+    },
+    "byCarrier": {
+      "akagi": 1,
+      "kaga": 7,
+      "shokaku": 1,
+      "soryu": 0,
+      "hiryu": 0,
+      "zuikaku": 0
+    },
+    "aircrewKilled": 20,
+    "note": "Whole raid: 29 aircraft. Aircrew figure is arithmetic (5 x 3 + 1 x 2 + 3).",
+    "confidence": "high"
+  },
+  "markings": {
+    "tailCodes": {
+      "akagi": {
+        "prefix": "AI-",
+        "fuselageBands": 1,
+        "bandColor": "red"
+      },
+      "kaga": {
+        "prefix": "AII-",
+        "fuselageBands": 2,
+        "bandColor": "red"
+      },
+      "soryu": {
+        "prefix": "BI-",
+        "fuselageBands": 1,
+        "bandColor": "blue"
+      },
+      "hiryu": {
+        "prefix": "BII-",
+        "fuselageBands": 2,
+        "bandColor": "blue"
+      },
+      "shokaku": {
+        "prefix": "EI-",
+        "fuselageBands": 1,
+        "bandColor": "white"
+      },
+      "zuikaku": {
+        "prefix": "EII-",
+        "fuselageBands": 2,
+        "bandColor": "white"
+      },
+      "confidence": "high"
+    },
+    "numberBlocks": {
+      "fighters": "101-199",
+      "diveBombers": "201-299",
+      "attackBombers": "301-399",
+      "note": "Three-digit number after the prefix; first digit gives the aircraft type.",
+      "confidence": "high"
+    },
+    "tailCodeColor": {
+      "value": "red",
+      "note": "Codes were red, thinly outlined in white on dark-painted tails. Fuchida's aircraft was the exception.",
+      "confidence": "medium"
+    },
+    "commandStripes": {
+      "rule": "Horizontal stripes across the fin and rudder: three for a hikotaicho (air group leader), two for a buntaicho (division leader), one for a shotaicho (section leader).",
+      "colors": "Usually reconstructed in the carrier division's colour: blue for Soryu and Hiryu, white for Shokaku and Zuikaku, red for Kaga. Akagi's are shown as red in some reconstructions and yellow in others.",
+      "note": "One j-aircraft summary describes a group leader's marking as two wide bands above the code and a narrow one below. Stripe colours were not verified this session.",
+      "confidence": "low"
+    },
+    "knownAircraft": [
+      {
+        "code": "AI-301",
+        "type": "B5N2",
+        "carrier": "akagi",
+        "crew": "Cdr Mitsuo Fuchida (commander), Lt Mitsuo Matsuzaki (pilot), PO1c Tokunobu Mizuki (radio)",
+        "note": "Usually depicted with the whole tail red and three yellow command stripes so that the strike leader stood out. The code is confirmed; the colour scheme is a common reconstruction.",
+        "confidence": "medium"
+      },
+      {
+        "code": "AI-311",
+        "type": "B5N2",
+        "carrier": "akagi",
+        "crew": "Lt Cdr Shigeharu Murata",
+        "note": "Torpedo leader. Code from standard references; not verified this session.",
+        "confidence": "medium"
+      },
+      {
+        "code": "AI-155",
+        "type": "A6M2",
+        "carrier": "akagi",
+        "crew": "Lt Cdr Shigeru Itaya",
+        "note": "Fighter leader. One red fuselage band, three command stripes.",
+        "confidence": "medium"
+      },
+      {
+        "code": "AI-154",
+        "type": "A6M2",
+        "carrier": "akagi",
+        "crew": "PO1c Takeshi Hirano",
+        "note": "Crashed at Fort Kamehameha. NHHC photo caption notes the red band round the rear fuselage.",
+        "confidence": "high"
+      },
+      {
+        "code": "AII-356",
+        "type": "B5N2",
+        "carrier": "kaga",
+        "crew": "Possibly Lt Mimori Suzuki",
+        "note": "Shot down into Southeast Loch and salvaged.",
+        "confidence": "medium"
+      },
+      {
+        "code": "EI-238",
+        "type": "D3A1",
+        "carrier": "shokaku",
+        "crew": "Lt Cdr Kakuichi Takahashi",
+        "note": "Dive-bomber leader. Code from standard references; not verified this session.",
+        "confidence": "low"
+      },
+      {
+        "code": "BII-320",
+        "type": "B5N2",
+        "carrier": "hiryu",
+        "crew": "Lt Heita Matsumura",
+        "note": "Code from standard references; not verified this session.",
+        "confidence": "low"
+      },
+      {
+        "code": "AII-105",
+        "type": "A6M2",
+        "carrier": "kaga",
+        "crew": "Lt Yoshio Shiga",
+        "note": "Code from standard references; not verified this session.",
+        "confidence": "low"
+      }
+    ],
+    "paint": {
+      "A6M2": "Overall glossy pale grey-green ('ame-iro'), blue-black engine cowling, red hinomaru in six positions.",
+      "D3A1": "Overall pale grey-green like the fighters, black cowling and anti-glare panel.",
+      "B5N2": "Dark green upper surfaces, applied in the field shortly before the operation and uneven on many aircraft (some with brown patches); undersides natural metal or light grey.",
+      "confidence": "medium"
+    }
+  },
+  "sources": [
+    {
+      "title": "Wikipedia: Attack on Pearl Harbor order of battle",
+      "url": "https://en.wikipedia.org/wiki/Attack_on_Pearl_Harbor_order_of_battle"
+    },
+    {
+      "title": "Wikipedia: Mitsuo Fuchida",
+      "url": "https://en.wikipedia.org/wiki/Mitsuo_Fuchida"
+    },
+    {
+      "title": "Wikipedia: USS Arizona",
+      "url": "https://en.wikipedia.org/wiki/USS_Arizona"
+    },
+    {
+      "title": "Wikipedia: Japanese aircraft carrier Zuikaku",
+      "url": "https://en.wikipedia.org/wiki/Japanese_aircraft_carrier_Zuikaku"
+    },
+    {
+      "title": "Wikipedia: Type 91 torpedo",
+      "url": "https://en.wikipedia.org/wiki/Type_91_torpedo"
+    },
+    {
+      "title": "NavWeaps: Order of Battle, Pearl Harbor",
+      "url": "https://www.navweaps.com/index_oob/OOB_WWII_Pacific/OOB_WWII_Pearl_Harbor.php"
+    },
+    {
+      "title": "National Park Service: Pearl Harbor timeline (Remembering Pearl Harbor: Minute by Minute)",
+      "url": "https://www.nps.gov/perl/learn/historyculture/timeline.htm"
+    },
+    {
+      "title": "National Park Service: The Pearl Harbor Attack",
+      "url": "https://www.nps.gov/articles/pearlattackww2.htm"
+    },
+    {
+      "title": "National Park Service: Battlefield O'ahu",
+      "url": "https://www.nps.gov/valr/learn/historyculture/oahu.htm"
+    },
+    {
+      "title": "National Park Service: USS Arizona Memorial submerged cultural resources study",
+      "url": "https://www.nps.gov/parkhistory/online_books/usar/scrs/scrs2h.htm"
+    },
+    {
+      "title": "NHHC: CINCPAC report of the Pearl Harbor attack",
+      "url": "https://www.history.navy.mil/research/library/online-reading-room/title-list-alphabetically/c/cincpac-report.html"
+    },
+    {
+      "title": "NHHC: USS Arizona (BB-39)",
+      "url": "https://www.history.navy.mil/browse-by-topic/ships/modern-ships/uss-arizona.html"
+    },
+    {
+      "title": "NHHC: Battleship Row during the Pearl Harbor attack",
+      "url": "https://www.history.navy.mil/our-collections/photography/wars-and-events/world-war-ii/pearl-harbor-raid/battleship-row-during-the-pearl-harbor-attack.html"
+    },
+    {
+      "title": "NHHC: Japanese aircraft during and after the raid",
+      "url": "https://history.navy.mil/our-collections/photography/wars-and-events/world-war-ii/pearl-harbor-raid/japanese-forces-in-the-pearl-harbor-attack/japanese-aircraft-during-and-after-the-raid.html"
+    },
+    {
+      "title": "NHHC: H-Gram 001-2",
+      "url": "https://www.history.navy.mil/about-us/leadership/director/directors-corner/h-grams/h-gram-001/h-001-2.html"
+    },
+    {
+      "title": "NHHC: US Marines at Pearl Harbor",
+      "url": "https://www.history.navy.mil/research/library/online-reading-room/title-list-alphabetically/u/us-marines-at-pearl-harbor.html"
+    },
+    {
+      "title": "Japanese attack plan, Pearl Harbor Attack hearings part 12 (rendezvous point)",
+      "url": "https://www.ibiblio.org/pha/pha/pt_12/x12-008.html"
+    },
+    {
+      "title": "Arakaki and Kuborn, 7 December 1941: The Air Force Story, chapter 4 (HyperWar)",
+      "url": "https://www.ibiblio.org/hyperwar/AAF/7Dec41/7Dec41-4.html"
+    },
+    {
+      "title": "Arakaki and Kuborn, 7 December 1941: The Air Force Story, chapter 5 (HyperWar)",
+      "url": "https://www.ibiblio.org/hyperwar/AAF/7Dec41/7Dec41-5.html"
+    },
+    {
+      "title": "Cressman and Wenger, Infamous Day: Marines at Pearl Harbor (HyperWar)",
+      "url": "https://www.ibiblio.org/hyperwar/USMC/USMC-C-Pearl/"
+    },
+    {
+      "title": "US Army, Staff Ride Handbook for the Attack on Pearl Harbor",
+      "url": "https://www.armyupress.army.mil/Portals/7/educational-services/staff-rides/StaffRideHB_PearlHarbor.pdf"
+    },
+    {
+      "title": "Fuchida, I Led the Air Attack on Pearl Harbor (USNI Proceedings, Sept 1952)",
+      "url": "https://www.usni.org/magazines/proceedings/1952/september/i-led-air-attack-pearl-harbor"
+    },
+    {
+      "title": "Zimm, Commander Fuchida's Decision (USNI Naval History, Dec 2016)",
+      "url": "https://www.usni.org/magazines/navalhistory/2016-12/commander-fuchidas-decision"
+    },
+    {
+      "title": "Zimm, Victory Undermined (USNI Naval History)",
+      "url": "https://www.usni.org/magazines/naval-history/2026/december/victory-undermined"
+    },
+    {
+      "title": "De Virgilio, Technical Report: Japanese Thunderfish (USNI Naval History, Dec 1991)",
+      "url": "https://www.usni.org/magazines/naval-history-magazine/1991/december/technical-report-japanese-thunderfish"
+    },
+    {
+      "title": "De Virgilio, Seven Seconds to Infamy (USNI Proceedings, Dec 1997)",
+      "url": "https://www.usni.org/magazines/proceedings/1997/december/seven-seconds-infamy"
+    },
+    {
+      "title": "The Japanese Perspective (USNI Naval History, Dec 1991)",
+      "url": "https://www.usni.org/magazines/naval-history-magazine/1991/december/japanese-perspective"
+    },
+    {
+      "title": "WarHistory.org: Pearl Harbor - Execution of the Attack I (Zimm excerpt)",
+      "url": "https://warhistory.org/article/pearl-harbor-execution-of-the-attack-i"
+    },
+    {
+      "title": "WarHistory.org: Pearl Harbor - Execution of the Attack II (Zimm excerpt)",
+      "url": "https://warhistory.org/article/pearl-harbor-execution-of-the-attack-ii"
+    },
+    {
+      "title": "The Aviation Geek Club: Climb Mount Niitaka, a detailed description of the first wave attack (Osprey/Stille excerpt)",
+      "url": "https://theaviationgeekclub.com/climb-mount-niitaka-a-detailed-description-of-the-first-wave-attack-on-pearl-harbor/"
+    },
+    {
+      "title": "Osprey blog: The Pearl Harbor Attack",
+      "url": "https://www.ospreypublishing.com/us/osprey-blog/2021/the-pearl-harbor-attack/"
+    },
+    {
+      "title": "Flight Journal: Attack Timeline (Dec 2021)",
+      "url": "https://www.pressreader.com/usa/flight-journal/20211201/281625308546646"
+    },
+    {
+      "title": "Lansdale, Japanese Losses at Pearl Harbor, part 1 (j-aircraft.com)",
+      "url": "https://j-aircraft.com/research/jimlansdale/japanese_losses_ph/Japanese_losses_Pearl_Harbor.htm"
+    },
+    {
+      "title": "Lansdale, Pearl Harbor Japanese aircraft crash sites (j-aircraft.com)",
+      "url": "https://j-aircraft.com/research/jimlansdale/ph_crashsite/ph_crash_4.html"
+    },
+    {
+      "title": "j-aircraft.com Pearl Harbor FAQ (markings)",
+      "url": "https://j-aircraft.com/faq/pearl_harbor.htm"
+    },
+    {
+      "title": "Axis History Forum: B5N2 data plate thread (crash-site list quoted)",
+      "url": "https://forum.axishistory.com/viewtopic.php?t=82379"
+    },
+    {
+      "title": "Pacific Wrecks: A6M2 5289, tail AI-154",
+      "url": "https://pacificwrecks.com/aircraft/a6m2/5289.html"
+    },
+    {
+      "title": "HistoryNet: Hirano's Pearl Harbor Zero",
+      "url": "https://historynet.com/hiranos-pearl-harbor-zero/"
+    },
+    {
+      "title": "World War II Database: USS Arizona burns after Japanese air attack (Kanai and Kusumi attribution)",
+      "url": "https://www.worldwar2database.com/uss-arizona-bb-39-burns-after-japanese-air-attack/"
+    },
+    {
+      "title": "WW2DB: photo of Lt Mimori Suzuki's B5N being recovered",
+      "url": "https://ww2db.com/image.php?image_id=11648"
+    },
+    {
+      "title": "WW2DB: Pearl Harbor attack timetable",
+      "url": "https://ww2db.com/timetable_pearl.php"
+    },
+    {
+      "title": "Vintage Wings of Canada: The Miraculous Torpedo Squadron (Juzo Mori memoir excerpt)",
+      "url": "https://www.vintagewings.ca/stories/the-miraculous-torpedo-squadron"
+    },
+    {
+      "title": "Pearl Harbor Aviation Museum: Thunderfish in the Sky",
+      "url": "https://www.pearlharboraviationmuseum.org/blog/pearl-harbor-thunderfish-in-the-sky/"
+    },
+    {
+      "title": "NavSource: The Attack Minute by Minute (deck logs)",
+      "url": "https://www.navsource.org/Naval/logs.htm"
+    },
+    {
+      "title": "Inch High Guy: Japanese carrier aircraft markings, Pearl Harbor raid",
+      "url": "https://inchhighguy.wordpress.com/2025/04/02/japanese-carrier-aircraft-markings-pearl-harbor-raid/"
+    },
+    {
+      "title": "Naval Historical Foundation review: A Pitiful, Unholy Mess (Wenger, Cressman, Di Virgilio)",
+      "url": "https://navyhistory.org/2022/11/a-pitiful-unholy-mess-the-history-of-wheeler-bellows-and-haleiwa-fields-and-the-attacks-of-7-december-1941/"
+    },
+    {
+      "title": "Pacific Wrecks: Ewa Field",
+      "url": "https://pacificwrecks.com/airfield/usa/ewa/index.html"
+    },
+    {
+      "title": "Combined Fleet: IJN Akagi tabular record of movement (listed, not read)",
+      "url": "https://www.combinedfleet.com/Akagi.htm"
+    }
+  ]
+}
